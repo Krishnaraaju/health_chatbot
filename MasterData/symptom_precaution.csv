@@ -1,0 +1,1550 @@
+Drug Reaction,stop irritation,consult nearest hospital,stop taking drug,follow up
+Malaria,Consult nearest hospital,avoid oily food,avoid non veg food,keep mosquitos out
+Allergy,apply calamine,cover area with bandage,,use ice to compress itching
+Hypothyroidism,reduce stress,exercise,eat healthy,get proper sleep
+Psoriasis,wash hands with warm soapy water,stop bleeding using pressure,consult doctor,salt baths
+GERD,avoid fatty spicy food,avoid lying down after eating,maintain healthy weight,exercise
+Chronic cholestasis,cold baths,anti itch medicine,consult doctor,eat healthy
+hepatitis A,Consult nearest hospital,wash hands through,avoid fatty spicy food,medication
+Osteoarthristis,acetaminophen,consult nearest hospital,follow up,salt baths
+(vertigo) Paroymsal  Positional Vertigo,lie down,avoid sudden change in body,avoid abrupt head movment,relax
+Hypoglycemia,lie down on side,check in pulse,drink sugary drinks,consult doctor
+Acne,bath twice,avoid fatty spicy food,drink plenty of water,avoid too many products
+Diabetes ,have balanced diet,exercise,consult doctor,follow up
+Impetigo,soak affected area in warm water,use antibiotics,remove scabs with wet compressed cloth,consult doctor
+Hypertension ,meditation,salt baths,reduce stress,get proper sleep
+Peptic ulcer diseae,avoid fatty spicy food,consume probiotic food,eliminate milk,limit alcohol
+Dimorphic hemmorhoids(piles),avoid fatty spicy food,consume witch hazel,warm bath with epsom salt,consume alovera juice
+Common Cold,drink vitamin c rich drinks,take vapour,avoid cold food,keep fever in check
+Chicken pox,use neem in bathing ,consume neem leaves,take vaccine,avoid public places
+Cervical spondylosis,use heating pad or cold pack,exercise,take otc pain reliver,consult doctor
+Hyperthyroidism,eat healthy,massage,use lemon balm,take radioactive iodine treatment
+Urinary tract infection,drink plenty of water,increase vitamin c intake,drink cranberry juice,take probiotics
+Varicose veins,lie down flat and raise the leg high,use oinments,use vein compression,dont stand still for long
+AIDS,avoid open cuts,wear ppe if possible,consult doctor,follow up
+Paralysis (brain hemorrhage),massage,eat healthy,exercise,consult doctor
+Typhoid,eat high calorie vegitables,antiboitic therapy,consult doctor,medication
+Hepatitis B,consult nearest hospital,vaccination,eat healthy,medication
+Fungal infection,bath twice,use detol or neem in bathing water,keep infected area dry,use clean cloths
+Hepatitis C,Consult nearest hospital,vaccination,eat healthy,medication
+Migraine,meditation,reduce stress,use poloroid glasses in sun,consult doctor
+Bronchial Asthma,switch to loose cloothing,take deep breaths,get away from trigger,seek help
+Alcoholic hepatitis,stop alcohol consumption,consult doctor,medication,follow up
+Jaundice,drink plenty of water,consume milk thistle,eat fruits and high fiberous food,medication
+Hepatitis E,stop alcohol consumption,rest,consult doctor,medication
+Dengue,drink papaya leaf juice,avoid fatty spicy food,keep mosquitos away,keep hydrated
+Hepatitis D,consult doctor,medication,eat healthy,follow up
+Heart attack,call ambulance,chew or swallow asprin,keep calm,
+Pneumonia,consult doctor,medication,rest,follow up
+Arthritis,exercise,use hot and cold therapy,try acupuncture,massage
+Gastroenteritis,stop eating solid food for while,try taking small sips of water,rest,ease back into eating
+Tuberculosis,cover mouth,consult doctor,medication,rest
+
+Influenza,consult doctor,rest,drink plenty of fluids,monitor symptoms
+COVID-19,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Anemia,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Food Poisoning,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Bronchitis,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Depression,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Insomnia,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Anxiety Disorder,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Hypertension (High BP),consult doctor,rest,drink plenty of fluids,monitor symptoms
+Stroke,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Kidney Stones,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Urinary Tract Infection (UTI),consult doctor,rest,drink plenty of fluids,monitor symptoms
+Conjunctivitis (Pink Eye),consult doctor,rest,drink plenty of fluids,monitor symptoms
+Tonsillitis,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Measles,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Cholera,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Tetanus,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Rabies,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Ebola,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Zika Virus,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Mumps,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Rubella,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Whooping Cough,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Diphtheria,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Scabies,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Ringworm,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Lyme Disease,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Gout,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Fibromyalgia,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Osteoporosis,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Appendicitis,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Hernia,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Gallstones,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Pancreatitis,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Liver Cirrhosis,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Eczema,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Rosacea,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Melanoma,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Glaucoma,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Cataracts,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Otitis Media (Ear Infection),consult doctor,rest,drink plenty of fluids,monitor symptoms
+Sinusitis,consult doctor,rest,drink plenty of fluids,monitor symptoms
+Malaria,consult doctor,rest,drink fluids,medication
+Typhoid,consult doctor,rest,drink fluids,medication
+Cholera,consult doctor,rest,drink fluids,medication
+Dengue,consult doctor,rest,drink fluids,medication
+COVID-19,consult doctor,rest,drink fluids,medication
+Flu,consult doctor,rest,drink fluids,medication
+Diabetes,consult doctor,rest,drink fluids,medication
+Hypertension,consult doctor,rest,drink fluids,medication
+Migraine,consult doctor,rest,drink fluids,medication
+Pneumonia,consult doctor,rest,drink fluids,medication
+Arthritis,consult doctor,rest,drink fluids,medication
+Asthma,consult doctor,rest,drink fluids,medication
+Tuberculosis,consult doctor,rest,drink fluids,medication
+Chickenpox,consult doctor,rest,drink fluids,medication
+Measles,consult doctor,rest,drink fluids,medication
+Jaundice,consult doctor,rest,drink fluids,medication
+Hepatitis A,consult doctor,rest,drink fluids,medication
+Hepatitis B,consult doctor,rest,drink fluids,medication
+Hepatitis C,consult doctor,rest,drink fluids,medication
+Hepatitis D,consult doctor,rest,drink fluids,medication
+Hepatitis E,consult doctor,rest,drink fluids,medication
+Acute Bone Inflammation,consult doctor,rest,drink fluids,medication
+Chronic Eye Infection,consult doctor,rest,drink fluids,medication
+Severe Ear Disease,consult doctor,rest,drink fluids,medication
+Autoimmune Bone Infection,consult doctor,rest,drink fluids,medication
+Allergic Thyroid Syndrome,consult doctor,rest,drink fluids,medication
+Bacterial Heart Inflammation,consult doctor,rest,drink fluids,medication
+Septic Lung Degeneration,consult doctor,rest,drink fluids,medication
+Idiopathic Muscle Congestion,consult doctor,rest,drink fluids,medication
+Allergic Thyroid Calculus,consult doctor,rest,drink fluids,medication
+Hereditary Kidney Failure,consult doctor,rest,drink fluids,medication
+Septic Muscle Dysfunction,consult doctor,rest,drink fluids,medication
+Hereditary Heart Syndrome,consult doctor,rest,drink fluids,medication
+Acute Liver Calculus,consult doctor,rest,drink fluids,medication
+Severe Skin Disease,consult doctor,rest,drink fluids,medication
+Autoimmune Bone Disease,consult doctor,rest,drink fluids,medication
+Viral Thyroid Infection,consult doctor,rest,drink fluids,medication
+Septic Kidney Calculus,consult doctor,rest,drink fluids,medication
+Septic Nerve Pain,consult doctor,rest,drink fluids,medication
+Idiopathic Brain Degeneration,consult doctor,rest,drink fluids,medication
+Fungal Blood Damage,consult doctor,rest,drink fluids,medication
+Viral Bone Inflammation,consult doctor,rest,drink fluids,medication
+Bacterial Brain Calculus,consult doctor,rest,drink fluids,medication
+Metabolic Heart Infection,consult doctor,rest,drink fluids,medication
+Idiopathic Nerve Disorder,consult doctor,rest,drink fluids,medication
+Mild Ear Damage,consult doctor,rest,drink fluids,medication
+Bacterial Intestine Congestion,consult doctor,rest,drink fluids,medication
+Autoimmune Eye Disease,consult doctor,rest,drink fluids,medication
+Severe Skin Dysfunction,consult doctor,rest,drink fluids,medication
+Allergic Heart Disorder,consult doctor,rest,drink fluids,medication
+Allergic Eye Damage,consult doctor,rest,drink fluids,medication
+Mild Skin Failure,consult doctor,rest,drink fluids,medication
+Hereditary Joint Disorder,consult doctor,rest,drink fluids,medication
+Acute Muscle Syndrome,consult doctor,rest,drink fluids,medication
+Allergic Nerve Dysfunction,consult doctor,rest,drink fluids,medication
+Hereditary Throat Infection,consult doctor,rest,drink fluids,medication
+Metabolic Kidney Syndrome,consult doctor,rest,drink fluids,medication
+Septic Liver Tumor,consult doctor,rest,drink fluids,medication
+Allergic Eye Tumor,consult doctor,rest,drink fluids,medication
+Fungal Joint Dysfunction,consult doctor,rest,drink fluids,medication
+Mild Bone Infection,consult doctor,rest,drink fluids,medication
+Allergic Blood Inflammation,consult doctor,rest,drink fluids,medication
+Acute Throat Damage,consult doctor,rest,drink fluids,medication
+Septic Eye Tumor,consult doctor,rest,drink fluids,medication
+Metabolic Intestine Syndrome,consult doctor,rest,drink fluids,medication
+Bacterial Lung Pain,consult doctor,rest,drink fluids,medication
+Hereditary Kidney Dysfunction,consult doctor,rest,drink fluids,medication
+Severe Bone Failure,consult doctor,rest,drink fluids,medication
+Septic Ear Infection,consult doctor,rest,drink fluids,medication
+Chronic Blood Syndrome,consult doctor,rest,drink fluids,medication
+Septic Brain Disease,consult doctor,rest,drink fluids,medication
+Severe Liver Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Joint Degeneration,consult doctor,rest,drink fluids,medication
+Severe Heart Damage,consult doctor,rest,drink fluids,medication
+Mild Intestine Infection,consult doctor,rest,drink fluids,medication
+Traumatic Bone Damage,consult doctor,rest,drink fluids,medication
+Severe Joint Dysfunction,consult doctor,rest,drink fluids,medication
+Traumatic Kidney Disorder,consult doctor,rest,drink fluids,medication
+Traumatic Thyroid Calculus,consult doctor,rest,drink fluids,medication
+Severe Thyroid Calculus,consult doctor,rest,drink fluids,medication
+Idiopathic Ear Failure,consult doctor,rest,drink fluids,medication
+Bacterial Bone Disorder,consult doctor,rest,drink fluids,medication
+Traumatic Lung Disease,consult doctor,rest,drink fluids,medication
+Septic Joint Disorder,consult doctor,rest,drink fluids,medication
+Viral Lung Syndrome,consult doctor,rest,drink fluids,medication
+Autoimmune Nerve Failure,consult doctor,rest,drink fluids,medication
+Idiopathic Throat Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Intestine Failure,consult doctor,rest,drink fluids,medication
+Severe Skin Inflammation,consult doctor,rest,drink fluids,medication
+Allergic Thyroid Inflammation,consult doctor,rest,drink fluids,medication
+Allergic Kidney Infection,consult doctor,rest,drink fluids,medication
+Allergic Ear Inflammation,consult doctor,rest,drink fluids,medication
+Autoimmune Joint Failure,consult doctor,rest,drink fluids,medication
+Acute Ear Disease,consult doctor,rest,drink fluids,medication
+Autoimmune Eye Damage,consult doctor,rest,drink fluids,medication
+Idiopathic Skin Infection,consult doctor,rest,drink fluids,medication
+Bacterial Throat Tumor,consult doctor,rest,drink fluids,medication
+Septic Bone Infection,consult doctor,rest,drink fluids,medication
+Bacterial Nerve Pain,consult doctor,rest,drink fluids,medication
+Chronic Blood Pain,consult doctor,rest,drink fluids,medication
+Septic Lung Damage,consult doctor,rest,drink fluids,medication
+Hereditary Liver Tumor,consult doctor,rest,drink fluids,medication
+Traumatic Liver Failure,consult doctor,rest,drink fluids,medication
+Fungal Skin Congestion,consult doctor,rest,drink fluids,medication
+Hereditary Brain Failure,consult doctor,rest,drink fluids,medication
+Metabolic Eye Calculus,consult doctor,rest,drink fluids,medication
+Mild Liver Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Nerve Damage,consult doctor,rest,drink fluids,medication
+Septic Joint Failure,consult doctor,rest,drink fluids,medication
+Septic Eye Damage,consult doctor,rest,drink fluids,medication
+Chronic Nerve Infection,consult doctor,rest,drink fluids,medication
+Fungal Blood Degeneration,consult doctor,rest,drink fluids,medication
+Bacterial Liver Disorder,consult doctor,rest,drink fluids,medication
+Viral Kidney Disorder,consult doctor,rest,drink fluids,medication
+Chronic Stomach Congestion,consult doctor,rest,drink fluids,medication
+Autoimmune Muscle Calculus,consult doctor,rest,drink fluids,medication
+Traumatic Kidney Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Heart Damage,consult doctor,rest,drink fluids,medication
+Autoimmune Thyroid Pain,consult doctor,rest,drink fluids,medication
+Chronic Throat Congestion,consult doctor,rest,drink fluids,medication
+Viral Ear Syndrome,consult doctor,rest,drink fluids,medication
+Viral Lung Degeneration,consult doctor,rest,drink fluids,medication
+Chronic Kidney Disorder,consult doctor,rest,drink fluids,medication
+Septic Ear Syndrome,consult doctor,rest,drink fluids,medication
+Septic Liver Syndrome,consult doctor,rest,drink fluids,medication
+Hereditary Blood Failure,consult doctor,rest,drink fluids,medication
+Allergic Kidney Tumor,consult doctor,rest,drink fluids,medication
+Fungal Intestine Infection,consult doctor,rest,drink fluids,medication
+Autoimmune Liver Syndrome,consult doctor,rest,drink fluids,medication
+Hereditary Blood Damage,consult doctor,rest,drink fluids,medication
+Fungal Throat Congestion,consult doctor,rest,drink fluids,medication
+Autoimmune Brain Infection,consult doctor,rest,drink fluids,medication
+Chronic Eye Congestion,consult doctor,rest,drink fluids,medication
+Hereditary Kidney Pain,consult doctor,rest,drink fluids,medication
+Severe Eye Dysfunction,consult doctor,rest,drink fluids,medication
+Fungal Kidney Dysfunction,consult doctor,rest,drink fluids,medication
+Allergic Kidney Disease,consult doctor,rest,drink fluids,medication
+Viral Heart Infection,consult doctor,rest,drink fluids,medication
+Allergic Liver Disease,consult doctor,rest,drink fluids,medication
+Autoimmune Skin Calculus,consult doctor,rest,drink fluids,medication
+Mild Blood Calculus,consult doctor,rest,drink fluids,medication
+Autoimmune Muscle Dysfunction,consult doctor,rest,drink fluids,medication
+Mild Intestine Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Nerve Syndrome,consult doctor,rest,drink fluids,medication
+Acute Blood Pain,consult doctor,rest,drink fluids,medication
+Chronic Heart Congestion,consult doctor,rest,drink fluids,medication
+Autoimmune Kidney Disorder,consult doctor,rest,drink fluids,medication
+Viral Heart Disease,consult doctor,rest,drink fluids,medication
+Fungal Eye Damage,consult doctor,rest,drink fluids,medication
+Septic Skin Calculus,consult doctor,rest,drink fluids,medication
+Fungal Liver Infection,consult doctor,rest,drink fluids,medication
+Hereditary Liver Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Blood Syndrome,consult doctor,rest,drink fluids,medication
+Traumatic Joint Infection,consult doctor,rest,drink fluids,medication
+Autoimmune Heart Calculus,consult doctor,rest,drink fluids,medication
+Bacterial Eye Dysfunction,consult doctor,rest,drink fluids,medication
+Fungal Kidney Failure,consult doctor,rest,drink fluids,medication
+Autoimmune Throat Damage,consult doctor,rest,drink fluids,medication
+Bacterial Muscle Infection,consult doctor,rest,drink fluids,medication
+Hereditary Skin Syndrome,consult doctor,rest,drink fluids,medication
+Bacterial Lung Damage,consult doctor,rest,drink fluids,medication
+Hereditary Intestine Tumor,consult doctor,rest,drink fluids,medication
+Hereditary Eye Tumor,consult doctor,rest,drink fluids,medication
+Allergic Brain Infection,consult doctor,rest,drink fluids,medication
+Viral Skin Infection,consult doctor,rest,drink fluids,medication
+Autoimmune Brain Calculus,consult doctor,rest,drink fluids,medication
+Autoimmune Heart Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Stomach Dysfunction,consult doctor,rest,drink fluids,medication
+Severe Eye Syndrome,consult doctor,rest,drink fluids,medication
+Idiopathic Brain Infection,consult doctor,rest,drink fluids,medication
+Traumatic Ear Inflammation,consult doctor,rest,drink fluids,medication
+Traumatic Nerve Disorder,consult doctor,rest,drink fluids,medication
+Metabolic Liver Failure,consult doctor,rest,drink fluids,medication
+Bacterial Blood Syndrome,consult doctor,rest,drink fluids,medication
+Autoimmune Lung Pain,consult doctor,rest,drink fluids,medication
+Acute Eye Disease,consult doctor,rest,drink fluids,medication
+Fungal Eye Pain,consult doctor,rest,drink fluids,medication
+Autoimmune Liver Infection,consult doctor,rest,drink fluids,medication
+Traumatic Skin Tumor,consult doctor,rest,drink fluids,medication
+Bacterial Bone Dysfunction,consult doctor,rest,drink fluids,medication
+Acute Lung Failure,consult doctor,rest,drink fluids,medication
+Fungal Kidney Calculus,consult doctor,rest,drink fluids,medication
+Bacterial Brain Infection,consult doctor,rest,drink fluids,medication
+Hereditary Joint Calculus,consult doctor,rest,drink fluids,medication
+Hereditary Skin Infection,consult doctor,rest,drink fluids,medication
+Traumatic Bone Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Intestine Degeneration,consult doctor,rest,drink fluids,medication
+Acute Bone Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Brain Infection,consult doctor,rest,drink fluids,medication
+Acute Brain Infection,consult doctor,rest,drink fluids,medication
+Mild Heart Calculus,consult doctor,rest,drink fluids,medication
+Bacterial Lung Dysfunction,consult doctor,rest,drink fluids,medication
+Hereditary Heart Calculus,consult doctor,rest,drink fluids,medication
+Metabolic Ear Congestion,consult doctor,rest,drink fluids,medication
+Chronic Nerve Pain,consult doctor,rest,drink fluids,medication
+Allergic Kidney Pain,consult doctor,rest,drink fluids,medication
+Acute Brain Inflammation,consult doctor,rest,drink fluids,medication
+Septic Bone Inflammation,consult doctor,rest,drink fluids,medication
+Allergic Brain Damage,consult doctor,rest,drink fluids,medication
+Metabolic Intestine Congestion,consult doctor,rest,drink fluids,medication
+Bacterial Lung Infection,consult doctor,rest,drink fluids,medication
+Hereditary Muscle Disease,consult doctor,rest,drink fluids,medication
+Severe Bone Pain,consult doctor,rest,drink fluids,medication
+Allergic Thyroid Damage,consult doctor,rest,drink fluids,medication
+Hereditary Blood Syndrome,consult doctor,rest,drink fluids,medication
+Mild Ear Dysfunction,consult doctor,rest,drink fluids,medication
+Fungal Brain Syndrome,consult doctor,rest,drink fluids,medication
+Severe Throat Congestion,consult doctor,rest,drink fluids,medication
+Autoimmune Bone Dysfunction,consult doctor,rest,drink fluids,medication
+Metabolic Thyroid Calculus,consult doctor,rest,drink fluids,medication
+Severe Thyroid Degeneration,consult doctor,rest,drink fluids,medication
+Metabolic Intestine Dysfunction,consult doctor,rest,drink fluids,medication
+Bacterial Intestine Inflammation,consult doctor,rest,drink fluids,medication
+Bacterial Brain Disease,consult doctor,rest,drink fluids,medication
+Fungal Brain Damage,consult doctor,rest,drink fluids,medication
+Traumatic Muscle Calculus,consult doctor,rest,drink fluids,medication
+Bacterial Skin Syndrome,consult doctor,rest,drink fluids,medication
+Traumatic Brain Disorder,consult doctor,rest,drink fluids,medication
+Hereditary Liver Syndrome,consult doctor,rest,drink fluids,medication
+Severe Throat Pain,consult doctor,rest,drink fluids,medication
+Viral Throat Congestion,consult doctor,rest,drink fluids,medication
+Bacterial Eye Syndrome,consult doctor,rest,drink fluids,medication
+Bacterial Joint Failure,consult doctor,rest,drink fluids,medication
+Idiopathic Nerve Disease,consult doctor,rest,drink fluids,medication
+Hereditary Skin Dysfunction,consult doctor,rest,drink fluids,medication
+Acute Blood Syndrome,consult doctor,rest,drink fluids,medication
+Viral Heart Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Thyroid Congestion,consult doctor,rest,drink fluids,medication
+Acute Stomach Inflammation,consult doctor,rest,drink fluids,medication
+Acute Muscle Degeneration,consult doctor,rest,drink fluids,medication
+Hereditary Heart Degeneration,consult doctor,rest,drink fluids,medication
+Hereditary Thyroid Infection,consult doctor,rest,drink fluids,medication
+Traumatic Nerve Disease,consult doctor,rest,drink fluids,medication
+Fungal Heart Congestion,consult doctor,rest,drink fluids,medication
+Bacterial Bone Damage,consult doctor,rest,drink fluids,medication
+Mild Ear Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Liver Tumor,consult doctor,rest,drink fluids,medication
+Septic Heart Damage,consult doctor,rest,drink fluids,medication
+Septic Blood Damage,consult doctor,rest,drink fluids,medication
+Bacterial Brain Disorder,consult doctor,rest,drink fluids,medication
+Viral Muscle Pain,consult doctor,rest,drink fluids,medication
+Acute Lung Calculus,consult doctor,rest,drink fluids,medication
+Bacterial Skin Calculus,consult doctor,rest,drink fluids,medication
+Metabolic Skin Damage,consult doctor,rest,drink fluids,medication
+Idiopathic Heart Dysfunction,consult doctor,rest,drink fluids,medication
+Acute Skin Tumor,consult doctor,rest,drink fluids,medication
+Bacterial Lung Congestion,consult doctor,rest,drink fluids,medication
+Autoimmune Throat Failure,consult doctor,rest,drink fluids,medication
+Septic Bone Disease,consult doctor,rest,drink fluids,medication
+Severe Eye Failure,consult doctor,rest,drink fluids,medication
+Septic Kidney Pain,consult doctor,rest,drink fluids,medication
+Allergic Joint Dysfunction,consult doctor,rest,drink fluids,medication
+Hereditary Joint Failure,consult doctor,rest,drink fluids,medication
+Traumatic Blood Dysfunction,consult doctor,rest,drink fluids,medication
+Autoimmune Intestine Pain,consult doctor,rest,drink fluids,medication
+Metabolic Throat Disorder,consult doctor,rest,drink fluids,medication
+Autoimmune Eye Dysfunction,consult doctor,rest,drink fluids,medication
+Septic Ear Calculus,consult doctor,rest,drink fluids,medication
+Traumatic Bone Disorder,consult doctor,rest,drink fluids,medication
+Chronic Muscle Congestion,consult doctor,rest,drink fluids,medication
+Traumatic Nerve Dysfunction,consult doctor,rest,drink fluids,medication
+Fungal Eye Inflammation,consult doctor,rest,drink fluids,medication
+Traumatic Brain Failure,consult doctor,rest,drink fluids,medication
+Septic Stomach Syndrome,consult doctor,rest,drink fluids,medication
+Acute Lung Inflammation,consult doctor,rest,drink fluids,medication
+Idiopathic Stomach Damage,consult doctor,rest,drink fluids,medication
+Viral Nerve Inflammation,consult doctor,rest,drink fluids,medication
+Hereditary Muscle Inflammation,consult doctor,rest,drink fluids,medication
+Septic Joint Congestion,consult doctor,rest,drink fluids,medication
+Septic Bone Pain,consult doctor,rest,drink fluids,medication
+Severe Kidney Pain,consult doctor,rest,drink fluids,medication
+Chronic Blood Tumor,consult doctor,rest,drink fluids,medication
+Acute Stomach Syndrome,consult doctor,rest,drink fluids,medication
+Fungal Eye Disease,consult doctor,rest,drink fluids,medication
+Viral Heart Dysfunction,consult doctor,rest,drink fluids,medication
+Viral Stomach Disease,consult doctor,rest,drink fluids,medication
+Autoimmune Intestine Congestion,consult doctor,rest,drink fluids,medication
+Autoimmune Ear Tumor,consult doctor,rest,drink fluids,medication
+Hereditary Liver Damage,consult doctor,rest,drink fluids,medication
+Chronic Stomach Dysfunction,consult doctor,rest,drink fluids,medication
+Traumatic Heart Disorder,consult doctor,rest,drink fluids,medication
+Bacterial Lung Disease,consult doctor,rest,drink fluids,medication
+Fungal Stomach Damage,consult doctor,rest,drink fluids,medication
+Severe Thyroid Infection,consult doctor,rest,drink fluids,medication
+Fungal Joint Damage,consult doctor,rest,drink fluids,medication
+Mild Throat Calculus,consult doctor,rest,drink fluids,medication
+Severe Joint Tumor,consult doctor,rest,drink fluids,medication
+Idiopathic Liver Calculus,consult doctor,rest,drink fluids,medication
+Fungal Joint Syndrome,consult doctor,rest,drink fluids,medication
+Autoimmune Muscle Congestion,consult doctor,rest,drink fluids,medication
+Mild Skin Inflammation,consult doctor,rest,drink fluids,medication
+Bacterial Throat Infection,consult doctor,rest,drink fluids,medication
+Chronic Blood Failure,consult doctor,rest,drink fluids,medication
+Mild Eye Damage,consult doctor,rest,drink fluids,medication
+Acute Joint Congestion,consult doctor,rest,drink fluids,medication
+Mild Lung Syndrome,consult doctor,rest,drink fluids,medication
+Septic Joint Infection,consult doctor,rest,drink fluids,medication
+Severe Heart Disorder,consult doctor,rest,drink fluids,medication
+Viral Ear Failure,consult doctor,rest,drink fluids,medication
+Fungal Nerve Degeneration,consult doctor,rest,drink fluids,medication
+Autoimmune Blood Tumor,consult doctor,rest,drink fluids,medication
+Metabolic Ear Disorder,consult doctor,rest,drink fluids,medication
+Metabolic Ear Dysfunction,consult doctor,rest,drink fluids,medication
+Septic Intestine Congestion,consult doctor,rest,drink fluids,medication
+Acute Muscle Calculus,consult doctor,rest,drink fluids,medication
+Severe Stomach Dysfunction,consult doctor,rest,drink fluids,medication
+Fungal Skin Damage,consult doctor,rest,drink fluids,medication
+Hereditary Skin Failure,consult doctor,rest,drink fluids,medication
+Bacterial Muscle Degeneration,consult doctor,rest,drink fluids,medication
+Bacterial Nerve Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Kidney Infection,consult doctor,rest,drink fluids,medication
+Viral Kidney Tumor,consult doctor,rest,drink fluids,medication
+Idiopathic Nerve Degeneration,consult doctor,rest,drink fluids,medication
+Hereditary Kidney Calculus,consult doctor,rest,drink fluids,medication
+Metabolic Lung Pain,consult doctor,rest,drink fluids,medication
+Metabolic Brain Damage,consult doctor,rest,drink fluids,medication
+Viral Joint Inflammation,consult doctor,rest,drink fluids,medication
+Mild Throat Degeneration,consult doctor,rest,drink fluids,medication
+Septic Eye Disease,consult doctor,rest,drink fluids,medication
+Mild Heart Degeneration,consult doctor,rest,drink fluids,medication
+Autoimmune Heart Dysfunction,consult doctor,rest,drink fluids,medication
+Septic Blood Infection,consult doctor,rest,drink fluids,medication
+Acute Intestine Pain,consult doctor,rest,drink fluids,medication
+Septic Eye Dysfunction,consult doctor,rest,drink fluids,medication
+Mild Bone Calculus,consult doctor,rest,drink fluids,medication
+Severe Heart Calculus,consult doctor,rest,drink fluids,medication
+Mild Brain Tumor,consult doctor,rest,drink fluids,medication
+Autoimmune Throat Calculus,consult doctor,rest,drink fluids,medication
+Viral Intestine Syndrome,consult doctor,rest,drink fluids,medication
+Viral Liver Disease,consult doctor,rest,drink fluids,medication
+Septic Eye Syndrome,consult doctor,rest,drink fluids,medication
+Chronic Intestine Disease,consult doctor,rest,drink fluids,medication
+Autoimmune Lung Syndrome,consult doctor,rest,drink fluids,medication
+Metabolic Throat Damage,consult doctor,rest,drink fluids,medication
+Bacterial Joint Pain,consult doctor,rest,drink fluids,medication
+Severe Brain Disease,consult doctor,rest,drink fluids,medication
+Mild Skin Syndrome,consult doctor,rest,drink fluids,medication
+Mild Eye Pain,consult doctor,rest,drink fluids,medication
+Viral Liver Infection,consult doctor,rest,drink fluids,medication
+Hereditary Kidney Tumor,consult doctor,rest,drink fluids,medication
+Metabolic Liver Degeneration,consult doctor,rest,drink fluids,medication
+Bacterial Kidney Failure,consult doctor,rest,drink fluids,medication
+Septic Lung Dysfunction,consult doctor,rest,drink fluids,medication
+Mild Nerve Disease,consult doctor,rest,drink fluids,medication
+Idiopathic Liver Congestion,consult doctor,rest,drink fluids,medication
+Chronic Intestine Infection,consult doctor,rest,drink fluids,medication
+Allergic Skin Syndrome,consult doctor,rest,drink fluids,medication
+Metabolic Muscle Degeneration,consult doctor,rest,drink fluids,medication
+Viral Blood Congestion,consult doctor,rest,drink fluids,medication
+Acute Throat Disease,consult doctor,rest,drink fluids,medication
+Traumatic Bone Tumor,consult doctor,rest,drink fluids,medication
+Severe Bone Tumor,consult doctor,rest,drink fluids,medication
+Idiopathic Stomach Tumor,consult doctor,rest,drink fluids,medication
+Hereditary Skin Inflammation,consult doctor,rest,drink fluids,medication
+Septic Stomach Failure,consult doctor,rest,drink fluids,medication
+Hereditary Liver Dysfunction,consult doctor,rest,drink fluids,medication
+Chronic Ear Disease,consult doctor,rest,drink fluids,medication
+Allergic Skin Pain,consult doctor,rest,drink fluids,medication
+Allergic Skin Calculus,consult doctor,rest,drink fluids,medication
+Hereditary Blood Inflammation,consult doctor,rest,drink fluids,medication
+Idiopathic Stomach Failure,consult doctor,rest,drink fluids,medication
+Autoimmune Thyroid Inflammation,consult doctor,rest,drink fluids,medication
+Mild Thyroid Damage,consult doctor,rest,drink fluids,medication
+Bacterial Liver Congestion,consult doctor,rest,drink fluids,medication
+Chronic Brain Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Throat Inflammation,consult doctor,rest,drink fluids,medication
+Mild Kidney Dysfunction,consult doctor,rest,drink fluids,medication
+Fungal Heart Pain,consult doctor,rest,drink fluids,medication
+Chronic Thyroid Pain,consult doctor,rest,drink fluids,medication
+Metabolic Bone Tumor,consult doctor,rest,drink fluids,medication
+Viral Ear Degeneration,consult doctor,rest,drink fluids,medication
+Acute Bone Syndrome,consult doctor,rest,drink fluids,medication
+Metabolic Nerve Degeneration,consult doctor,rest,drink fluids,medication
+Septic Muscle Disease,consult doctor,rest,drink fluids,medication
+Idiopathic Joint Disease,consult doctor,rest,drink fluids,medication
+Autoimmune Kidney Dysfunction,consult doctor,rest,drink fluids,medication
+Chronic Thyroid Dysfunction,consult doctor,rest,drink fluids,medication
+Metabolic Bone Calculus,consult doctor,rest,drink fluids,medication
+Fungal Heart Tumor,consult doctor,rest,drink fluids,medication
+Metabolic Kidney Infection,consult doctor,rest,drink fluids,medication
+Bacterial Liver Inflammation,consult doctor,rest,drink fluids,medication
+Mild Ear Congestion,consult doctor,rest,drink fluids,medication
+Septic Stomach Degeneration,consult doctor,rest,drink fluids,medication
+Metabolic Lung Disorder,consult doctor,rest,drink fluids,medication
+Allergic Lung Congestion,consult doctor,rest,drink fluids,medication
+Severe Ear Calculus,consult doctor,rest,drink fluids,medication
+Septic Lung Failure,consult doctor,rest,drink fluids,medication
+Mild Intestine Dysfunction,consult doctor,rest,drink fluids,medication
+Traumatic Eye Degeneration,consult doctor,rest,drink fluids,medication
+Chronic Kidney Calculus,consult doctor,rest,drink fluids,medication
+Severe Ear Dysfunction,consult doctor,rest,drink fluids,medication
+Allergic Nerve Inflammation,consult doctor,rest,drink fluids,medication
+Allergic Nerve Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Throat Disease,consult doctor,rest,drink fluids,medication
+Fungal Skin Pain,consult doctor,rest,drink fluids,medication
+Fungal Joint Failure,consult doctor,rest,drink fluids,medication
+Fungal Kidney Syndrome,consult doctor,rest,drink fluids,medication
+Septic Brain Disorder,consult doctor,rest,drink fluids,medication
+Mild Eye Disease,consult doctor,rest,drink fluids,medication
+Severe Stomach Inflammation,consult doctor,rest,drink fluids,medication
+Allergic Eye Dysfunction,consult doctor,rest,drink fluids,medication
+Fungal Bone Degeneration,consult doctor,rest,drink fluids,medication
+Septic Intestine Disease,consult doctor,rest,drink fluids,medication
+Traumatic Lung Damage,consult doctor,rest,drink fluids,medication
+Hereditary Intestine Disorder,consult doctor,rest,drink fluids,medication
+Mild Nerve Congestion,consult doctor,rest,drink fluids,medication
+Mild Kidney Congestion,consult doctor,rest,drink fluids,medication
+Traumatic Thyroid Tumor,consult doctor,rest,drink fluids,medication
+Metabolic Heart Failure,consult doctor,rest,drink fluids,medication
+Allergic Bone Disorder,consult doctor,rest,drink fluids,medication
+Metabolic Heart Disorder,consult doctor,rest,drink fluids,medication
+Viral Brain Pain,consult doctor,rest,drink fluids,medication
+Allergic Blood Infection,consult doctor,rest,drink fluids,medication
+Chronic Bone Disease,consult doctor,rest,drink fluids,medication
+Chronic Intestine Failure,consult doctor,rest,drink fluids,medication
+Mild Blood Dysfunction,consult doctor,rest,drink fluids,medication
+Mild Skin Infection,consult doctor,rest,drink fluids,medication
+Viral Stomach Infection,consult doctor,rest,drink fluids,medication
+Fungal Nerve Calculus,consult doctor,rest,drink fluids,medication
+Bacterial Joint Inflammation,consult doctor,rest,drink fluids,medication
+Traumatic Throat Congestion,consult doctor,rest,drink fluids,medication
+Septic Joint Tumor,consult doctor,rest,drink fluids,medication
+Acute Kidney Disorder,consult doctor,rest,drink fluids,medication
+Septic Throat Syndrome,consult doctor,rest,drink fluids,medication
+Septic Blood Dysfunction,consult doctor,rest,drink fluids,medication
+Autoimmune Lung Disease,consult doctor,rest,drink fluids,medication
+Allergic Lung Disease,consult doctor,rest,drink fluids,medication
+Septic Lung Disorder,consult doctor,rest,drink fluids,medication
+Autoimmune Kidney Tumor,consult doctor,rest,drink fluids,medication
+Chronic Lung Inflammation,consult doctor,rest,drink fluids,medication
+Metabolic Liver Dysfunction,consult doctor,rest,drink fluids,medication
+Allergic Stomach Inflammation,consult doctor,rest,drink fluids,medication
+Severe Kidney Disease,consult doctor,rest,drink fluids,medication
+Hereditary Heart Dysfunction,consult doctor,rest,drink fluids,medication
+Autoimmune Nerve Inflammation,consult doctor,rest,drink fluids,medication
+Viral Kidney Calculus,consult doctor,rest,drink fluids,medication
+Chronic Nerve Disease,consult doctor,rest,drink fluids,medication
+Septic Lung Pain,consult doctor,rest,drink fluids,medication
+Mild Intestine Tumor,consult doctor,rest,drink fluids,medication
+Idiopathic Ear Degeneration,consult doctor,rest,drink fluids,medication
+Idiopathic Brain Tumor,consult doctor,rest,drink fluids,medication
+Septic Muscle Inflammation,consult doctor,rest,drink fluids,medication
+Chronic Stomach Syndrome,consult doctor,rest,drink fluids,medication
+Septic Heart Infection,consult doctor,rest,drink fluids,medication
+Septic Skin Failure,consult doctor,rest,drink fluids,medication
+Septic Kidney Disease,consult doctor,rest,drink fluids,medication
+Chronic Throat Disease,consult doctor,rest,drink fluids,medication
+Viral Liver Pain,consult doctor,rest,drink fluids,medication
+Idiopathic Joint Infection,consult doctor,rest,drink fluids,medication
+Acute Bone Dysfunction,consult doctor,rest,drink fluids,medication
+Viral Skin Syndrome,consult doctor,rest,drink fluids,medication
+Autoimmune Intestine Damage,consult doctor,rest,drink fluids,medication
+Traumatic Lung Inflammation,consult doctor,rest,drink fluids,medication
+Bacterial Thyroid Syndrome,consult doctor,rest,drink fluids,medication
+Severe Lung Syndrome,consult doctor,rest,drink fluids,medication
+Autoimmune Throat Syndrome,consult doctor,rest,drink fluids,medication
+Septic Muscle Damage,consult doctor,rest,drink fluids,medication
+Fungal Muscle Congestion,consult doctor,rest,drink fluids,medication
+Acute Eye Degeneration,consult doctor,rest,drink fluids,medication
+Idiopathic Skin Dysfunction,consult doctor,rest,drink fluids,medication
+Septic Stomach Congestion,consult doctor,rest,drink fluids,medication
+Severe Nerve Tumor,consult doctor,rest,drink fluids,medication
+Autoimmune Skin Disease,consult doctor,rest,drink fluids,medication
+Autoimmune Eye Failure,consult doctor,rest,drink fluids,medication
+Allergic Blood Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Brain Inflammation,consult doctor,rest,drink fluids,medication
+Chronic Joint Congestion,consult doctor,rest,drink fluids,medication
+Chronic Intestine Dysfunction,consult doctor,rest,drink fluids,medication
+Severe Bone Damage,consult doctor,rest,drink fluids,medication
+Acute Kidney Degeneration,consult doctor,rest,drink fluids,medication
+Idiopathic Intestine Failure,consult doctor,rest,drink fluids,medication
+Fungal Thyroid Dysfunction,consult doctor,rest,drink fluids,medication
+Autoimmune Skin Dysfunction,consult doctor,rest,drink fluids,medication
+Bacterial Ear Dysfunction,consult doctor,rest,drink fluids,medication
+Viral Ear Congestion,consult doctor,rest,drink fluids,medication
+Allergic Liver Failure,consult doctor,rest,drink fluids,medication
+Chronic Skin Degeneration,consult doctor,rest,drink fluids,medication
+Bacterial Lung Failure,consult doctor,rest,drink fluids,medication
+Severe Intestine Syndrome,consult doctor,rest,drink fluids,medication
+Chronic Lung Pain,consult doctor,rest,drink fluids,medication
+Idiopathic Joint Failure,consult doctor,rest,drink fluids,medication
+Chronic Throat Calculus,consult doctor,rest,drink fluids,medication
+Mild Blood Failure,consult doctor,rest,drink fluids,medication
+Fungal Brain Calculus,consult doctor,rest,drink fluids,medication
+Mild Joint Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Eye Pain,consult doctor,rest,drink fluids,medication
+Severe Skin Disorder,consult doctor,rest,drink fluids,medication
+Idiopathic Blood Infection,consult doctor,rest,drink fluids,medication
+Bacterial Intestine Degeneration,consult doctor,rest,drink fluids,medication
+Hereditary Ear Congestion,consult doctor,rest,drink fluids,medication
+Bacterial Intestine Dysfunction,consult doctor,rest,drink fluids,medication
+Septic Joint Disease,consult doctor,rest,drink fluids,medication
+Acute Joint Degeneration,consult doctor,rest,drink fluids,medication
+Bacterial Skin Disease,consult doctor,rest,drink fluids,medication
+Bacterial Muscle Syndrome,consult doctor,rest,drink fluids,medication
+Mild Bone Failure,consult doctor,rest,drink fluids,medication
+Mild Joint Infection,consult doctor,rest,drink fluids,medication
+Bacterial Throat Congestion,consult doctor,rest,drink fluids,medication
+Traumatic Skin Failure,consult doctor,rest,drink fluids,medication
+Severe Muscle Tumor,consult doctor,rest,drink fluids,medication
+Severe Joint Congestion,consult doctor,rest,drink fluids,medication
+Autoimmune Muscle Disorder,consult doctor,rest,drink fluids,medication
+Hereditary Skin Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Brain Disease,consult doctor,rest,drink fluids,medication
+Traumatic Eye Tumor,consult doctor,rest,drink fluids,medication
+Bacterial Throat Inflammation,consult doctor,rest,drink fluids,medication
+Traumatic Kidney Tumor,consult doctor,rest,drink fluids,medication
+Chronic Eye Inflammation,consult doctor,rest,drink fluids,medication
+Viral Liver Dysfunction,consult doctor,rest,drink fluids,medication
+Metabolic Lung Syndrome,consult doctor,rest,drink fluids,medication
+Metabolic Stomach Damage,consult doctor,rest,drink fluids,medication
+Viral Ear Inflammation,consult doctor,rest,drink fluids,medication
+Mild Stomach Tumor,consult doctor,rest,drink fluids,medication
+Bacterial Stomach Dysfunction,consult doctor,rest,drink fluids,medication
+Severe Nerve Infection,consult doctor,rest,drink fluids,medication
+Autoimmune Stomach Pain,consult doctor,rest,drink fluids,medication
+Mild Brain Failure,consult doctor,rest,drink fluids,medication
+Viral Lung Congestion,consult doctor,rest,drink fluids,medication
+Acute Throat Pain,consult doctor,rest,drink fluids,medication
+Idiopathic Heart Degeneration,consult doctor,rest,drink fluids,medication
+Septic Brain Calculus,consult doctor,rest,drink fluids,medication
+Allergic Liver Dysfunction,consult doctor,rest,drink fluids,medication
+Septic Skin Pain,consult doctor,rest,drink fluids,medication
+Autoimmune Kidney Syndrome,consult doctor,rest,drink fluids,medication
+Idiopathic Liver Degeneration,consult doctor,rest,drink fluids,medication
+Mild Nerve Infection,consult doctor,rest,drink fluids,medication
+Viral Throat Calculus,consult doctor,rest,drink fluids,medication
+Traumatic Eye Calculus,consult doctor,rest,drink fluids,medication
+Acute Brain Congestion,consult doctor,rest,drink fluids,medication
+Metabolic Thyroid Infection,consult doctor,rest,drink fluids,medication
+Severe Liver Damage,consult doctor,rest,drink fluids,medication
+Metabolic Nerve Congestion,consult doctor,rest,drink fluids,medication
+Acute Blood Calculus,consult doctor,rest,drink fluids,medication
+Idiopathic Throat Disorder,consult doctor,rest,drink fluids,medication
+Fungal Joint Disorder,consult doctor,rest,drink fluids,medication
+Idiopathic Intestine Inflammation,consult doctor,rest,drink fluids,medication
+Allergic Skin Disorder,consult doctor,rest,drink fluids,medication
+Acute Joint Pain,consult doctor,rest,drink fluids,medication
+Metabolic Ear Failure,consult doctor,rest,drink fluids,medication
+Viral Bone Disease,consult doctor,rest,drink fluids,medication
+Autoimmune Joint Syndrome,consult doctor,rest,drink fluids,medication
+Metabolic Heart Disease,consult doctor,rest,drink fluids,medication
+Idiopathic Eye Damage,consult doctor,rest,drink fluids,medication
+Fungal Throat Infection,consult doctor,rest,drink fluids,medication
+Septic Intestine Syndrome,consult doctor,rest,drink fluids,medication
+Acute Blood Tumor,consult doctor,rest,drink fluids,medication
+Metabolic Blood Failure,consult doctor,rest,drink fluids,medication
+Chronic Ear Failure,consult doctor,rest,drink fluids,medication
+Chronic Joint Inflammation,consult doctor,rest,drink fluids,medication
+Bacterial Brain Tumor,consult doctor,rest,drink fluids,medication
+Bacterial Kidney Disease,consult doctor,rest,drink fluids,medication
+Septic Nerve Disorder,consult doctor,rest,drink fluids,medication
+Mild Kidney Infection,consult doctor,rest,drink fluids,medication
+Idiopathic Kidney Tumor,consult doctor,rest,drink fluids,medication
+Acute Nerve Congestion,consult doctor,rest,drink fluids,medication
+Idiopathic Heart Calculus,consult doctor,rest,drink fluids,medication
+Acute Muscle Disease,consult doctor,rest,drink fluids,medication
+Fungal Joint Pain,consult doctor,rest,drink fluids,medication
+Hereditary Eye Disease,consult doctor,rest,drink fluids,medication
+Severe Intestine Dysfunction,consult doctor,rest,drink fluids,medication
+Viral Joint Damage,consult doctor,rest,drink fluids,medication
+Mild Kidney Pain,consult doctor,rest,drink fluids,medication
+Idiopathic Nerve Dysfunction,consult doctor,rest,drink fluids,medication
+Autoimmune Nerve Syndrome,consult doctor,rest,drink fluids,medication
+Bacterial Lung Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Thyroid Infection,consult doctor,rest,drink fluids,medication
+Acute Thyroid Congestion,consult doctor,rest,drink fluids,medication
+Autoimmune Blood Syndrome,consult doctor,rest,drink fluids,medication
+Traumatic Kidney Dysfunction,consult doctor,rest,drink fluids,medication
+Chronic Kidney Infection,consult doctor,rest,drink fluids,medication
+Traumatic Skin Infection,consult doctor,rest,drink fluids,medication
+Allergic Skin Tumor,consult doctor,rest,drink fluids,medication
+Septic Thyroid Inflammation,consult doctor,rest,drink fluids,medication
+Severe Heart Failure,consult doctor,rest,drink fluids,medication
+Traumatic Lung Infection,consult doctor,rest,drink fluids,medication
+Viral Intestine Dysfunction,consult doctor,rest,drink fluids,medication
+Allergic Brain Failure,consult doctor,rest,drink fluids,medication
+Idiopathic Muscle Failure,consult doctor,rest,drink fluids,medication
+Traumatic Joint Syndrome,consult doctor,rest,drink fluids,medication
+Idiopathic Intestine Disorder,consult doctor,rest,drink fluids,medication
+Traumatic Stomach Disease,consult doctor,rest,drink fluids,medication
+Mild Kidney Disease,consult doctor,rest,drink fluids,medication
+Severe Liver Inflammation,consult doctor,rest,drink fluids,medication
+Traumatic Ear Degeneration,consult doctor,rest,drink fluids,medication
+Metabolic Eye Congestion,consult doctor,rest,drink fluids,medication
+Hereditary Throat Dysfunction,consult doctor,rest,drink fluids,medication
+Bacterial Bone Inflammation,consult doctor,rest,drink fluids,medication
+Allergic Muscle Calculus,consult doctor,rest,drink fluids,medication
+Severe Intestine Calculus,consult doctor,rest,drink fluids,medication
+Allergic Muscle Disorder,consult doctor,rest,drink fluids,medication
+Bacterial Liver Syndrome,consult doctor,rest,drink fluids,medication
+Chronic Joint Disorder,consult doctor,rest,drink fluids,medication
+Septic Muscle Syndrome,consult doctor,rest,drink fluids,medication
+Mild Kidney Syndrome,consult doctor,rest,drink fluids,medication
+Bacterial Joint Calculus,consult doctor,rest,drink fluids,medication
+Traumatic Heart Damage,consult doctor,rest,drink fluids,medication
+Severe Muscle Pain,consult doctor,rest,drink fluids,medication
+Septic Stomach Inflammation,consult doctor,rest,drink fluids,medication
+Mild Thyroid Tumor,consult doctor,rest,drink fluids,medication
+Allergic Kidney Calculus,consult doctor,rest,drink fluids,medication
+Metabolic Ear Tumor,consult doctor,rest,drink fluids,medication
+Bacterial Blood Calculus,consult doctor,rest,drink fluids,medication
+Chronic Kidney Syndrome,consult doctor,rest,drink fluids,medication
+Autoimmune Nerve Pain,consult doctor,rest,drink fluids,medication
+Severe Liver Disorder,consult doctor,rest,drink fluids,medication
+Mild Liver Inflammation,consult doctor,rest,drink fluids,medication
+Severe Bone Infection,consult doctor,rest,drink fluids,medication
+Hereditary Nerve Tumor,consult doctor,rest,drink fluids,medication
+Acute Heart Congestion,consult doctor,rest,drink fluids,medication
+Hereditary Ear Syndrome,consult doctor,rest,drink fluids,medication
+Bacterial Muscle Congestion,consult doctor,rest,drink fluids,medication
+Metabolic Kidney Pain,consult doctor,rest,drink fluids,medication
+Severe Nerve Disorder,consult doctor,rest,drink fluids,medication
+Mild Throat Syndrome,consult doctor,rest,drink fluids,medication
+Mild Bone Dysfunction,consult doctor,rest,drink fluids,medication
+Metabolic Heart Dysfunction,consult doctor,rest,drink fluids,medication
+Mild Liver Pain,consult doctor,rest,drink fluids,medication
+Mild Muscle Failure,consult doctor,rest,drink fluids,medication
+Severe Thyroid Syndrome,consult doctor,rest,drink fluids,medication
+Fungal Stomach Inflammation,consult doctor,rest,drink fluids,medication
+Mild Skin Dysfunction,consult doctor,rest,drink fluids,medication
+Chronic Muscle Inflammation,consult doctor,rest,drink fluids,medication
+Idiopathic Intestine Tumor,consult doctor,rest,drink fluids,medication
+Idiopathic Skin Tumor,consult doctor,rest,drink fluids,medication
+Mild Eye Calculus,consult doctor,rest,drink fluids,medication
+Autoimmune Stomach Dysfunction,consult doctor,rest,drink fluids,medication
+Chronic Thyroid Inflammation,consult doctor,rest,drink fluids,medication
+Viral Throat Inflammation,consult doctor,rest,drink fluids,medication
+Bacterial Bone Calculus,consult doctor,rest,drink fluids,medication
+Metabolic Lung Disease,consult doctor,rest,drink fluids,medication
+Idiopathic Ear Calculus,consult doctor,rest,drink fluids,medication
+Traumatic Intestine Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Joint Tumor,consult doctor,rest,drink fluids,medication
+Acute Kidney Disease,consult doctor,rest,drink fluids,medication
+Acute Eye Failure,consult doctor,rest,drink fluids,medication
+Viral Brain Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Ear Pain,consult doctor,rest,drink fluids,medication
+Septic Throat Damage,consult doctor,rest,drink fluids,medication
+Mild Throat Tumor,consult doctor,rest,drink fluids,medication
+Autoimmune Kidney Damage,consult doctor,rest,drink fluids,medication
+Fungal Brain Failure,consult doctor,rest,drink fluids,medication
+Traumatic Liver Pain,consult doctor,rest,drink fluids,medication
+Autoimmune Joint Tumor,consult doctor,rest,drink fluids,medication
+Idiopathic Kidney Damage,consult doctor,rest,drink fluids,medication
+Autoimmune Joint Damage,consult doctor,rest,drink fluids,medication
+Metabolic Liver Syndrome,consult doctor,rest,drink fluids,medication
+Traumatic Liver Tumor,consult doctor,rest,drink fluids,medication
+Bacterial Liver Infection,consult doctor,rest,drink fluids,medication
+Viral Eye Failure,consult doctor,rest,drink fluids,medication
+Fungal Heart Dysfunction,consult doctor,rest,drink fluids,medication
+Idiopathic Joint Inflammation,consult doctor,rest,drink fluids,medication
+Traumatic Intestine Damage,consult doctor,rest,drink fluids,medication
+Septic Thyroid Congestion,consult doctor,rest,drink fluids,medication
+Idiopathic Brain Dysfunction,consult doctor,rest,drink fluids,medication
+Allergic Lung Tumor,consult doctor,rest,drink fluids,medication
+Metabolic Ear Pain,consult doctor,rest,drink fluids,medication
+Chronic Muscle Degeneration,consult doctor,rest,drink fluids,medication
+Acute Ear Congestion,consult doctor,rest,drink fluids,medication
+Fungal Thyroid Disease,consult doctor,rest,drink fluids,medication
+Mild Ear Disease,consult doctor,rest,drink fluids,medication
+Chronic Skin Tumor,consult doctor,rest,drink fluids,medication
+Metabolic Blood Syndrome,consult doctor,rest,drink fluids,medication
+Septic Blood Tumor,consult doctor,rest,drink fluids,medication
+Traumatic Thyroid Disorder,consult doctor,rest,drink fluids,medication
+Septic Intestine Tumor,consult doctor,rest,drink fluids,medication
+Mild Thyroid Infection,consult doctor,rest,drink fluids,medication
+Idiopathic Lung Pain,consult doctor,rest,drink fluids,medication
+Autoimmune Bone Tumor,consult doctor,rest,drink fluids,medication
+Bacterial Throat Calculus,consult doctor,rest,drink fluids,medication
+Traumatic Throat Tumor,consult doctor,rest,drink fluids,medication
+Fungal Lung Pain,consult doctor,rest,drink fluids,medication
+Chronic Joint Disease,consult doctor,rest,drink fluids,medication
+Hereditary Intestine Calculus,consult doctor,rest,drink fluids,medication
+Mild Liver Syndrome,consult doctor,rest,drink fluids,medication
+Traumatic Kidney Pain,consult doctor,rest,drink fluids,medication
+Chronic Blood Disease,consult doctor,rest,drink fluids,medication
+Viral Intestine Tumor,consult doctor,rest,drink fluids,medication
+Hereditary Kidney Congestion,consult doctor,rest,drink fluids,medication
+Allergic Throat Congestion,consult doctor,rest,drink fluids,medication
+Mild Nerve Failure,consult doctor,rest,drink fluids,medication
+Mild Nerve Degeneration,consult doctor,rest,drink fluids,medication
+Severe Brain Tumor,consult doctor,rest,drink fluids,medication
+Hereditary Bone Congestion,consult doctor,rest,drink fluids,medication
+Acute Ear Infection,consult doctor,rest,drink fluids,medication
+Acute Kidney Syndrome,consult doctor,rest,drink fluids,medication
+Viral Intestine Damage,consult doctor,rest,drink fluids,medication
+Septic Thyroid Infection,consult doctor,rest,drink fluids,medication
+Idiopathic Bone Disease,consult doctor,rest,drink fluids,medication
+Idiopathic Nerve Inflammation,consult doctor,rest,drink fluids,medication
+Acute Ear Inflammation,consult doctor,rest,drink fluids,medication
+Idiopathic Bone Inflammation,consult doctor,rest,drink fluids,medication
+Bacterial Blood Disorder,consult doctor,rest,drink fluids,medication
+Traumatic Muscle Degeneration,consult doctor,rest,drink fluids,medication
+Viral Muscle Calculus,consult doctor,rest,drink fluids,medication
+Bacterial Nerve Infection,consult doctor,rest,drink fluids,medication
+Acute Heart Inflammation,consult doctor,rest,drink fluids,medication
+Chronic Liver Inflammation,consult doctor,rest,drink fluids,medication
+Mild Throat Damage,consult doctor,rest,drink fluids,medication
+Traumatic Stomach Pain,consult doctor,rest,drink fluids,medication
+Mild Heart Infection,consult doctor,rest,drink fluids,medication
+Metabolic Eye Failure,consult doctor,rest,drink fluids,medication
+Idiopathic Throat Calculus,consult doctor,rest,drink fluids,medication
+Allergic Stomach Disease,consult doctor,rest,drink fluids,medication
+Mild Bone Syndrome,consult doctor,rest,drink fluids,medication
+Metabolic Intestine Degeneration,consult doctor,rest,drink fluids,medication
+Autoimmune Joint Congestion,consult doctor,rest,drink fluids,medication
+Idiopathic Eye Inflammation,consult doctor,rest,drink fluids,medication
+Acute Ear Pain,consult doctor,rest,drink fluids,medication
+Chronic Muscle Pain,consult doctor,rest,drink fluids,medication
+Septic Muscle Degeneration,consult doctor,rest,drink fluids,medication
+Bacterial Ear Calculus,consult doctor,rest,drink fluids,medication
+Mild Stomach Disease,consult doctor,rest,drink fluids,medication
+Chronic Kidney Dysfunction,consult doctor,rest,drink fluids,medication
+Hereditary Stomach Disorder,consult doctor,rest,drink fluids,medication
+Bacterial Ear Infection,consult doctor,rest,drink fluids,medication
+Septic Eye Pain,consult doctor,rest,drink fluids,medication
+Hereditary Liver Inflammation,consult doctor,rest,drink fluids,medication
+Metabolic Thyroid Damage,consult doctor,rest,drink fluids,medication
+Idiopathic Intestine Dysfunction,consult doctor,rest,drink fluids,medication
+Severe Lung Inflammation,consult doctor,rest,drink fluids,medication
+Bacterial Blood Congestion,consult doctor,rest,drink fluids,medication
+Viral Liver Disorder,consult doctor,rest,drink fluids,medication
+Bacterial Intestine Infection,consult doctor,rest,drink fluids,medication
+Mild Lung Congestion,consult doctor,rest,drink fluids,medication
+Acute Bone Disease,consult doctor,rest,drink fluids,medication
+Chronic Blood Infection,consult doctor,rest,drink fluids,medication
+Chronic Nerve Disorder,consult doctor,rest,drink fluids,medication
+Chronic Skin Calculus,consult doctor,rest,drink fluids,medication
+Allergic Bone Inflammation,consult doctor,rest,drink fluids,medication
+Septic Intestine Inflammation,consult doctor,rest,drink fluids,medication
+Fungal Blood Infection,consult doctor,rest,drink fluids,medication
+Metabolic Stomach Dysfunction,consult doctor,rest,drink fluids,medication
+Fungal Blood Disease,consult doctor,rest,drink fluids,medication
+Viral Brain Tumor,consult doctor,rest,drink fluids,medication
+Idiopathic Ear Infection,consult doctor,rest,drink fluids,medication
+Septic Ear Damage,consult doctor,rest,drink fluids,medication
+Autoimmune Muscle Inflammation,consult doctor,rest,drink fluids,medication
+Viral Liver Tumor,consult doctor,rest,drink fluids,medication
+Autoimmune Thyroid Degeneration,consult doctor,rest,drink fluids,medication
+Idiopathic Thyroid Calculus,consult doctor,rest,drink fluids,medication
+Acute Intestine Congestion,consult doctor,rest,drink fluids,medication
+Mild Intestine Damage,consult doctor,rest,drink fluids,medication
+Idiopathic Liver Pain,consult doctor,rest,drink fluids,medication
+Acute Lung Syndrome,consult doctor,rest,drink fluids,medication
+Hereditary Bone Calculus,consult doctor,rest,drink fluids,medication
+Viral Bone Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Throat Calculus,consult doctor,rest,drink fluids,medication
+Autoimmune Liver Congestion,consult doctor,rest,drink fluids,medication
+Mild Blood Damage,consult doctor,rest,drink fluids,medication
+Acute Kidney Damage,consult doctor,rest,drink fluids,medication
+Chronic Kidney Failure,consult doctor,rest,drink fluids,medication
+Chronic Brain Inflammation,consult doctor,rest,drink fluids,medication
+Autoimmune Throat Tumor,consult doctor,rest,drink fluids,medication
+Chronic Thyroid Damage,consult doctor,rest,drink fluids,medication
+Septic Blood Syndrome,consult doctor,rest,drink fluids,medication
+Metabolic Joint Degeneration,consult doctor,rest,drink fluids,medication
+Idiopathic Thyroid Syndrome,consult doctor,rest,drink fluids,medication
+Bacterial Ear Inflammation,consult doctor,rest,drink fluids,medication
+Acute Throat Disorder,consult doctor,rest,drink fluids,medication
+Viral Muscle Infection,consult doctor,rest,drink fluids,medication
+Hereditary Muscle Infection,consult doctor,rest,drink fluids,medication
+Septic Muscle Failure,consult doctor,rest,drink fluids,medication
+Autoimmune Bone Pain,consult doctor,rest,drink fluids,medication
+Autoimmune Ear Degeneration,consult doctor,rest,drink fluids,medication
+Metabolic Throat Degeneration,consult doctor,rest,drink fluids,medication
+Autoimmune Skin Disorder,consult doctor,rest,drink fluids,medication
+Fungal Stomach Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Brain Disease,consult doctor,rest,drink fluids,medication
+Metabolic Joint Dysfunction,consult doctor,rest,drink fluids,medication
+Idiopathic Blood Inflammation,consult doctor,rest,drink fluids,medication
+Traumatic Muscle Disease,consult doctor,rest,drink fluids,medication
+Septic Heart Congestion,consult doctor,rest,drink fluids,medication
+Autoimmune Ear Failure,consult doctor,rest,drink fluids,medication
+Acute Stomach Failure,consult doctor,rest,drink fluids,medication
+Allergic Joint Inflammation,consult doctor,rest,drink fluids,medication
+Mild Joint Damage,consult doctor,rest,drink fluids,medication
+Fungal Thyroid Disorder,consult doctor,rest,drink fluids,medication
+Bacterial Eye Calculus,consult doctor,rest,drink fluids,medication
+Severe Intestine Failure,consult doctor,rest,drink fluids,medication
+Idiopathic Muscle Dysfunction,consult doctor,rest,drink fluids,medication
+Bacterial Muscle Inflammation,consult doctor,rest,drink fluids,medication
+Septic Stomach Disorder,consult doctor,rest,drink fluids,medication
+Hereditary Blood Congestion,consult doctor,rest,drink fluids,medication
+Septic Kidney Infection,consult doctor,rest,drink fluids,medication
+Idiopathic Heart Syndrome,consult doctor,rest,drink fluids,medication
+Traumatic Muscle Infection,consult doctor,rest,drink fluids,medication
+Allergic Muscle Inflammation,consult doctor,rest,drink fluids,medication
+Fungal Brain Infection,consult doctor,rest,drink fluids,medication
+Allergic Intestine Dysfunction,consult doctor,rest,drink fluids,medication
+Viral Blood Pain,consult doctor,rest,drink fluids,medication
+Traumatic Thyroid Infection,consult doctor,rest,drink fluids,medication
+Fungal Brain Dysfunction,consult doctor,rest,drink fluids,medication
+Mild Brain Degeneration,consult doctor,rest,drink fluids,medication
+Severe Muscle Infection,consult doctor,rest,drink fluids,medication
+Autoimmune Intestine Calculus,consult doctor,rest,drink fluids,medication
+Chronic Heart Degeneration,consult doctor,rest,drink fluids,medication
+Autoimmune Throat Congestion,consult doctor,rest,drink fluids,medication
+Bacterial Thyroid Dysfunction,consult doctor,rest,drink fluids,medication
+Allergic Brain Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Heart Infection,consult doctor,rest,drink fluids,medication
+Allergic Bone Pain,consult doctor,rest,drink fluids,medication
+Severe Joint Infection,consult doctor,rest,drink fluids,medication
+Metabolic Intestine Inflammation,consult doctor,rest,drink fluids,medication
+Autoimmune Stomach Degeneration,consult doctor,rest,drink fluids,medication
+Chronic Lung Infection,consult doctor,rest,drink fluids,medication
+Viral Eye Degeneration,consult doctor,rest,drink fluids,medication
+Traumatic Skin Pain,consult doctor,rest,drink fluids,medication
+Idiopathic Heart Congestion,consult doctor,rest,drink fluids,medication
+Fungal Lung Congestion,consult doctor,rest,drink fluids,medication
+Bacterial Skin Inflammation,consult doctor,rest,drink fluids,medication
+Metabolic Ear Damage,consult doctor,rest,drink fluids,medication
+Mild Intestine Syndrome,consult doctor,rest,drink fluids,medication
+Severe Throat Dysfunction,consult doctor,rest,drink fluids,medication
+Mild Kidney Disorder,consult doctor,rest,drink fluids,medication
+Severe Throat Infection,consult doctor,rest,drink fluids,medication
+Acute Stomach Dysfunction,consult doctor,rest,drink fluids,medication
+Metabolic Heart Damage,consult doctor,rest,drink fluids,medication
+Fungal Eye Failure,consult doctor,rest,drink fluids,medication
+Hereditary Ear Inflammation,consult doctor,rest,drink fluids,medication
+Traumatic Skin Congestion,consult doctor,rest,drink fluids,medication
+Traumatic Blood Infection,consult doctor,rest,drink fluids,medication
+Septic Lung Infection,consult doctor,rest,drink fluids,medication
+Metabolic Liver Damage,consult doctor,rest,drink fluids,medication
+Traumatic Eye Pain,consult doctor,rest,drink fluids,medication
+Autoimmune Thyroid Disorder,consult doctor,rest,drink fluids,medication
+Fungal Heart Damage,consult doctor,rest,drink fluids,medication
+Metabolic Heart Inflammation,consult doctor,rest,drink fluids,medication
+Severe Blood Degeneration,consult doctor,rest,drink fluids,medication
+Hereditary Joint Degeneration,consult doctor,rest,drink fluids,medication
+Severe Stomach Damage,consult doctor,rest,drink fluids,medication
+Mild Thyroid Disease,consult doctor,rest,drink fluids,medication
+Autoimmune Skin Syndrome,consult doctor,rest,drink fluids,medication
+Traumatic Nerve Failure,consult doctor,rest,drink fluids,medication
+Severe Heart Inflammation,consult doctor,rest,drink fluids,medication
+Viral Nerve Damage,consult doctor,rest,drink fluids,medication
+Viral Lung Dysfunction,consult doctor,rest,drink fluids,medication
+Metabolic Thyroid Congestion,consult doctor,rest,drink fluids,medication
+Chronic Liver Congestion,consult doctor,rest,drink fluids,medication
+Mild Lung Infection,consult doctor,rest,drink fluids,medication
+Hereditary Bone Failure,consult doctor,rest,drink fluids,medication
+Acute Lung Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Skin Damage,consult doctor,rest,drink fluids,medication
+Mild Liver Disease,consult doctor,rest,drink fluids,medication
+Hereditary Blood Infection,consult doctor,rest,drink fluids,medication
+Acute Intestine Infection,consult doctor,rest,drink fluids,medication
+Autoimmune Ear Congestion,consult doctor,rest,drink fluids,medication
+Acute Ear Failure,consult doctor,rest,drink fluids,medication
+Bacterial Muscle Disorder,consult doctor,rest,drink fluids,medication
+Bacterial Stomach Calculus,consult doctor,rest,drink fluids,medication
+Chronic Ear Degeneration,consult doctor,rest,drink fluids,medication
+Idiopathic Heart Failure,consult doctor,rest,drink fluids,medication
+Septic Liver Degeneration,consult doctor,rest,drink fluids,medication
+Bacterial Heart Syndrome,consult doctor,rest,drink fluids,medication
+Fungal Liver Dysfunction,consult doctor,rest,drink fluids,medication
+Severe Joint Disorder,consult doctor,rest,drink fluids,medication
+Acute Brain Damage,consult doctor,rest,drink fluids,medication
+Chronic Brain Tumor,consult doctor,rest,drink fluids,medication
+Allergic Nerve Tumor,consult doctor,rest,drink fluids,medication
+Allergic Throat Disease,consult doctor,rest,drink fluids,medication
+Bacterial Stomach Pain,consult doctor,rest,drink fluids,medication
+Mild Ear Syndrome,consult doctor,rest,drink fluids,medication
+Allergic Lung Pain,consult doctor,rest,drink fluids,medication
+Allergic Ear Dysfunction,consult doctor,rest,drink fluids,medication
+Chronic Eye Failure,consult doctor,rest,drink fluids,medication
+Severe Brain Pain,consult doctor,rest,drink fluids,medication
+Acute Joint Damage,consult doctor,rest,drink fluids,medication
+Fungal Nerve Tumor,consult doctor,rest,drink fluids,medication
+Autoimmune Blood Disease,consult doctor,rest,drink fluids,medication
+Acute Heart Infection,consult doctor,rest,drink fluids,medication
+Hereditary Muscle Tumor,consult doctor,rest,drink fluids,medication
+Septic Intestine Disorder,consult doctor,rest,drink fluids,medication
+Viral Intestine Disorder,consult doctor,rest,drink fluids,medication
+Traumatic Bone Calculus,consult doctor,rest,drink fluids,medication
+Allergic Lung Calculus,consult doctor,rest,drink fluids,medication
+Fungal Lung Damage,consult doctor,rest,drink fluids,medication
+Chronic Stomach Inflammation,consult doctor,rest,drink fluids,medication
+Severe Nerve Syndrome,consult doctor,rest,drink fluids,medication
+Severe Ear Degeneration,consult doctor,rest,drink fluids,medication
+Hereditary Bone Disorder,consult doctor,rest,drink fluids,medication
+Allergic Stomach Failure,consult doctor,rest,drink fluids,medication
+Bacterial Stomach Failure,consult doctor,rest,drink fluids,medication
+Severe Muscle Disorder,consult doctor,rest,drink fluids,medication
+Acute Throat Syndrome,consult doctor,rest,drink fluids,medication
+Bacterial Brain Syndrome,consult doctor,rest,drink fluids,medication
+Septic Nerve Syndrome,consult doctor,rest,drink fluids,medication
+Idiopathic Thyroid Damage,consult doctor,rest,drink fluids,medication
+Fungal Muscle Inflammation,consult doctor,rest,drink fluids,medication
+Traumatic Kidney Damage,consult doctor,rest,drink fluids,medication
+Viral Heart Disorder,consult doctor,rest,drink fluids,medication
+Allergic Kidney Damage,consult doctor,rest,drink fluids,medication
+Metabolic Blood Dysfunction,consult doctor,rest,drink fluids,medication
+Septic Thyroid Degeneration,consult doctor,rest,drink fluids,medication
+Viral Intestine Disease,consult doctor,rest,drink fluids,medication
+Chronic Brain Failure,consult doctor,rest,drink fluids,medication
+Bacterial Stomach Infection,consult doctor,rest,drink fluids,medication
+Metabolic Skin Inflammation,consult doctor,rest,drink fluids,medication
+Fungal Thyroid Tumor,consult doctor,rest,drink fluids,medication
+Mild Throat Infection,consult doctor,rest,drink fluids,medication
+Allergic Stomach Pain,consult doctor,rest,drink fluids,medication
+Hereditary Nerve Dysfunction,consult doctor,rest,drink fluids,medication
+Autoimmune Brain Disease,consult doctor,rest,drink fluids,medication
+Septic Brain Dysfunction,consult doctor,rest,drink fluids,medication
+Severe Thyroid Disorder,consult doctor,rest,drink fluids,medication
+Metabolic Lung Tumor,consult doctor,rest,drink fluids,medication
+Viral Bone Infection,consult doctor,rest,drink fluids,medication
+Mild Kidney Tumor,consult doctor,rest,drink fluids,medication
+Metabolic Skin Disorder,consult doctor,rest,drink fluids,medication
+Mild Brain Congestion,consult doctor,rest,drink fluids,medication
+Metabolic Bone Inflammation,consult doctor,rest,drink fluids,medication
+Metabolic Skin Syndrome,consult doctor,rest,drink fluids,medication
+Allergic Intestine Calculus,consult doctor,rest,drink fluids,medication
+Metabolic Joint Pain,consult doctor,rest,drink fluids,medication
+Allergic Intestine Infection,consult doctor,rest,drink fluids,medication
+Acute Nerve Disorder,consult doctor,rest,drink fluids,medication
+Metabolic Throat Pain,consult doctor,rest,drink fluids,medication
+Fungal Blood Failure,consult doctor,rest,drink fluids,medication
+Mild Stomach Inflammation,consult doctor,rest,drink fluids,medication
+Traumatic Liver Disease,consult doctor,rest,drink fluids,medication
+Bacterial Bone Infection,consult doctor,rest,drink fluids,medication
+Viral Skin Dysfunction,consult doctor,rest,drink fluids,medication
+Metabolic Thyroid Syndrome,consult doctor,rest,drink fluids,medication
+Hereditary Skin Disease,consult doctor,rest,drink fluids,medication
+Chronic Ear Pain,consult doctor,rest,drink fluids,medication
+Allergic Muscle Pain,consult doctor,rest,drink fluids,medication
+Allergic Heart Pain,consult doctor,rest,drink fluids,medication
+Chronic Skin Congestion,consult doctor,rest,drink fluids,medication
+Viral Intestine Pain,consult doctor,rest,drink fluids,medication
+Septic Muscle Pain,consult doctor,rest,drink fluids,medication
+Viral Lung Damage,consult doctor,rest,drink fluids,medication
+Acute Joint Calculus,consult doctor,rest,drink fluids,medication
+Viral Blood Syndrome,consult doctor,rest,drink fluids,medication
+Autoimmune Nerve Degeneration,consult doctor,rest,drink fluids,medication
+Metabolic Nerve Infection,consult doctor,rest,drink fluids,medication
+Chronic Stomach Disease,consult doctor,rest,drink fluids,medication
+Bacterial Intestine Tumor,consult doctor,rest,drink fluids,medication
+Autoimmune Joint Calculus,consult doctor,rest,drink fluids,medication
+Allergic Joint Damage,consult doctor,rest,drink fluids,medication
+Severe Muscle Damage,consult doctor,rest,drink fluids,medication
+Acute Throat Infection,consult doctor,rest,drink fluids,medication
+Metabolic Lung Infection,consult doctor,rest,drink fluids,medication
+Autoimmune Blood Congestion,consult doctor,rest,drink fluids,medication
+Chronic Thyroid Degeneration,consult doctor,rest,drink fluids,medication
+Allergic Blood Calculus,consult doctor,rest,drink fluids,medication
+Septic Ear Dysfunction,consult doctor,rest,drink fluids,medication
+Septic Brain Degeneration,consult doctor,rest,drink fluids,medication
+Viral Blood Disorder,consult doctor,rest,drink fluids,medication
+Fungal Heart Disorder,consult doctor,rest,drink fluids,medication
+Viral Muscle Damage,consult doctor,rest,drink fluids,medication
+Hereditary Stomach Pain,consult doctor,rest,drink fluids,medication
+Allergic Ear Syndrome,consult doctor,rest,drink fluids,medication
+Chronic Liver Failure,consult doctor,rest,drink fluids,medication
+Severe Lung Failure,consult doctor,rest,drink fluids,medication
+Bacterial Stomach Damage,consult doctor,rest,drink fluids,medication
+Septic Brain Damage,consult doctor,rest,drink fluids,medication
+Acute Brain Pain,consult doctor,rest,drink fluids,medication
+Mild Bone Inflammation,consult doctor,rest,drink fluids,medication
+Viral Heart Tumor,consult doctor,rest,drink fluids,medication
+Viral Nerve Syndrome,consult doctor,rest,drink fluids,medication
+Bacterial Skin Infection,consult doctor,rest,drink fluids,medication
+Autoimmune Joint Pain,consult doctor,rest,drink fluids,medication
+Fungal Skin Degeneration,consult doctor,rest,drink fluids,medication
+Severe Muscle Dysfunction,consult doctor,rest,drink fluids,medication
+Traumatic Eye Dysfunction,consult doctor,rest,drink fluids,medication
+Acute Brain Failure,consult doctor,rest,drink fluids,medication
+Hereditary Nerve Congestion,consult doctor,rest,drink fluids,medication
+Septic Brain Infection,consult doctor,rest,drink fluids,medication
+Chronic Throat Degeneration,consult doctor,rest,drink fluids,medication
+Acute Eye Dysfunction,consult doctor,rest,drink fluids,medication
+Metabolic Eye Tumor,consult doctor,rest,drink fluids,medication
+Allergic Liver Damage,consult doctor,rest,drink fluids,medication
+Autoimmune Muscle Tumor,consult doctor,rest,drink fluids,medication
+Acute Skin Inflammation,consult doctor,rest,drink fluids,medication
+Chronic Intestine Calculus,consult doctor,rest,drink fluids,medication
+Viral Nerve Disorder,consult doctor,rest,drink fluids,medication
+Autoimmune Skin Inflammation,consult doctor,rest,drink fluids,medication
+Chronic Intestine Pain,consult doctor,rest,drink fluids,medication
+Bacterial Intestine Calculus,consult doctor,rest,drink fluids,medication
+Bacterial Muscle Damage,consult doctor,rest,drink fluids,medication
+Autoimmune Muscle Failure,consult doctor,rest,drink fluids,medication
+Chronic Muscle Disease,consult doctor,rest,drink fluids,medication
+Mild Blood Tumor,consult doctor,rest,drink fluids,medication
+Traumatic Throat Degeneration,consult doctor,rest,drink fluids,medication
+Autoimmune Heart Damage,consult doctor,rest,drink fluids,medication
+Traumatic Bone Failure,consult doctor,rest,drink fluids,medication
+Mild Skin Calculus,consult doctor,rest,drink fluids,medication
+Septic Skin Congestion,consult doctor,rest,drink fluids,medication
+Metabolic Stomach Syndrome,consult doctor,rest,drink fluids,medication
+Viral Ear Dysfunction,consult doctor,rest,drink fluids,medication
+Fungal Throat Pain,consult doctor,rest,drink fluids,medication
+Autoimmune Intestine Dysfunction,consult doctor,rest,drink fluids,medication
+Chronic Heart Tumor,consult doctor,rest,drink fluids,medication
+Mild Skin Pain,consult doctor,rest,drink fluids,medication
+Allergic Kidney Dysfunction,consult doctor,rest,drink fluids,medication
+Autoimmune Muscle Syndrome,consult doctor,rest,drink fluids,medication
+Autoimmune Heart Congestion,consult doctor,rest,drink fluids,medication
+Severe Intestine Congestion,consult doctor,rest,drink fluids,medication
+Hereditary Muscle Failure,consult doctor,rest,drink fluids,medication
+Fungal Bone Failure,consult doctor,rest,drink fluids,medication
+Mild Eye Congestion,consult doctor,rest,drink fluids,medication
+Hereditary Joint Tumor,consult doctor,rest,drink fluids,medication
+Rubella (Acute),consult specialist,monitor vitals,follow Rubella protocols,rest
+Hepatitis B (Severe),consult specialist,monitor vitals,follow Hepatitis B protocols,rest
+Whooping Cough (Severe),consult specialist,monitor vitals,follow Whooping Cough protocols,rest
+Insomnia (Chronic),consult specialist,monitor vitals,follow Insomnia protocols,rest
+Hypothyroidism (Acute),consult specialist,monitor vitals,follow Hypothyroidism protocols,rest
+Urinary tract infection (Severe),consult specialist,monitor vitals,follow Urinary tract infection protocols,rest
+Chronic cholestasis (Severe),consult specialist,monitor vitals,follow Chronic cholestasis protocols,rest
+Measles (Stage 1),consult specialist,monitor vitals,follow Measles protocols,rest
+Heart attack (Chronic),consult specialist,monitor vitals,follow Heart attack protocols,rest
+Fungal infection (Chronic),consult specialist,monitor vitals,follow Fungal infection protocols,rest
+Hernia (Severe),consult specialist,monitor vitals,follow Hernia protocols,rest
+Tetanus (Mild),consult specialist,monitor vitals,follow Tetanus protocols,rest
+Ebola (Stage 1),consult specialist,monitor vitals,follow Ebola protocols,rest
+Gallstones (Acute),consult specialist,monitor vitals,follow Gallstones protocols,rest
+Liver Cirrhosis (Severe),consult specialist,monitor vitals,follow Liver Cirrhosis protocols,rest
+Migraine (Mild),consult specialist,monitor vitals,follow Migraine protocols,rest
+Psoriasis (Severe),consult specialist,monitor vitals,follow Psoriasis protocols,rest
+Varicose veins (Acute),consult specialist,monitor vitals,follow Varicose veins protocols,rest
+AIDS (Mild),consult specialist,monitor vitals,follow AIDS protocols,rest
+Dengue (Severe),consult specialist,monitor vitals,follow Dengue protocols,rest
+Hepatitis D (Stage 1),consult specialist,monitor vitals,follow Hepatitis D protocols,rest
+Depression (Mild),consult specialist,monitor vitals,follow Depression protocols,rest
+Eczema (Mild),consult specialist,monitor vitals,follow Eczema protocols,rest
+Rosacea (Mild),consult specialist,monitor vitals,follow Rosacea protocols,rest
+Fungal infection (Stage 1),consult specialist,monitor vitals,follow Fungal infection protocols,rest
+Alcoholic hepatitis (Chronic),consult specialist,monitor vitals,follow Alcoholic hepatitis protocols,rest
+Cholera (Chronic),consult specialist,monitor vitals,follow Cholera protocols,rest
+Tetanus,consult specialist,monitor vitals,follow Tetanus protocols,rest
+Ringworm (Stage 1),consult specialist,monitor vitals,follow Ringworm protocols,rest
+Jaundice (Mild),consult specialist,monitor vitals,follow Jaundice protocols,rest
+Rabies,consult specialist,monitor vitals,follow Rabies protocols,rest
+Cervical spondylosis (Mild),consult specialist,monitor vitals,follow Cervical spondylosis protocols,rest
+Bronchial Asthma (Severe),consult specialist,monitor vitals,follow Bronchial Asthma protocols,rest
+Gastroenteritis (Stage 1),consult specialist,monitor vitals,follow Gastroenteritis protocols,rest
+Depression (Severe),consult specialist,monitor vitals,follow Depression protocols,rest
+Hepatitis B (Acute),consult specialist,monitor vitals,follow Hepatitis B protocols,rest
+COVID-19 (Acute),consult specialist,monitor vitals,follow COVID-19 protocols,rest
+Zika Virus (Acute),consult specialist,monitor vitals,follow Zika Virus protocols,rest
+Arthritis (Acute),consult specialist,monitor vitals,follow Arthritis protocols,rest
+hepatitis A (Severe),consult specialist,monitor vitals,follow hepatitis A protocols,rest
+Diabetes  (Stage 1),consult specialist,monitor vitals,follow Diabetes protocols,rest
+Hypertension (High BP) (Acute),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Zika Virus (Severe),consult specialist,monitor vitals,follow Zika Virus protocols,rest
+(vertigo) Paroymsal  Positional Vertigo (Acute),consult specialist,monitor vitals,follow  protocols,rest
+Pancreatitis (Acute),consult specialist,monitor vitals,follow Pancreatitis protocols,rest
+Depression (Acute),consult specialist,monitor vitals,follow Depression protocols,rest
+Peptic ulcer diseae (Severe),consult specialist,monitor vitals,follow Peptic ulcer diseae protocols,rest
+Urinary tract infection (Acute),consult specialist,monitor vitals,follow Urinary tract infection protocols,rest
+Hypertension  (Stage 1),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Typhoid (Chronic),consult specialist,monitor vitals,follow Typhoid protocols,rest
+Cervical spondylosis (Chronic),consult specialist,monitor vitals,follow Cervical spondylosis protocols,rest
+Ringworm (Acute),consult specialist,monitor vitals,follow Ringworm protocols,rest
+Malaria (Acute),consult specialist,monitor vitals,follow Malaria protocols,rest
+Appendicitis (Acute),consult specialist,monitor vitals,follow Appendicitis protocols,rest
+Conjunctivitis (Pink Eye) (Severe),consult specialist,monitor vitals,follow Conjunctivitis protocols,rest
+Eczema (Severe),consult specialist,monitor vitals,follow Eczema protocols,rest
+Fibromyalgia (Severe),consult specialist,monitor vitals,follow Fibromyalgia protocols,rest
+Bronchial Asthma (Stage 1),consult specialist,monitor vitals,follow Bronchial Asthma protocols,rest
+Rabies (Mild),consult specialist,monitor vitals,follow Rabies protocols,rest
+Impetigo (Severe),consult specialist,monitor vitals,follow Impetigo protocols,rest
+Hypertension  (Mild),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Lyme Disease (Acute),consult specialist,monitor vitals,follow Lyme Disease protocols,rest
+Fungal infection (Acute),consult specialist,monitor vitals,follow Fungal infection protocols,rest
+Typhoid (Severe),consult specialist,monitor vitals,follow Typhoid protocols,rest
+Lyme Disease (Chronic),consult specialist,monitor vitals,follow Lyme Disease protocols,rest
+Anxiety Disorder (Chronic),consult specialist,monitor vitals,follow Anxiety Disorder protocols,rest
+Jaundice (Severe),consult specialist,monitor vitals,follow Jaundice protocols,rest
+Hyperthyroidism (Chronic),consult specialist,monitor vitals,follow Hyperthyroidism protocols,rest
+Stroke (Mild),consult specialist,monitor vitals,follow Stroke protocols,rest
+Influenza (Chronic),consult specialist,monitor vitals,follow Influenza protocols,rest
+Hypoglycemia (Acute),consult specialist,monitor vitals,follow Hypoglycemia protocols,rest
+Lyme Disease (Severe),consult specialist,monitor vitals,follow Lyme Disease protocols,rest
+Osteoarthristis (Mild),consult specialist,monitor vitals,follow Osteoarthristis protocols,rest
+Fibromyalgia (Acute),consult specialist,monitor vitals,follow Fibromyalgia protocols,rest
+Hernia,consult specialist,monitor vitals,follow Hernia protocols,rest
+Common Cold (Severe),consult specialist,monitor vitals,follow Common Cold protocols,rest
+Varicose veins (Stage 1),consult specialist,monitor vitals,follow Varicose veins protocols,rest
+Kidney Stones (Chronic),consult specialist,monitor vitals,follow Kidney Stones protocols,rest
+hepatitis A (Acute),consult specialist,monitor vitals,follow hepatitis A protocols,rest
+Diphtheria,consult specialist,monitor vitals,follow Diphtheria protocols,rest
+Gastroenteritis (Chronic),consult specialist,monitor vitals,follow Gastroenteritis protocols,rest
+Varicose veins (Severe),consult specialist,monitor vitals,follow Varicose veins protocols,rest
+Paralysis (brain hemorrhage) (Severe),consult specialist,monitor vitals,follow Paralysis protocols,rest
+Rosacea (Acute),consult specialist,monitor vitals,follow Rosacea protocols,rest
+Kidney Stones,consult specialist,monitor vitals,follow Kidney Stones protocols,rest
+Rabies (Stage 1),consult specialist,monitor vitals,follow Rabies protocols,rest
+Varicose veins (Chronic),consult specialist,monitor vitals,follow Varicose veins protocols,rest
+Mumps (Stage 1),consult specialist,monitor vitals,follow Mumps protocols,rest
+Melanoma (Mild),consult specialist,monitor vitals,follow Melanoma protocols,rest
+Hepatitis D (Chronic),consult specialist,monitor vitals,follow Hepatitis D protocols,rest
+Heart attack (Severe),consult specialist,monitor vitals,follow Heart attack protocols,rest
+Drug Reaction (Chronic),consult specialist,monitor vitals,follow Drug Reaction protocols,rest
+Tuberculosis (Severe),consult specialist,monitor vitals,follow Tuberculosis protocols,rest
+Measles (Acute),consult specialist,monitor vitals,follow Measles protocols,rest
+Fibromyalgia,consult specialist,monitor vitals,follow Fibromyalgia protocols,rest
+Acne (Severe),consult specialist,monitor vitals,follow Acne protocols,rest
+Dengue (Mild),consult specialist,monitor vitals,follow Dengue protocols,rest
+Fungal infection (Severe),consult specialist,monitor vitals,follow Fungal infection protocols,rest
+Osteoporosis (Chronic),consult specialist,monitor vitals,follow Osteoporosis protocols,rest
+Peptic ulcer diseae (Chronic),consult specialist,monitor vitals,follow Peptic ulcer diseae protocols,rest
+Measles (Chronic),consult specialist,monitor vitals,follow Measles protocols,rest
+Hypoglycemia (Chronic),consult specialist,monitor vitals,follow Hypoglycemia protocols,rest
+Hypertension (Acute),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Hepatitis B (Stage 1),consult specialist,monitor vitals,follow Hepatitis B protocols,rest
+Diabetes  (Mild),consult specialist,monitor vitals,follow Diabetes protocols,rest
+Chronic cholestasis (Stage 1),consult specialist,monitor vitals,follow Chronic cholestasis protocols,rest
+Mumps (Chronic),consult specialist,monitor vitals,follow Mumps protocols,rest
+Arthritis (Mild),consult specialist,monitor vitals,follow Arthritis protocols,rest
+GERD (Mild),consult specialist,monitor vitals,follow GERD protocols,rest
+Eczema,consult specialist,monitor vitals,follow Eczema protocols,rest
+Whooping Cough (Mild),consult specialist,monitor vitals,follow Whooping Cough protocols,rest
+Eczema (Stage 1),consult specialist,monitor vitals,follow Eczema protocols,rest
+Tonsillitis (Severe),consult specialist,monitor vitals,follow Tonsillitis protocols,rest
+Hepatitis D (Acute),consult specialist,monitor vitals,follow Hepatitis D protocols,rest
+Measles (Mild),consult specialist,monitor vitals,follow Measles protocols,rest
+Lyme Disease (Stage 1),consult specialist,monitor vitals,follow Lyme Disease protocols,rest
+Sinusitis,consult specialist,monitor vitals,follow Sinusitis protocols,rest
+Diabetes  (Chronic),consult specialist,monitor vitals,follow Diabetes protocols,rest
+Anxiety Disorder (Acute),consult specialist,monitor vitals,follow Anxiety Disorder protocols,rest
+Osteoporosis (Severe),consult specialist,monitor vitals,follow Osteoporosis protocols,rest
+Insomnia (Mild),consult specialist,monitor vitals,follow Insomnia protocols,rest
+Fibromyalgia (Mild),consult specialist,monitor vitals,follow Fibromyalgia protocols,rest
+hepatitis A (Chronic),consult specialist,monitor vitals,follow hepatitis A protocols,rest
+Urinary Tract Infection (UTI) (Stage 1),consult specialist,monitor vitals,follow Urinary Tract Infection protocols,rest
+Hepatitis D (Severe),consult specialist,monitor vitals,follow Hepatitis D protocols,rest
+Hernia (Chronic),consult specialist,monitor vitals,follow Hernia protocols,rest
+Lyme Disease (Mild),consult specialist,monitor vitals,follow Lyme Disease protocols,rest
+Common Cold (Mild),consult specialist,monitor vitals,follow Common Cold protocols,rest
+Typhoid (Acute),consult specialist,monitor vitals,follow Typhoid protocols,rest
+Glaucoma (Severe),consult specialist,monitor vitals,follow Glaucoma protocols,rest
+Osteoporosis,consult specialist,monitor vitals,follow Osteoporosis protocols,rest
+Allergy (Stage 1),consult specialist,monitor vitals,follow Allergy protocols,rest
+Chicken pox (Acute),consult specialist,monitor vitals,follow Chicken pox protocols,rest
+Anemia,consult specialist,monitor vitals,follow Anemia protocols,rest
+Bronchitis (Severe),consult specialist,monitor vitals,follow Bronchitis protocols,rest
+Typhoid (Stage 1),consult specialist,monitor vitals,follow Typhoid protocols,rest
+Melanoma (Chronic),consult specialist,monitor vitals,follow Melanoma protocols,rest
+Hypertension ,consult specialist,monitor vitals,follow Hypertension protocols,rest
+Rosacea (Stage 1),consult specialist,monitor vitals,follow Rosacea protocols,rest
+Hypertension (High BP),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Dengue (Chronic),consult specialist,monitor vitals,follow Dengue protocols,rest
+Heart attack (Stage 1),consult specialist,monitor vitals,follow Heart attack protocols,rest
+Ringworm (Chronic),consult specialist,monitor vitals,follow Ringworm protocols,rest
+Common Cold (Chronic),consult specialist,monitor vitals,follow Common Cold protocols,rest
+Osteoarthristis (Chronic),consult specialist,monitor vitals,follow Osteoarthristis protocols,rest
+Food Poisoning (Stage 1),consult specialist,monitor vitals,follow Food Poisoning protocols,rest
+Bronchitis (Stage 1),consult specialist,monitor vitals,follow Bronchitis protocols,rest
+Conjunctivitis (Pink Eye) (Mild),consult specialist,monitor vitals,follow Conjunctivitis protocols,rest
+Glaucoma,consult specialist,monitor vitals,follow Glaucoma protocols,rest
+Alcoholic hepatitis (Mild),consult specialist,monitor vitals,follow Alcoholic hepatitis protocols,rest
+Hypertension (Chronic),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Migraine (Severe),consult specialist,monitor vitals,follow Migraine protocols,rest
+Hyperthyroidism (Stage 1),consult specialist,monitor vitals,follow Hyperthyroidism protocols,rest
+Viral Fever (Stage 1),consult specialist,monitor vitals,follow Viral Fever protocols,rest
+Rubella (Stage 1),consult specialist,monitor vitals,follow Rubella protocols,rest
+hepatitis A (Stage 1),consult specialist,monitor vitals,follow hepatitis A protocols,rest
+Eczema (Chronic),consult specialist,monitor vitals,follow Eczema protocols,rest
+Hepatitis E (Chronic),consult specialist,monitor vitals,follow Hepatitis E protocols,rest
+Influenza (Severe),consult specialist,monitor vitals,follow Influenza protocols,rest
+Urinary Tract Infection (UTI) (Chronic),consult specialist,monitor vitals,follow Urinary Tract Infection protocols,rest
+Eczema (Acute),consult specialist,monitor vitals,follow Eczema protocols,rest
+Tonsillitis (Stage 1),consult specialist,monitor vitals,follow Tonsillitis protocols,rest
+Gout (Mild),consult specialist,monitor vitals,follow Gout protocols,rest
+Bronchitis (Mild),consult specialist,monitor vitals,follow Bronchitis protocols,rest
+Pancreatitis (Mild),consult specialist,monitor vitals,follow Pancreatitis protocols,rest
+Hepatitis C (Acute),consult specialist,monitor vitals,follow Hepatitis C protocols,rest
+COVID-19 (Mild),consult specialist,monitor vitals,follow COVID-19 protocols,rest
+Bronchitis (Chronic),consult specialist,monitor vitals,follow Bronchitis protocols,rest
+Zika Virus,consult specialist,monitor vitals,follow Zika Virus protocols,rest
+Depression,consult specialist,monitor vitals,follow Depression protocols,rest
+Rosacea,consult specialist,monitor vitals,follow Rosacea protocols,rest
+Chronic cholestasis (Chronic),consult specialist,monitor vitals,follow Chronic cholestasis protocols,rest
+Hypertension (Severe),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Whooping Cough,consult specialist,monitor vitals,follow Whooping Cough protocols,rest
+Pneumonia (Acute),consult specialist,monitor vitals,follow Pneumonia protocols,rest
+Pneumonia (Chronic),consult specialist,monitor vitals,follow Pneumonia protocols,rest
+Jaundice (Chronic),consult specialist,monitor vitals,follow Jaundice protocols,rest
+Tonsillitis (Chronic),consult specialist,monitor vitals,follow Tonsillitis protocols,rest
+Chicken pox (Mild),consult specialist,monitor vitals,follow Chicken pox protocols,rest
+Stroke (Severe),consult specialist,monitor vitals,follow Stroke protocols,rest
+Tonsillitis (Mild),consult specialist,monitor vitals,follow Tonsillitis protocols,rest
+Cataracts (Severe),consult specialist,monitor vitals,follow Cataracts protocols,rest
+Gallstones (Chronic),consult specialist,monitor vitals,follow Gallstones protocols,rest
+Rosacea (Severe),consult specialist,monitor vitals,follow Rosacea protocols,rest
+AIDS (Chronic),consult specialist,monitor vitals,follow AIDS protocols,rest
+Cervical spondylosis (Stage 1),consult specialist,monitor vitals,follow Cervical spondylosis protocols,rest
+Anxiety Disorder (Mild),consult specialist,monitor vitals,follow Anxiety Disorder protocols,rest
+Chicken pox (Severe),consult specialist,monitor vitals,follow Chicken pox protocols,rest
+Psoriasis (Acute),consult specialist,monitor vitals,follow Psoriasis protocols,rest
+COVID-19 (Chronic),consult specialist,monitor vitals,follow COVID-19 protocols,rest
+Peptic ulcer diseae (Mild),consult specialist,monitor vitals,follow Peptic ulcer diseae protocols,rest
+Acne (Chronic),consult specialist,monitor vitals,follow Acne protocols,rest
+Drug Reaction (Stage 1),consult specialist,monitor vitals,follow Drug Reaction protocols,rest
+Otitis Media (Ear Infection),consult specialist,monitor vitals,follow Otitis Media protocols,rest
+Ebola (Severe),consult specialist,monitor vitals,follow Ebola protocols,rest
+Mumps (Severe),consult specialist,monitor vitals,follow Mumps protocols,rest
+Hypertension  (Acute),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Gastroenteritis (Acute),consult specialist,monitor vitals,follow Gastroenteritis protocols,rest
+Hypertension (High BP) (Stage 1),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Bronchial Asthma (Chronic),consult specialist,monitor vitals,follow Bronchial Asthma protocols,rest
+Influenza (Acute),consult specialist,monitor vitals,follow Influenza protocols,rest
+Gout (Stage 1),consult specialist,monitor vitals,follow Gout protocols,rest
+Bronchitis,consult specialist,monitor vitals,follow Bronchitis protocols,rest
+Fibromyalgia (Chronic),consult specialist,monitor vitals,follow Fibromyalgia protocols,rest
+COVID-19 (Severe),consult specialist,monitor vitals,follow COVID-19 protocols,rest
+Peptic ulcer diseae (Stage 1),consult specialist,monitor vitals,follow Peptic ulcer diseae protocols,rest
+Liver Cirrhosis,consult specialist,monitor vitals,follow Liver Cirrhosis protocols,rest
+Cervical spondylosis (Acute),consult specialist,monitor vitals,follow Cervical spondylosis protocols,rest
+Osteoporosis (Mild),consult specialist,monitor vitals,follow Osteoporosis protocols,rest
+Dimorphic hemmorhoids(piles) (Acute),consult specialist,monitor vitals,follow Dimorphic hemmorhoids protocols,rest
+Acne (Stage 1),consult specialist,monitor vitals,follow Acne protocols,rest
+Food Poisoning (Acute),consult specialist,monitor vitals,follow Food Poisoning protocols,rest
+Appendicitis,consult specialist,monitor vitals,follow Appendicitis protocols,rest
+Tuberculosis (Mild),consult specialist,monitor vitals,follow Tuberculosis protocols,rest
+Heart attack (Acute),consult specialist,monitor vitals,follow Heart attack protocols,rest
+Cataracts (Chronic),consult specialist,monitor vitals,follow Cataracts protocols,rest
+Arthritis (Severe),consult specialist,monitor vitals,follow Arthritis protocols,rest
+Dimorphic hemmorhoids(piles),consult specialist,monitor vitals,follow Dimorphic hemmorhoids protocols,rest
+Conjunctivitis (Pink Eye) (Chronic),consult specialist,monitor vitals,follow Conjunctivitis protocols,rest
+Cervical spondylosis (Severe),consult specialist,monitor vitals,follow Cervical spondylosis protocols,rest
+Scabies,consult specialist,monitor vitals,follow Scabies protocols,rest
+Ebola (Mild),consult specialist,monitor vitals,follow Ebola protocols,rest
+Dengue (Stage 1),consult specialist,monitor vitals,follow Dengue protocols,rest
+Hernia (Stage 1),consult specialist,monitor vitals,follow Hernia protocols,rest
+Hepatitis B (Mild),consult specialist,monitor vitals,follow Hepatitis B protocols,rest
+Acne (Mild),consult specialist,monitor vitals,follow Acne protocols,rest
+Liver Cirrhosis (Chronic),consult specialist,monitor vitals,follow Liver Cirrhosis protocols,rest
+Melanoma,consult specialist,monitor vitals,follow Melanoma protocols,rest
+GERD (Acute),consult specialist,monitor vitals,follow GERD protocols,rest
+Anemia (Chronic),consult specialist,monitor vitals,follow Anemia protocols,rest
+Migraine (Acute),consult specialist,monitor vitals,follow Migraine protocols,rest
+Chronic cholestasis (Mild),consult specialist,monitor vitals,follow Chronic cholestasis protocols,rest
+Paralysis (brain hemorrhage) (Acute),consult specialist,monitor vitals,follow Paralysis protocols,rest
+Alcoholic hepatitis (Acute),consult specialist,monitor vitals,follow Alcoholic hepatitis protocols,rest
+Gallstones (Severe),consult specialist,monitor vitals,follow Gallstones protocols,rest
+Scabies (Mild),consult specialist,monitor vitals,follow Scabies protocols,rest
+Malaria (Severe),consult specialist,monitor vitals,follow Malaria protocols,rest
+Cholera (Acute),consult specialist,monitor vitals,follow Cholera protocols,rest
+Impetigo (Stage 1),consult specialist,monitor vitals,follow Impetigo protocols,rest
+Hyperthyroidism (Severe),consult specialist,monitor vitals,follow Hyperthyroidism protocols,rest
+Scabies (Stage 1),consult specialist,monitor vitals,follow Scabies protocols,rest
+Viral Fever (Chronic),consult specialist,monitor vitals,follow Viral Fever protocols,rest
+Food Poisoning (Severe),consult specialist,monitor vitals,follow Food Poisoning protocols,rest
+Tonsillitis,consult specialist,monitor vitals,follow Tonsillitis protocols,rest
+Diabetes  (Acute),consult specialist,monitor vitals,follow Diabetes protocols,rest
+Appendicitis (Mild),consult specialist,monitor vitals,follow Appendicitis protocols,rest
+Pneumonia (Stage 1),consult specialist,monitor vitals,follow Pneumonia protocols,rest
+Common Cold (Acute),consult specialist,monitor vitals,follow Common Cold protocols,rest
+Bronchial Asthma (Mild),consult specialist,monitor vitals,follow Bronchial Asthma protocols,rest
+Urinary tract infection (Stage 1),consult specialist,monitor vitals,follow Urinary tract infection protocols,rest
+Malaria (Mild),consult specialist,monitor vitals,follow Malaria protocols,rest
+Viral Fever (Severe),consult specialist,monitor vitals,follow Viral Fever protocols,rest
+Scabies (Chronic),consult specialist,monitor vitals,follow Scabies protocols,rest
+Diphtheria (Chronic),consult specialist,monitor vitals,follow Diphtheria protocols,rest
+Hepatitis C (Chronic),consult specialist,monitor vitals,follow Hepatitis C protocols,rest
+Jaundice (Acute),consult specialist,monitor vitals,follow Jaundice protocols,rest
+Cataracts (Stage 1),consult specialist,monitor vitals,follow Cataracts protocols,rest
+GERD (Stage 1),consult specialist,monitor vitals,follow GERD protocols,rest
+Anemia (Mild),consult specialist,monitor vitals,follow Anemia protocols,rest
+Viral Fever,consult specialist,monitor vitals,follow Viral Fever protocols,rest
+Mumps (Acute),consult specialist,monitor vitals,follow Mumps protocols,rest
+Rubella (Chronic),consult specialist,monitor vitals,follow Rubella protocols,rest
+AIDS (Acute),consult specialist,monitor vitals,follow AIDS protocols,rest
+Arthritis (Stage 1),consult specialist,monitor vitals,follow Arthritis protocols,rest
+Paralysis (brain hemorrhage) (Mild),consult specialist,monitor vitals,follow Paralysis protocols,rest
+Influenza (Mild),consult specialist,monitor vitals,follow Influenza protocols,rest
+Paralysis (brain hemorrhage) (Stage 1),consult specialist,monitor vitals,follow Paralysis protocols,rest
+Urinary Tract Infection (UTI) (Acute),consult specialist,monitor vitals,follow Urinary Tract Infection protocols,rest
+Hypertension (Stage 1),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Urinary Tract Infection (UTI),consult specialist,monitor vitals,follow Urinary Tract Infection protocols,rest
+Hepatitis C (Stage 1),consult specialist,monitor vitals,follow Hepatitis C protocols,rest
+Urinary Tract Infection (UTI) (Severe),consult specialist,monitor vitals,follow Urinary Tract Infection protocols,rest
+Liver Cirrhosis (Mild),consult specialist,monitor vitals,follow Liver Cirrhosis protocols,rest
+Gallstones (Stage 1),consult specialist,monitor vitals,follow Gallstones protocols,rest
+Glaucoma (Mild),consult specialist,monitor vitals,follow Glaucoma protocols,rest
+Rubella (Mild),consult specialist,monitor vitals,follow Rubella protocols,rest
+Viral Fever (Mild),consult specialist,monitor vitals,follow Viral Fever protocols,rest
+Paralysis (brain hemorrhage) (Chronic),consult specialist,monitor vitals,follow Paralysis protocols,rest
+Zika Virus (Stage 1),consult specialist,monitor vitals,follow Zika Virus protocols,rest
+Common Cold (Stage 1),consult specialist,monitor vitals,follow Common Cold protocols,rest
+Urinary tract infection (Chronic),consult specialist,monitor vitals,follow Urinary tract infection protocols,rest
+Cataracts (Mild),consult specialist,monitor vitals,follow Cataracts protocols,rest
+Cholera (Severe),consult specialist,monitor vitals,follow Cholera protocols,rest
+Hypothyroidism (Mild),consult specialist,monitor vitals,follow Hypothyroidism protocols,rest
+Cataracts,consult specialist,monitor vitals,follow Cataracts protocols,rest
+Appendicitis (Stage 1),consult specialist,monitor vitals,follow Appendicitis protocols,rest
+Chronic cholestasis (Acute),consult specialist,monitor vitals,follow Chronic cholestasis protocols,rest
+Appendicitis (Chronic),consult specialist,monitor vitals,follow Appendicitis protocols,rest
+Ringworm (Mild),consult specialist,monitor vitals,follow Ringworm protocols,rest
+Hypoglycemia (Stage 1),consult specialist,monitor vitals,follow Hypoglycemia protocols,rest
+Migraine (Stage 1),consult specialist,monitor vitals,follow Migraine protocols,rest
+Chicken pox (Stage 1),consult specialist,monitor vitals,follow Chicken pox protocols,rest
+hepatitis A (Mild),consult specialist,monitor vitals,follow hepatitis A protocols,rest
+Tetanus (Chronic),consult specialist,monitor vitals,follow Tetanus protocols,rest
+Viral Fever (Acute),consult specialist,monitor vitals,follow Viral Fever protocols,rest
+Mumps,consult specialist,monitor vitals,follow Mumps protocols,rest
+Hypothyroidism (Stage 1),consult specialist,monitor vitals,follow Hypothyroidism protocols,rest
+Conjunctivitis (Pink Eye),consult specialist,monitor vitals,follow Conjunctivitis protocols,rest
+Diphtheria (Stage 1),consult specialist,monitor vitals,follow Diphtheria protocols,rest
+Typhoid (Mild),consult specialist,monitor vitals,follow Typhoid protocols,rest
+Alcoholic hepatitis (Severe),consult specialist,monitor vitals,follow Alcoholic hepatitis protocols,rest
+(vertigo) Paroymsal  Positional Vertigo (Severe),consult specialist,monitor vitals,follow  protocols,rest
+Influenza (Stage 1),consult specialist,monitor vitals,follow Influenza protocols,rest
+Insomnia (Severe),consult specialist,monitor vitals,follow Insomnia protocols,rest
+Hypertension  (Chronic),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Insomnia (Stage 1),consult specialist,monitor vitals,follow Insomnia protocols,rest
+Tetanus (Stage 1),consult specialist,monitor vitals,follow Tetanus protocols,rest
+Bronchitis (Acute),consult specialist,monitor vitals,follow Bronchitis protocols,rest
+Zika Virus (Mild),consult specialist,monitor vitals,follow Zika Virus protocols,rest
+Psoriasis (Stage 1),consult specialist,monitor vitals,follow Psoriasis protocols,rest
+Ebola,consult specialist,monitor vitals,follow Ebola protocols,rest
+Tonsillitis (Acute),consult specialist,monitor vitals,follow Tonsillitis protocols,rest
+Gastroenteritis (Severe),consult specialist,monitor vitals,follow Gastroenteritis protocols,rest
+Hypoglycemia (Severe),consult specialist,monitor vitals,follow Hypoglycemia protocols,rest
+Dimorphic hemmorhoids(piles) (Mild),consult specialist,monitor vitals,follow Dimorphic hemmorhoids protocols,rest
+Impetigo (Mild),consult specialist,monitor vitals,follow Impetigo protocols,rest
+Anemia (Severe),consult specialist,monitor vitals,follow Anemia protocols,rest
+Bronchial Asthma (Acute),consult specialist,monitor vitals,follow Bronchial Asthma protocols,rest
+Diphtheria (Severe),consult specialist,monitor vitals,follow Diphtheria protocols,rest
+GERD (Chronic),consult specialist,monitor vitals,follow GERD protocols,rest
+Allergy (Severe),consult specialist,monitor vitals,follow Allergy protocols,rest
+Dimorphic hemmorhoids(piles) (Severe),consult specialist,monitor vitals,follow Dimorphic hemmorhoids protocols,rest
+(vertigo) Paroymsal  Positional Vertigo (Stage 1),consult specialist,monitor vitals,follow  protocols,rest
+Rubella (Severe),consult specialist,monitor vitals,follow Rubella protocols,rest
+Kidney Stones (Mild),consult specialist,monitor vitals,follow Kidney Stones protocols,rest
+Glaucoma (Acute),consult specialist,monitor vitals,follow Glaucoma protocols,rest
+Pancreatitis (Severe),consult specialist,monitor vitals,follow Pancreatitis protocols,rest
+Hyperthyroidism (Mild),consult specialist,monitor vitals,follow Hyperthyroidism protocols,rest
+Rabies (Acute),consult specialist,monitor vitals,follow Rabies protocols,rest
+Impetigo (Chronic),consult specialist,monitor vitals,follow Impetigo protocols,rest
+Zika Virus (Chronic),consult specialist,monitor vitals,follow Zika Virus protocols,rest
+Hypertension (High BP) (Severe),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Food Poisoning (Mild),consult specialist,monitor vitals,follow Food Poisoning protocols,rest
+Hypothyroidism (Chronic),consult specialist,monitor vitals,follow Hypothyroidism protocols,rest
+Gout,consult specialist,monitor vitals,follow Gout protocols,rest
+Hepatitis E (Mild),consult specialist,monitor vitals,follow Hepatitis E protocols,rest
+Heart attack (Mild),consult specialist,monitor vitals,follow Heart attack protocols,rest
+Tetanus (Severe),consult specialist,monitor vitals,follow Tetanus protocols,rest
+Hypoglycemia (Mild),consult specialist,monitor vitals,follow Hypoglycemia protocols,rest
+Pancreatitis,consult specialist,monitor vitals,follow Pancreatitis protocols,rest
+Hypertension  (Severe),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Urinary Tract Infection (UTI) (Mild),consult specialist,monitor vitals,follow Urinary Tract Infection protocols,rest
+Scabies (Severe),consult specialist,monitor vitals,follow Scabies protocols,rest
+Food Poisoning (Chronic),consult specialist,monitor vitals,follow Food Poisoning protocols,rest
+Kidney Stones (Acute),consult specialist,monitor vitals,follow Kidney Stones protocols,rest
+Alcoholic hepatitis (Stage 1),consult specialist,monitor vitals,follow Alcoholic hepatitis protocols,rest
+COVID-19 (Stage 1),consult specialist,monitor vitals,follow COVID-19 protocols,rest
+Pneumonia (Mild),consult specialist,monitor vitals,follow Pneumonia protocols,rest
+Pancreatitis (Chronic),consult specialist,monitor vitals,follow Pancreatitis protocols,rest
+AIDS (Stage 1),consult specialist,monitor vitals,follow AIDS protocols,rest
+Mumps (Mild),consult specialist,monitor vitals,follow Mumps protocols,rest
+Stroke,consult specialist,monitor vitals,follow Stroke protocols,rest
+Ebola (Chronic),consult specialist,monitor vitals,follow Ebola protocols,rest
+Jaundice (Stage 1),consult specialist,monitor vitals,follow Jaundice protocols,rest
+Dengue (Acute),consult specialist,monitor vitals,follow Dengue protocols,rest
+(vertigo) Paroymsal  Positional Vertigo (Mild),consult specialist,monitor vitals,follow  protocols,rest
+Glaucoma (Chronic),consult specialist,monitor vitals,follow Glaucoma protocols,rest
+Osteoarthristis (Stage 1),consult specialist,monitor vitals,follow Osteoarthristis protocols,rest
+Arthritis (Chronic),consult specialist,monitor vitals,follow Arthritis protocols,rest
+Kidney Stones (Stage 1),consult specialist,monitor vitals,follow Kidney Stones protocols,rest
+Hypertension (High BP) (Mild),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Hypertension (High BP) (Chronic),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Liver Cirrhosis (Acute),consult specialist,monitor vitals,follow Liver Cirrhosis protocols,rest
+Stroke (Chronic),consult specialist,monitor vitals,follow Stroke protocols,rest
+Diphtheria (Mild),consult specialist,monitor vitals,follow Diphtheria protocols,rest
+Conjunctivitis (Pink Eye) (Stage 1),consult specialist,monitor vitals,follow Conjunctivitis protocols,rest
+Hepatitis E (Severe),consult specialist,monitor vitals,follow Hepatitis E protocols,rest
+Hepatitis E (Acute),consult specialist,monitor vitals,follow Hepatitis E protocols,rest
+Malaria (Chronic),consult specialist,monitor vitals,follow Malaria protocols,rest
+Tetanus (Acute),consult specialist,monitor vitals,follow Tetanus protocols,rest
+Pancreatitis (Stage 1),consult specialist,monitor vitals,follow Pancreatitis protocols,rest
+Glaucoma (Stage 1),consult specialist,monitor vitals,follow Glaucoma protocols,rest
+Anxiety Disorder,consult specialist,monitor vitals,follow Anxiety Disorder protocols,rest
+Cholera (Stage 1),consult specialist,monitor vitals,follow Cholera protocols,rest
+Insomnia,consult specialist,monitor vitals,follow Insomnia protocols,rest
+(vertigo) Paroymsal  Positional Vertigo (Chronic),consult specialist,monitor vitals,follow  protocols,rest
+Rubella,consult specialist,monitor vitals,follow Rubella protocols,rest
+Tuberculosis (Chronic),consult specialist,monitor vitals,follow Tuberculosis protocols,rest
+Melanoma (Severe),consult specialist,monitor vitals,follow Melanoma protocols,rest
+Peptic ulcer diseae (Acute),consult specialist,monitor vitals,follow Peptic ulcer diseae protocols,rest
+Lyme Disease,consult specialist,monitor vitals,follow Lyme Disease protocols,rest
+Hypothyroidism (Severe),consult specialist,monitor vitals,follow Hypothyroidism protocols,rest
+Ebola (Acute),consult specialist,monitor vitals,follow Ebola protocols,rest
+Hernia (Acute),consult specialist,monitor vitals,follow Hernia protocols,rest
+Food Poisoning,consult specialist,monitor vitals,follow Food Poisoning protocols,rest
+Malaria (Stage 1),consult specialist,monitor vitals,follow Malaria protocols,rest
+Stroke (Stage 1),consult specialist,monitor vitals,follow Stroke protocols,rest
+Migraine (Chronic),consult specialist,monitor vitals,follow Migraine protocols,rest
+Measles (Severe),consult specialist,monitor vitals,follow Measles protocols,rest
+Drug Reaction (Severe),consult specialist,monitor vitals,follow Drug Reaction protocols,rest
+GERD (Severe),consult specialist,monitor vitals,follow GERD protocols,rest
+Hernia (Mild),consult specialist,monitor vitals,follow Hernia protocols,rest
+Osteoarthristis (Severe),consult specialist,monitor vitals,follow Osteoarthristis protocols,rest
+Allergy (Acute),consult specialist,monitor vitals,follow Allergy protocols,rest
+Whooping Cough (Stage 1),consult specialist,monitor vitals,follow Whooping Cough protocols,rest
+Scabies (Acute),consult specialist,monitor vitals,follow Scabies protocols,rest
+Osteoporosis (Acute),consult specialist,monitor vitals,follow Osteoporosis protocols,rest
+Tuberculosis (Stage 1),consult specialist,monitor vitals,follow Tuberculosis protocols,rest
+Cataracts (Acute),consult specialist,monitor vitals,follow Cataracts protocols,rest
+Dimorphic hemmorhoids(piles) (Stage 1),consult specialist,monitor vitals,follow Dimorphic hemmorhoids protocols,rest
+Rabies (Chronic),consult specialist,monitor vitals,follow Rabies protocols,rest
+Hepatitis B (Chronic),consult specialist,monitor vitals,follow Hepatitis B protocols,rest
+Conjunctivitis (Pink Eye) (Acute),consult specialist,monitor vitals,follow Conjunctivitis protocols,rest
+Influenza,consult specialist,monitor vitals,follow Influenza protocols,rest
+Appendicitis (Severe),consult specialist,monitor vitals,follow Appendicitis protocols,rest
+Hepatitis D (Mild),consult specialist,monitor vitals,follow Hepatitis D protocols,rest
+Depression (Chronic),consult specialist,monitor vitals,follow Depression protocols,rest
+Acne (Acute),consult specialist,monitor vitals,follow Acne protocols,rest
+Gallstones (Mild),consult specialist,monitor vitals,follow Gallstones protocols,rest
+Rabies (Severe),consult specialist,monitor vitals,follow Rabies protocols,rest
+Diphtheria (Acute),consult specialist,monitor vitals,follow Diphtheria protocols,rest
+Melanoma (Acute),consult specialist,monitor vitals,follow Melanoma protocols,rest
+Gout (Chronic),consult specialist,monitor vitals,follow Gout protocols,rest
+Hypertension (Mild),consult specialist,monitor vitals,follow Hypertension protocols,rest
+Dimorphic hemmorhoids(piles) (Chronic),consult specialist,monitor vitals,follow Dimorphic hemmorhoids protocols,rest
+Whooping Cough (Acute),consult specialist,monitor vitals,follow Whooping Cough protocols,rest
+Gout (Severe),consult specialist,monitor vitals,follow Gout protocols,rest
+Osteoarthristis (Acute),consult specialist,monitor vitals,follow Osteoarthristis protocols,rest
+Osteoporosis (Stage 1),consult specialist,monitor vitals,follow Osteoporosis protocols,rest
+Depression (Stage 1),consult specialist,monitor vitals,follow Depression protocols,rest
+Rosacea (Chronic),consult specialist,monitor vitals,follow Rosacea protocols,rest
+Melanoma (Stage 1),consult specialist,monitor vitals,follow Melanoma protocols,rest
+Kidney Stones (Severe),consult specialist,monitor vitals,follow Kidney Stones protocols,rest
+Diabetes ,consult specialist,monitor vitals,follow Diabetes protocols,rest
+Allergy (Mild),consult specialist,monitor vitals,follow Allergy protocols,rest
+Insomnia (Acute),consult specialist,monitor vitals,follow Insomnia protocols,rest
+Impetigo (Acute),consult specialist,monitor vitals,follow Impetigo protocols,rest
+Diabetes  (Severe),consult specialist,monitor vitals,follow Diabetes protocols,rest
+Gastroenteritis (Mild),consult specialist,monitor vitals,follow Gastroenteritis protocols,rest
+Anemia (Stage 1),consult specialist,monitor vitals,follow Anemia protocols,rest
+Ringworm,consult specialist,monitor vitals,follow Ringworm protocols,rest
+Fibromyalgia (Stage 1),consult specialist,monitor vitals,follow Fibromyalgia protocols,rest
+Fungal infection (Mild),consult specialist,monitor vitals,follow Fungal infection protocols,rest
+Cholera (Mild),consult specialist,monitor vitals,follow Cholera protocols,rest
+Whooping Cough (Chronic),consult specialist,monitor vitals,follow Whooping Cough protocols,rest
+Hepatitis E (Stage 1),consult specialist,monitor vitals,follow Hepatitis E protocols,rest
+Liver Cirrhosis (Stage 1),consult specialist,monitor vitals,follow Liver Cirrhosis protocols,rest
+Psoriasis (Chronic),consult specialist,monitor vitals,follow Psoriasis protocols,rest
+Anxiety Disorder (Stage 1),consult specialist,monitor vitals,follow Anxiety Disorder protocols,rest
+Ringworm (Severe),consult specialist,monitor vitals,follow Ringworm protocols,rest
+Varicose veins (Mild),consult specialist,monitor vitals,follow Varicose veins protocols,rest
+AIDS (Severe),consult specialist,monitor vitals,follow AIDS protocols,rest
+Gallstones,consult specialist,monitor vitals,follow Gallstones protocols,rest
+Pneumonia (Severe),consult specialist,monitor vitals,follow Pneumonia protocols,rest
+Chicken pox (Chronic),consult specialist,monitor vitals,follow Chicken pox protocols,rest
+Drug Reaction (Mild),consult specialist,monitor vitals,follow Drug Reaction protocols,rest
+Psoriasis (Mild),consult specialist,monitor vitals,follow Psoriasis protocols,rest
+Allergy (Chronic),consult specialist,monitor vitals,follow Allergy protocols,rest
+Anxiety Disorder (Severe),consult specialist,monitor vitals,follow Anxiety Disorder protocols,rest
+Hepatitis C (Severe),consult specialist,monitor vitals,follow Hepatitis C protocols,rest
+Anemia (Acute),consult specialist,monitor vitals,follow Anemia protocols,rest
+Urinary tract infection (Mild),consult specialist,monitor vitals,follow Urinary tract infection protocols,rest
+Drug Reaction (Acute),consult specialist,monitor vitals,follow Drug Reaction protocols,rest
+Gout (Acute),consult specialist,monitor vitals,follow Gout protocols,rest
+Hepatitis C (Mild),consult specialist,monitor vitals,follow Hepatitis C protocols,rest
+Hyperthyroidism (Acute),consult specialist,monitor vitals,follow Hyperthyroidism protocols,rest
+Tuberculosis (Acute),consult specialist,monitor vitals,follow Tuberculosis protocols,rest
+Stroke (Acute),consult specialist,monitor vitals,follow Stroke protocols,rest
+Chikungunya,consult government hospital,stay hydrated,rest,monitor temperature
+Scrub Typhus,consult government hospital,stay hydrated,rest,monitor temperature
+Leptospirosis,consult government hospital,stay hydrated,rest,monitor temperature
+Filariasis,consult government hospital,stay hydrated,rest,monitor temperature
+Madras Eye (Conjunctivitis),consult government hospital,stay hydrated,rest,monitor temperature
+Heat Stroke,consult government hospital,stay hydrated,rest,monitor temperature
+Diabetic Foot Ulcer,consult government hospital,stay hydrated,rest,monitor temperature
+Iron Deficiency Anemia,consult government hospital,stay hydrated,rest,monitor temperature
