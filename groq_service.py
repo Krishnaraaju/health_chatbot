@@ -75,7 +75,7 @@ def get_ai_explanation(disease_name, language="English"):
         "messages": [
             {"role": "user", "content": prompt}
         ],
-        "model": "llama-3.1-8b-instant", 
+        "model": "llama-3.3-70b-versatile", 
         "temperature": 0.5,
         "max_tokens": 200
     }
@@ -93,25 +93,35 @@ def get_ai_explanation(disease_name, language="English"):
         return None
 
 
-def translate_to_english(text, source_language):
+def translate_to_english(text, source_language="Auto"):
     """
     Translates user input to English for the ML model.
+    Auto-detects language if set to 'Auto'.
     """
-    print(f"Translating from {source_language}: {text}...")
+    print(f"Translating ({source_language}): {text}...")
     
-    if source_language == "Tamil":
-        text_map = {
-            "காய்ச்சல்": "fever",
-            "தலைவலி": "headache",
-            "வாந்தி": "vomiting",
-            "இருமல்": "cough",
-            "சளி": "cold",
-            "வயிற்று வலி": "stomach pain"
-        }
-        for k, v in text_map.items():
-            if k in text:
-                text = text.replace(k, v)
-                return text
+    # 0. Local Map (Expanded for common tanglish/hinglish)
+    local_map = {
+        "kaichal": "fever",
+        "juram": "fever",
+        "bukhar": "fever",
+        "sardi": "cold",
+        "irumal": "cough",
+        "khansi": "cough",
+        "pet dard": "stomach pain",
+        "vayitru vali": "stomach pain",
+        "sar dard": "headache",
+        "thalai vali": "headache"
+    }
+    
+    # Check whole phrase or words
+    if text.lower() in local_map:
+        return local_map[text.lower()]
+        
+    for k, v in local_map.items():
+        if k in text.lower():
+            # Simple replace might be dangerous for partial matches, but okay for these specific keys
+            text = text.lower().replace(k, v)
 
     if not API_KEY:
         print("Skipping translation (No API Key)")
@@ -122,21 +132,36 @@ def translate_to_english(text, source_language):
         "Content-Type": "application/json"
     }
     
-    prompt = f"""Translate the following {source_language} health query into simple English keywords.
-    Original: "{text}"
-    Translation (English only, no extra text):"""
+    # Universal Prompt
+    prompt = f"""Task: Translate this health query to simple English medical keywords.
+    Input Text: "{text}"
+    Context: User might be using English, Tanglish, Hinglish, or native scripts.
+    
+    Instructions:
+    1. If the input is a GREETING (e.g., 'epdi iruka', 'kaisan ba') or GENERAL CONVERSATION, output exactly: "NO_SYMPTOMS"
+    2. Otherwise, extract core symptoms and translate to English medical terms.
+    3. Output ONLY the keywords or "NO_SYMPTOMS"."""
     
     data = {
         "messages": [{"role": "user", "content": prompt}],
-        "model": "llama3-8b-8192",
+        "model": "llama-3.3-70b-versatile",
         "temperature": 0.0
     }
     
     try:
         response = requests.post(API_URL, headers=headers, json=data)
+        if response.status_code == 400:
+             print(f"Translation 400 Error: {response.text}")
         response.raise_for_status()
         result = response.json()
         translation = result['choices'][0]['message']['content'].strip()
+        
+        # Cleanup
+        translation = translation.replace('"', '').replace("'", "").rstrip(".")
+        
+        if "NO_SYMPTOMS" in translation:
+            return None
+            
         print(f"Translated: {translation}")
         return translation
     except Exception as e:

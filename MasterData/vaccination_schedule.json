@@ -1,0 +1,42 @@
+[
+  {
+    "age": "At Birth",
+    "vaccines": ["BCG", "OPV-0", "Hepatitis B-0"]
+  },
+  {
+    "age": "6 Weeks",
+    "vaccines": ["OPV-1", "Pentavalent-1", "Rotavirus-1", "IPV-1", "PCV-1"]
+  },
+  {
+    "age": "10 Weeks",
+    "vaccines": ["OPV-2", "Pentavalent-2", "Rotavirus-2"]
+  },
+  {
+    "age": "14 Weeks",
+    "vaccines": ["OPV-3", "Pentavalent-3", "Rotavirus-3", "IPV-2", "PCV-2"]
+  },
+  {
+    "age": "9-12 Months",
+    "vaccines": ["Measles-Rubella (MR)-1", "JE-1", "PCV-Booster"]
+  },
+  {
+    "age": "16-24 Months",
+    "vaccines": ["Measles-Rubella (MR)-2", "JE-2", "DPT-Booster-1", "OPV-Booster"]
+  },
+  {
+    "age": "5-6 Years",
+    "vaccines": ["DPT-Booster-2"]
+  },
+  {
+    "age": "10 Years",
+    "vaccines": ["TT (Tetanus Toxoid) / Td"]
+  },
+  {
+    "age": "16 Years",
+    "vaccines": ["TT (Tetanus Toxoid) / Td"]
+  },
+  {
+    "age": "Pregnant Women",
+    "vaccines": ["TT-1", "TT-2 / Booster"]
+  }
+]
