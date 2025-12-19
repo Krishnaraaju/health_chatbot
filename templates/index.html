@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swasthya Sahayak | AI Health Assistant</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon_1.svg') }}" type="image/svg+xml">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
 </head>
 
 <body>
@@ -26,7 +31,8 @@
                 </div>
             </div>
             <div style="display: flex; gap: 10px; align-items: center;">
-                <button id="wa-toggle" title="WhatsApp Mode" style="background:none; border:none; cursor:pointer; font-size:1.2rem; color:var(--primary);">
+                <button id="wa-toggle" title="WhatsApp Mode"
+                    style="background:none; border:none; cursor:pointer; font-size:1.2rem; color:var(--primary);">
                     <i class="fa-brands fa-whatsapp"></i>
                 </button>
                 <select id="lang-select">
@@ -68,7 +74,8 @@
         <!-- Input -->
         <div class="input-area">
             <div class="input-wrapper">
-                <input type="text" id="userInput" placeholder="Type symptoms here..." onkeypress="handleKeyPress(event)" autocomplete="off">
+                <input type="text" id="userInput" placeholder="Type symptoms here..." onkeypress="handleKeyPress(event)"
+                    autocomplete="off">
             </div>
             <button class="send-btn" onclick="sendMessage()">
                 <i class="fa-solid fa-paper-plane"></i>
@@ -145,4 +152,5 @@
         }
     </script>
 </body>
+
 </html>

@@ -1,0 +1,44 @@
+/* --- RESPONSIVE DESIGN --- */
+
+/* Mobile Devices (Portrait) */
+@media screen and (max-width: 480px) {
+    .app-container {
+        width: 100%;
+        height: 100vh;
+        max-width: 100%;
+        border-radius: 0;
+        border: none;
+    }
+
+    .glass-header {
+        padding: 10px 15px;
+    }
+
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .brand-text h1 {
+        font-size: 1rem;
+    }
+
+    .chat-body {
+        padding: 15px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+}
+
+/* Tablets & Small Laptops */
+@media screen and (max-width: 768px) {
+    .app-container {
+        height: 100vh;
+        /* Full height on smaller screens */
+        max-width: 100%;
+        border-radius: 0;
+    }
+}
