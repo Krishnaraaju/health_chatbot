@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swasthya Sahayak | Your AI Health Companion</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon_1.svg') }}" type="image/svg+xml">
+
+    <!-- Fonts & Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+</head>
+
+<body class="home-page">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <i class="fa-solid fa-heart-pulse"></i> Swasthya Sahayak
+        </a>
+
+        <!-- GLOBAL TRANSLATION WIDGET -->
+        <div id="google_translate_element"></div>
+
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,hi,ta,te,kn,ml,bn,gu,mr,pa,ur,or',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false
+                }, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">About</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Expert Health Advice,<br><span>Instant & AI-Powered.</span></h1>
+            <p>Experience the future of healthcare. Get accurate symptom analysis, vaccination schedules, and
+                multilingual support instantly.</p>
+            <a class="cta-btn" onclick="document.body.classList.toggle('show-chatbot')">Start Chatting</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://img.freepik.com/free-vector/medical-video-call-consultation-illustration_88138-415.jpg"
+                alt="Health AI">
+        </div>
+    </section>
+
+    <!-- REAL-TIME ALERTS SECTION -->
+    {% if alerts %}
+    <section class="alerts-section" style="background:#fff3cd; padding:10px 5%; border-bottom:1px solid #ffeeba;">
+        <div style="display:flex; align-items:center;">
+            <span style="color:#856404; font-weight:bold; margin-right:15px; white-space:nowrap;">
+                <i class="fa-solid fa-triangle-exclamation"></i> Health Alerts:
+            </span>
+            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+                {% for alert in alerts %}
+                <a href="{{ alert.link }}" target="_blank"
+                    style="color:#856404; text-decoration:none; margin-right:40px;">
+                    <b>{{ alert.source }}:</b> {{ alert.title }}
+                </a>
+                {% endfor %}
+            </marquee>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Chatbot Toggler Button -->
+    <button class="chatbot-toggler">
+        <span class="material-symbols-rounded"><i class="fa-solid fa-comment-medical"></i></span>
+        <span class="material-symbols-rounded"><i class="fa-solid fa-xmark"></i></span>
+    </button>
+
+    <!-- Chatbot Widget (The Brain) -->
+    <div class="chatbot-widget">
+        <!-- Reusing the existing chat structure -->
+        <div class="glass-header">
+            <div class="brand">
+                <div class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <div class="brand-text">
+                    <h1 id="app-title">Swasthya Sahayak</h1>
+                    <p id="app-subtitle">Online</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <button id="wa-toggle" title="WhatsApp Mode"
+                    style="background:none; border:none; cursor:pointer; font-size:1.2rem; color:var(--primary);">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </button>
+                <select id="lang-select">
+                    <option value="English">English</option>
+                    <option value="Tamil">Tamil (தமிழ்)</option>
+                    <option value="Hindi">Hindi (हिंदी)</option>
+                    <option value="Odia">Odia (ଓଡ଼ିଆ)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="chat-body" id="chatBody">
+            <div class="message bot-msg">
+                <div class="message-content">
+                    <b>Namaste! 🙏</b><br>
+                    I am your personal AI Health Assistant.<br><br>
+                    Please tell me what symptoms you are experiencing.
+                </div>
+            </div>
+        </div>
+
+        <div class="typing" id="typingIndicator" style="margin-left: 20px;">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="chips-container">
+            <div class="chip" onclick="addText('High Fever')">High Fever 🤒</div>
+            <div class="chip" onclick="addText('Headache')">Headache 🤕</div>
+            <div class="chip" onclick="addText('Skin Rash')">Skin Rash 🔴</div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-wrapper">
+                <input type="text" id="userInput" placeholder="Type here..." onkeypress="handleKeyPress(event)"
+                    autocomplete="off">
+            </div>
+            <button class="send-btn" onclick="sendMessage()">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Logic Script (Copied from index.html) -->
+    <script>
+        const chatBody = document.getElementById('chatBody');
+        const userInput = document.getElementById('userInput');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const waToggle = document.getElementById('wa-toggle');
+        const toggler = document.querySelector(".chatbot-toggler");
+
+        // Toggle Chatbot
+        toggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+        // Toggle WhatsApp Mode
+        waToggle.addEventListener('click', () => {
+            document.querySelector('.chatbot-widget').classList.toggle('whatsapp-mode');
+            // Basic UI Update
+            const isWa = document.querySelector('.chatbot-widget').classList.contains('whatsapp-mode');
+            document.querySelector('.chatbot-widget .glass-header').style.background = isWa ? '#075E54' : '';
+        });
+
+        function addText(text) {
+            userInput.value = text;
+            userInput.focus();
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+
+        function scrollToBottom() {
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function appendMessage(content, sender) {
+            const div = document.createElement('div');
+            div.className = `message ${sender}-msg`;
+            div.innerHTML = `<div class="message-content">${content}</div>`;
+            chatBody.appendChild(div);
+            scrollToBottom();
+        }
+
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            appendMessage(text, 'user');
+            userInput.value = '';
+
+            typingIndicator.style.display = 'flex';
+            scrollToBottom();
+
+            try {
+                const lang = document.getElementById('lang-select').value;
+                const response = await fetch('/get_response', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `msg=${encodeURIComponent(text)}&lang=${encodeURIComponent(lang)}`
+                });
+
+                const data = await response.json();
+                typingIndicator.style.display = 'none';
+                appendMessage(data.response, 'bot');
+
+            } catch (error) {
+                typingIndicator.style.display = 'none';
+                appendMessage("⚠️ Network error. Please try again.", 'bot');
+            }
+        }
+    </script>
+</body>
+
+</html>

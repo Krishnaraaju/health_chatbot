@@ -12,8 +12,8 @@ from dotenv import load_dotenv
 # Load env vars
 load_dotenv()
 
-from groq_service import get_ai_explanation, translate_to_english # New Cloud AI
-
+from groq_service import get_ai_explanation, translate_to_english, translate_message
+from alert_service import get_health_alerts
 
 app = Flask(__name__)
 
@@ -46,12 +46,22 @@ def load_artifacts():
     global ml_model, encoder, feature_names, description_dict, precaution_dict, disease_list, vaccine_schedule
     try:
         print("Loading System Core...")
-        ml_model = joblib.load(MODEL_PATH)
-        encoder = joblib.load(ENCODER_PATH)
-        with open(FEATURES_PATH, 'r') as f:
+        
+        # 1. Load Features FIRST (Critical for parsing)
+        with open(FEATURES_PATH, 'r', encoding='utf-8') as f:
             feature_names = json.load(f)
+        print(f"DEBUG: Loaded {len(feature_names)} features.")
+
+        # 2. Load Models
+        try:
+            ml_model = joblib.load(MODEL_PATH)
+            encoder = joblib.load(ENCODER_PATH)
+            print("DEBUG: ML Model & Encoder loaded successfully.")
+        except Exception as e_model:
+            print(f"CRITICAL ERROR LOADING MODEL: {e_model}")
+            ml_model = None
             
-        # 1. Load Descriptions
+        # 3. Load Descriptions
         desc_path = os.path.join(DATA_DIR, "symptom_Description.csv")
         try:
             desc_df = pd.read_csv(desc_path, header=None, on_bad_lines='skip')
@@ -64,7 +74,7 @@ def load_artifacts():
         description_dict = {str(row[0]).strip().lower(): str(row[1]) for index, row in desc_df.iterrows()}
         disease_list = list(description_dict.keys())
         
-        # 2. Load Precautions
+        # 4. Load Precautions
         prec_path = os.path.join(DATA_DIR, "symptom_precaution.csv")
         try:
             prec_df = pd.read_csv(prec_path, header=None, on_bad_lines='skip')
@@ -79,16 +89,16 @@ def load_artifacts():
             d_name = str(row[0]).strip().lower()
             precaution_dict[d_name] = [str(x) for x in row[1:] if pd.notna(x)]
 
-        # 3. Load Vaccination Schedule
+        # 5. Load Vaccination Schedule
         vac_path = os.path.join(DATA_DIR, "vaccination_schedule.json")
         if os.path.exists(vac_path):
-            with open(vac_path, 'r') as f:
+            with open(vac_path, 'r', encoding='utf-8') as f:
                 vaccine_schedule = json.load(f)
             
-        print(f"System Ready. Loaded {len(disease_list)} diseases and Vaccine Database.")
+        print(f"System Ready. Loaded {len(disease_list)} diseases.")
 
     except Exception as e:
-        print(f"CRITICAL ERROR: {e}")
+        print(f"CRITICAL SYSTEM FAILURE: {e}")
 
 load_artifacts()
 
@@ -126,16 +136,34 @@ def predict_from_symptoms(text):
     detected = []
     
     # 1. Detect New Symptoms
+    if ml_model:
+        import sklearn
+        print(f"DEBUG: Sklearn Version: {sklearn.__version__}")
+        
+    print(f"DEBUG: Processing Input: '{text}'")
     sorted_features = sorted(feature_names, key=len, reverse=True)
     for feature in sorted_features:
         readable = feature.replace("_", " ")
         if readable in text or feature in text:
             detected.append(feature)
+            # print(f"MATCH: {feature}") # Comment out to avoid spam, but useful if needed
             
-    print(f"DEBUG: Msg='{text}' | Detected={detected}")
+    print(f"DEBUG PREDICT: UserInput='{text}' | DetectedCount={len(detected)} | ModelLoaded={ml_model is not None}")
+    
+    if not detected and "headache" in text:
+        print("CRITICAL: 'headache' matches nothing! Checking features...")
+        if "headache" in feature_names:
+            print(" -> 'headache' IS in feature_names.")
+        else:
+            print(" -> 'headache' IS NOT in feature_names.")
 
     if not detected:
         return None, None, [], []
+        
+    # Check Model Health
+    if ml_model is None:
+        print("ERROR: Attempted prediction with failed model.")
+        return "Internal Error: AI Model failed to load.", 0.0, detected, []
 
     # 3. Predict on Combined
     input_dict = {name: 0 for name in feature_names}
@@ -163,7 +191,8 @@ def predict_from_symptoms(text):
 # --- ROUTES ---
 @app.route("/")
 def home():
-    return render_template("index.html")
+    alerts = get_health_alerts()
+    return render_template("landing.html", alerts=alerts)
 
 @app.route("/get_response", methods=["POST"])
 @app.route("/get_response", methods=["POST"])
@@ -242,11 +271,17 @@ def get_response():
             </ul>
         </div>
         """
+        
+        # TRANSLATE RESPONSE
+        if lang != "English":
+            # Translate content (simple stripping of tags might be safer, but deep-translator handles chunks ok)
+            html = translate_message(html, lang)
+            
         return jsonify({"response": html})
 
-    # B. Prediction Mode
+    # B. Information Retrieval Mode (Safe Response)
     if not prediction_result or not prediction_result[0]:
-         return jsonify({"response": "I didn't catch any symptoms provided. Could you describe your health issue?"})
+         return jsonify({"response": "I didn't catch any specific symptoms. Could you describe your health issue?"})
 
     disease, conf, symptoms, top_3 = prediction_result
     
@@ -259,30 +294,37 @@ def get_response():
 
     # Pretty print symptoms (Just from current message)
     symptom_tags = "".join([f"<span style='background:#dfe6e9; padding:2px 5px; border-radius:4px; margin-right:5px; font-size:0.8rem;'>{s.replace('_',' ')}</span>" for s in symptoms])
-
-    # Format Top 3
+    
+    # Safe "Related Conditions" display instead of "Possible Condition"
     alternatives_html = ""
     if len(top_3) > 1:
-        alternatives_html = "<div style='margin-top:10px; padding-top:10px; border-top:1px solid #eee; font-size:0.8rem;'><b>Other Possibilities:</b><br>"
+        alternatives_html = "<div style='margin-top:10px; padding-top:10px; border-top:1px solid #eee; font-size:0.8rem;'><b>Also relevant:</b><br>"
         for d, p in top_3[1:]:
-            alternatives_html += f"<span>• {d} ({p:.0f}%)</span><br>"
+             # Hiding confidence scores, just showing names
+            alternatives_html += f"<span>• {d}</span><br>"
         alternatives_html += "</div>"
 
     html = f"""
     <div class='diagnosis-card'>
-        <div class='diagnosis-title'>Possible Condition: {disease}</div>
+        <div class='diagnosis-title'>topic: {disease}</div>
         <div style='margin-bottom:10px;'>{symptom_tags}</div>
         <p>{desc}</p>
-        <div class='section-title'>Recommended Actions</div>
+        <div class='section-title'>General Advice</div>
         <ul class='precautions-list'>
             {''.join([f"<li>{p.title()}</li>" for p in precautions])}
         </ul>
         {alternatives_html}
-        <div style='font-size:0.7rem; color:#888; margin-top:10px;'>
-            Match Confidence: {conf:.1f}%
+        
+        <div style='margin-top:15px; padding:10px; background:#fff3cd; border:1px solid #ffeeba; border-radius:5px; font-size:0.75rem; color:#856404;'>
+            ⚠️ <b>Note:</b> This is information, not a medical diagnosis. Please consult a doctor for advice.
         </div>
     </div>
     """
+    
+    # TRANSLATE RESPONSE
+    if lang != "English":
+        html = translate_message(html, lang)
+
     return jsonify({"response": html})
 
 
