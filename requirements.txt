@@ -7,3 +7,5 @@ python-dotenv
 requests
 groq
 gunicorn
+deep-translator
+feedparser

@@ -62,14 +62,19 @@ def get_ai_explanation(disease_name, language="English"):
         "Content-Type": "application/json"
     }
     
-    prompt = f"""You are Swasthya Sahayak, a compassionate medical AI.
-    The user has been recognized with specific symptoms matching: "{disease_name}".
+    prompt = f"""You are Swasthya Sahayak, a helpful medical informational AI.
+    The user is asking about symptoms that are commonly associated with: "{disease_name}".
     
     1. Explain "{disease_name}" in simple, easy-to-understand {language}.
-    2. Provide 3-4 distinct numeric bullet points for critical precautions/home remedies in {language}.
+    2. Provide 3-4 distinct numeric bullet points for general care in {language}.
     3. Be brief but informative (max 100 words).
     
-    Do not mention you are an AI. Just give the helpful information."""
+    CRITICAL SAFETY RULES:
+    - NEVER say "You have {disease_name}".
+    - NEVER say "I diagnose you with...".
+    - ALWAYS say "These symptoms are often associated with..." or "This condition is..."
+    - Do not give specific dosage instructions.
+    - Mention that this is for information only."""
     
     data = {
         "messages": [
@@ -93,10 +98,11 @@ def get_ai_explanation(disease_name, language="English"):
         return None
 
 
-def translate_to_english(text, source_language="Auto"):
+from deep_translator import GoogleTranslator
+
+def translate_to_english(text, source_language="auto"):
     """
-    Translates user input to English for the ML model.
-    Auto-detects language if set to 'Auto'.
+    Translates user input to English using Google Translate (deep-translator).
     """
     print(f"Translating ({source_language}): {text}...")
     
@@ -114,56 +120,41 @@ def translate_to_english(text, source_language="Auto"):
         "thalai vali": "headache"
     }
     
-    # Check whole phrase or words
     if text.lower() in local_map:
         return local_map[text.lower()]
         
-    for k, v in local_map.items():
-        if k in text.lower():
-            # Simple replace might be dangerous for partial matches, but okay for these specific keys
-            text = text.lower().replace(k, v)
-
-    if not API_KEY:
-        print("Skipping translation (No API Key)")
-        return text
-
-    headers = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json"
-    }
-    
-    # Universal Prompt
-    prompt = f"""Task: Translate this health query to simple English medical keywords.
-    Input Text: "{text}"
-    Context: User might be using English, Tanglish, Hinglish, or native scripts.
-    
-    Instructions:
-    1. If the input is a GREETING (e.g., 'epdi iruka', 'kaisan ba') or GENERAL CONVERSATION, output exactly: "NO_SYMPTOMS"
-    2. Otherwise, extract core symptoms and translate to English medical terms.
-    3. Output ONLY the keywords or "NO_SYMPTOMS"."""
-    
-    data = {
-        "messages": [{"role": "user", "content": prompt}],
-        "model": "llama-3.3-70b-versatile",
-        "temperature": 0.0
-    }
-    
     try:
-        response = requests.post(API_URL, headers=headers, json=data)
-        if response.status_code == 400:
-             print(f"Translation 400 Error: {response.text}")
-        response.raise_for_status()
-        result = response.json()
-        translation = result['choices'][0]['message']['content'].strip()
-        
-        # Cleanup
-        translation = translation.replace('"', '').replace("'", "").rstrip(".")
-        
-        if "NO_SYMPTOMS" in translation:
-            return None
-            
-        print(f"Translated: {translation}")
+        # Google Translate
+        translator = GoogleTranslator(source='auto', target='en')
+        translation = translator.translate(text)
+        print(f"Google Translated: '{text}' -> '{translation}'")
         return translation
     except Exception as e:
         print(f"Translation Error: {e}")
+        return text
+
+def translate_message(text, target_lang):
+    """
+    Translates English response to User Language using Google Translate.
+    """
+    if target_lang == "English": return text
+    
+    # Map friendly names to ISO codes
+    lang_map = {
+        "Tamil": "ta",
+        "Hindi": "hi",
+        "Odia": "or",
+        "Telugu": "te",
+        "Malayalam": "ml",
+        "Kannada": "kn"
+    }
+    iso_code = lang_map.get(target_lang, "en")
+    
+    try:
+        translator = GoogleTranslator(source='en', target=iso_code)
+        # Handle HTML tags loosely (deep-translator maintains them mostly)
+        translation = translator.translate(text)
+        return translation
+    except Exception as e:
+        print(f"Response Translation Error: {e}")
         return text

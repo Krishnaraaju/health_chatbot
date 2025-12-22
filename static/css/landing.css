@@ -1,0 +1,422 @@
+/* --- LANDING PAGE & WIDGET SUPPORT --- */
+body.home-page {
+    display: block;
+    /* Override flex center from style.css */
+    overflow-y: auto;
+    background: #f8f9fa;
+    height: auto;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #f8f9fa;
+    /* Mint Cream to match Hero */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    /* Stronger shadow */
+    border-bottom: 2px solid var(--primary);
+    /* Accent border */
+}
+
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* Space between links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 100px 5%;
+    gap: 50px;
+    min-height: 85vh;
+    /* Attractive Gradient Background */
+    background: linear-gradient(135deg, #e3fdfd 0%, #ffe6fa 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Shapes (Optional for premium look) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: rgba(0, 184, 148, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.hero-content span {
+    color: var(--primary);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--primary);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0, 184, 148, 0.3);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0, 184, 148, 0.4);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px rgba(0, 184, 148, 0.1);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Chatbot Toggler (FAB) */
+.chatbot-toggler {
+    position: fixed;
+    bottom: 30px;
+    right: 35px;
+    border: none;
+    outline: none;
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.chatbot-toggler:hover {
+    transform: scale(1.1);
+}
+
+.chatbot-toggler span {
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.chatbot-toggler span:last-child {
+    opacity: 0;
+}
+
+body.show-chatbot .chatbot-toggler span:first-child {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+body.show-chatbot .chatbot-toggler span:last-child {
+    opacity: 1;
+    transform: rotate(0);
+}
+
+/* Chatbot Widget (Popup) */
+.chatbot-widget {
+    position: fixed;
+    right: 35px;
+    bottom: 100px;
+    width: 420px;
+    height: 600px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.5);
+    transform-origin: bottom right;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy effect */
+    z-index: 998;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.show-chatbot .chatbot-widget {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+}
+
+/* Adjust Widget Header */
+.chatbot-widget .glass-header {
+    background: var(--primary) !important;
+    /* Solid colored header for widget */
+    color: white;
+    border-radius: 0;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chatbot-widget .brand-text h1 {
+    color: white !important;
+}
+
+.chatbot-widget .brand-text p {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.chatbot-widget .logo-icon {
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: none !important;
+    width: 35px;
+    height: 35px;
+}
+
+.chatbot-widget #wa-toggle {
+    color: white !important;
+}
+
+/* Responsive Widget */
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablet & Mobile (Max Width 768px) */
+@media screen and (max-width: 768px) {
+
+    /* Navbar Adjustment */
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        margin-left: 0;
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    #google_translate_element {
+        margin: 10px 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Hero Section */
+    .hero {
+        flex-direction: column-reverse;
+        padding: 40px 5%;
+        text-align: center;
+        min-height: auto;
+        gap: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cta-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Alerts Section */
+    .alerts-section div {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    .alerts-section span {
+        margin-bottom: 5px;
+    }
+
+    /* Chatbot Widget (Full Screen on Mobile) */
+    .chatbot-widget {
+        width: 100%;
+        height: 100%;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+        z-index: 2000;
+        /* Ensure on top */
+    }
+
+    .chatbot-toggler {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+}
+
+/* Small Mobile (Max Width 480px) */
+@media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+}
+
+/* --- GOOGLE TRANSLATE CUSTOMIZATION --- */
+
+/* Hide the giant Google Banner at the top */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0px !important;
+}
+
+/* Container spacing */
+#google_translate_element {
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Hide the "Powered by Google" text/logo */
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+    font-size: 0 !important;
+    /* Hides text */
+}
+
+/* Restore font size for dropdown */
+.goog-te-gadget .goog-te-combo {
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}
+
+/* Hide the G Icon */
+.goog-te-gadget .goog-te-gadget-icon {
+    display: none !important;
+    background: none !important;
+}
+
+/* Style the Dropdown */
+.goog-te-combo {
+    color: var(--text-main);
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.goog-te-combo:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 8px rgba(0, 184, 148, 0.2);
+}
+
+/* Hide annoying tooltips */
+.goog-tooltip {
+    display: none !important;
+}
+
+.goog-tooltip:hover {
+    display: none !important;
+}
+
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
