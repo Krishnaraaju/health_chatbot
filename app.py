@@ -52,9 +52,11 @@ def retrain_model_runtime():
         import pandas as pd
         
         # Try primary training file then fallback
-        csv_path = os.path.join(DATA_DIR, "Training_TN.csv")
+        # FIX: Training data is in 'Data' folder, not 'MasterData'
+        TRAIN_DIR = os.path.join(BASE_DIR, "Data")
+        csv_path = os.path.join(TRAIN_DIR, "Training_TN.csv")
         if not os.path.exists(csv_path):
-             csv_path = os.path.join(DATA_DIR, "dataset.csv")
+             csv_path = os.path.join(TRAIN_DIR, "dataset.csv")
              
         if not os.path.exists(csv_path):
             print("CRITICAL: No training data found!")
