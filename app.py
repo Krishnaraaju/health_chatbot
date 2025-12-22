@@ -42,24 +42,66 @@ vaccine_schedule = []
 # user_sessions = {}  # REMOVED: Stateless by default
 
 # --- LOAD RESOURCES ---
+# --- LOAD RESOURCES ---
+def retrain_model_runtime():
+    """Fallback: Retrains the model on the server if pickle loading fails."""
+    try:
+        print("⚠️ DEBUG: Starting Runtime Retraining...")
+        from sklearn.tree import DecisionTreeClassifier
+        from sklearn.preprocessing import LabelEncoder
+        import pandas as pd
+        
+        # Try primary training file then fallback
+        csv_path = os.path.join(DATA_DIR, "Training_TN.csv")
+        if not os.path.exists(csv_path):
+             csv_path = os.path.join(DATA_DIR, "dataset.csv")
+             
+        if not os.path.exists(csv_path):
+            print("CRITICAL: No training data found!")
+            return None, None, []
+
+        df = pd.read_csv(csv_path)
+        X = df.iloc[:, :-1]
+        y = df.iloc[:, -1]
+        
+        le = LabelEncoder()
+        y_enc = le.fit_transform(y)
+        
+        model = DecisionTreeClassifier(criterion='entropy', random_state=42)
+        model.fit(X, y_enc)
+        
+        print(f"DEBUG: Runtime Training Complete. Classes={len(le.classes_)}")
+        return model, le, list(X.columns)
+        
+    except Exception as e:
+        print(f"CRITICAL: Runtime Retraining Failed: {e}")
+        return None, None, []
+
 def load_artifacts():
     global ml_model, encoder, feature_names, description_dict, precaution_dict, disease_list, vaccine_schedule
     try:
         print("Loading System Core...")
         
-        # 1. Load Features FIRST (Critical for parsing)
-        with open(FEATURES_PATH, 'r', encoding='utf-8') as f:
-            feature_names = json.load(f)
-        print(f"DEBUG: Loaded {len(feature_names)} features.")
+        # 1. Load Features FIRST
+        try:
+            with open(FEATURES_PATH, 'r', encoding='utf-8') as f:
+                feature_names = json.load(f)
+            print(f"DEBUG: Loaded {len(feature_names)} features from file.")
+        except:
+            print("DEBUG: Features file missing. Will attempt regeneration.")
 
-        # 2. Load Models
+        # 2. Load Models with FALLBACK
         try:
             ml_model = joblib.load(MODEL_PATH)
             encoder = joblib.load(ENCODER_PATH)
-            print("DEBUG: ML Model & Encoder loaded successfully.")
+            print("DEBUG: ML Model & Encoder loaded successfully from disk.")
         except Exception as e_model:
-            print(f"CRITICAL ERROR LOADING MODEL: {e_model}")
-            ml_model = None
+            print(f"⚠️ ERROR LOADING MODEL FROM DISK: {e_model}")
+            print("ℹ️ Initiating Self-Healing: Retraining Model...")
+            ml_model, encoder, feature_names = retrain_model_runtime()
+            
+        if ml_model is None:
+             print("CRITICAL: System is running WITHOUT Evaluation Model.")
             
         # 3. Load Descriptions
         desc_path = os.path.join(DATA_DIR, "symptom_Description.csv")
