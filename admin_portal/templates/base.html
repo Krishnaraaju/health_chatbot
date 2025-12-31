@@ -10,14 +10,14 @@
 
 <body>
     <nav class="navbar">
-        <a href="/" class="brand">🏥 Admin Portal</a>
+        <a href="{{ url_for('index') }}" class="brand">🏥 Admin Portal</a>
         <div class="nav-links">
             {% if session.get('admin_user') %}
-            <a href="/dashboard">Dashboard</a>
-            <a href="/cms">Content</a>
-            <a href="/broadcast">Broadcast</a>
-            <a href="/qc">Quality Control</a>
-            <a href="/logout" class="logout-btn">Logout</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('cms') }}">Content</a>
+            <a href="{{ url_for('broadcast') }}">Broadcast</a>
+            <a href="{{ url_for('qc') }}">Quality Control</a>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
             {% endif %}
         </div>
     </nav>
