@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Admin Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/" class="brand">🏥 Admin Portal</a>
+        <div class="nav-links">
+            {% if session.get('admin_user') %}
+            <a href="/dashboard">Dashboard</a>
+            <a href="/cms">Content</a>
+            <a href="/broadcast">Broadcast</a>
+            <a href="/qc">Quality Control</a>
+            <a href="/logout" class="logout-btn">Logout</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div style="background: #ffeaa7; padding: 10px; border-radius: 6px; margin-bottom: 20px;">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

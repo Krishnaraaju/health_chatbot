@@ -9,3 +9,4 @@ groq
 gunicorn
 deep-translator
 feedparser
+Flask-SQLAlchemy

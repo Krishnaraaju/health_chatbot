@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">🕵️ Quality Control & Human-in-the-Loop</h1>
+<p style="margin-bottom: 2rem; color: #636e72;">Review interactions where the AI had low confidence or was flagged. Your
+    corrections help improve the system.</p>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 15%;">Time / User</th>
+                <th style="width: 25%;">User Question</th>
+                <th style="width: 25%;">AI Response</th>
+                <th style="width: 10%;">Confidence</th>
+                <th style="width: 25%;">Admin Correction</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td style="vertical-align: top;">
+                    <div style="font-weight: bold; font-size: 0.85rem;">{{ log.timestamp.strftime('%d %b, %H:%M') }}
+                    </div>
+                    <div style="font-size: 0.8rem; color: #aaa;">ID: {{ log.id }}</div>
+                    {% if log.flagged_for_review %}
+                    <span
+                        style="background: #e17055; color: white; padding: 2px 5px; border-radius: 4px; font-size: 0.7rem;">FLAGGED</span>
+                    {% endif %}
+                </td>
+                <td style="vertical-align: top;">
+                    {{ log.user_message }}
+                </td>
+                <td style="vertical-align: top; color: #636e72; font-size: 0.9rem;">
+                    {{ log.bot_response | striptags | truncate(100) }}
+                </td>
+                <td style="vertical-align: top;">
+                    {% if log.confidence_score < 50 %} <span style="color: #d63031; font-weight: bold;">{{
+                        log.confidence_score|round(1) }}%</span>
+                        {% else %}
+                        <span style="color: #fdcb6e;">{{ log.confidence_score|round(1) }}%</span>
+                        {% endif %}
+                </td>
+                <td style="vertical-align: top;">
+                    {% if log.admin_correction %}
+                    <div style="background: #e0f7fa; padding: 10px; border-radius: 6px; border: 1px solid #00cec9;">
+                        <b>Correction:</b><br>{{ log.admin_correction }}
+                    </div>
+                    {% else %}
+                    <form method="POST">
+                        <input type="hidden" name="interaction_id" value="{{ log.id }}">
+                        <textarea name="correction" rows="3" class="form-input" placeholder="Type correct answer..."
+                            required style="margin-bottom: 5px; font-size: 0.85rem;"></textarea>
+                        <button type="submit" class="btn-primary" style="padding: 5px 10px; font-size: 0.8rem;">Save
+                            Fix</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" style="text-align: center; padding: 30px; color: #aaa;">
+                    ✅ No low-confidence issues found. Good job!
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

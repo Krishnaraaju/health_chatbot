@@ -14,8 +14,11 @@ load_dotenv()
 
 from groq_service import get_ai_explanation, translate_to_english, translate_message
 from alert_service import get_health_alerts
+from shared.database import db, init_db, Interaction, User
 
 app = Flask(__name__)
+# Initialize Shared Database
+init_db(app)
 
 # --- PATHS ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -257,7 +260,9 @@ def get_response():
             break
             
     if is_greeting:
-        return jsonify({"response": "<b>Namaste! 🙏</b><br>I am functioning well! How can I assist with your health today?"})
+        resp = "<b>Namaste! 🙏</b><br>I am functioning well! How can I assist with your health today?"
+        save_interaction(msg, resp, "greeting", 1.0)
+        return jsonify({"response": resp})
     
     # --- VACCINATION LAYER ---
     if "vaccin" in msg.lower() or "immuniz" in msg.lower() or "schedule" in msg.lower():
@@ -265,6 +270,8 @@ def get_response():
         for v in vaccine_schedule:
             html += f"<tr><td style='padding:5px 0; border-bottom:1px solid #eee;'>{v['age']}</td><td style='padding:5px 0; border-bottom:1px solid #eee;'>{', '.join(v['vaccines'])}</td></tr>"
         html += "</table></div>"
+        html += "</table></div>"
+        save_interaction(msg, html, "vaccination", 1.0)
         return jsonify({"response": html})
 
     # --- LOGIC PIPELINE ---
@@ -321,11 +328,14 @@ def get_response():
             # Translate content (simple stripping of tags might be safer, but deep-translator handles chunks ok)
             html = translate_message(html, lang)
             
+        save_interaction(msg, html, "info_lookup", 1.0)
         return jsonify({"response": html})
 
     # B. Information Retrieval Mode (Safe Response)
     if not prediction_result or not prediction_result[0]:
-         return jsonify({"response": "I didn't catch any specific symptoms. Could you describe your health issue?"})
+         resp = "I didn't catch any specific symptoms. Could you describe your health issue?"
+         save_interaction(msg, resp, "unclear", 0.0)
+         return jsonify({"response": resp})
 
     disease, conf, symptoms, top_3 = prediction_result
     
@@ -369,6 +379,7 @@ def get_response():
     if lang != "English":
         html = translate_message(html, lang)
 
+    save_interaction(msg, html, "prediction", conf)
     return jsonify({"response": html})
 
 
@@ -381,6 +392,36 @@ def format_ai_response(text):
     # Convert newlines to <br>
     text = text.replace("\n", "<br>")
     return text
+
+    return text
+
+def save_interaction(user_text, bot_html, intent, conf):
+    """Helper to log interactions to the DB safely."""
+    try:
+        # User ID from IP (simple tracking)
+        u_identifier = request.headers.get('X-Forwarded-For', request.remote_addr)
+        
+        # Ensure app context if needed (though we are in a request)
+        user = User.query.filter_by(user_identifier=u_identifier).first()
+        if not user:
+            user = User(user_identifier=u_identifier)
+            db.session.add(user)
+            db.session.commit()
+            
+        # Log Interaction
+        interaction = Interaction(
+            user_id=user.id,
+            user_message=user_text,
+            bot_response=bot_html, # Storing full HTML for now
+            intent_detected=intent,
+            confidence_score=float(conf) if conf else 0.0,
+            sentiment="neutral" 
+        )
+        db.session.add(interaction)
+        db.session.commit()
+        print(f"DB: Interaction logged for user {u_identifier}")
+    except Exception as e:
+        print(f"⚠️ DB LOGGING FAILED: {e}")
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

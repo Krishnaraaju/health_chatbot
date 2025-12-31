@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">Knowledge Management</h1>
+<p style="margin-bottom: 2rem; color: #636e72;">Update the core knowledge base of the AI. Changes will take effect
+    immediately upon the next system reload.</p>
+
+<div class="stats-grid">
+    <!-- Card for Vaccination Schedule -->
+    <div class="stat-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+                <div class="stat-label">Critical Data</div>
+                <div class="stat-value" style="font-size: 1.2rem;">Vaccination Schedule</div>
+                <div style="font-size: 0.8rem; color: #636e72;">vaccination_schedule.json</div>
+            </div>
+            <div style="font-size: 2rem;">💉</div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <form method="POST" enctype="multipart/form-data" style="display: flex; gap: 10px; align-items: center;">
+                <!-- Hack to ensure filename matches allowed list -->
+                <input type="file" name="file" accept=".json" required style="font-size: 0.8rem; width: 100%;">
+                <button type="submit" class="btn-primary"
+                    style="width: auto; padding: 8px 16px; font-size: 0.8rem;">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Card for Disease Descriptions -->
+    <div class="stat-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+                <div class="stat-label">Medical Data</div>
+                <div class="stat-value" style="font-size: 1.2rem;">Disease Descriptions</div>
+                <div style="font-size: 0.8rem; color: #636e72;">symptom_Description.csv</div>
+            </div>
+            <div style="font-size: 2rem;">📖</div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <form method="POST" enctype="multipart/form-data" style="display: flex; gap: 10px; align-items: center;">
+                <input type="file" name="file" accept=".csv" required style="font-size: 0.8rem; width: 100%;">
+                <button type="submit" class="btn-primary"
+                    style="width: auto; padding: 8px 16px; font-size: 0.8rem;">Update</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Card for Precautions -->
+    <div class="stat-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+                <div class="stat-label">Medical Data</div>
+                <div class="stat-value" style="font-size: 1.2rem;">Precautions</div>
+                <div style="font-size: 0.8rem; color: #636e72;">symptom_precaution.csv</div>
+            </div>
+            <div style="font-size: 2rem;">🛡️</div>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <form method="POST" enctype="multipart/form-data" style="display: flex; gap: 10px; align-items: center;">
+                <input type="file" name="file" accept=".csv" required style="font-size: 0.8rem; width: 100%;">
+                <button type="submit" class="btn-primary"
+                    style="width: auto; padding: 8px 16px; font-size: 0.8rem;">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-title">Current File Listing</h2>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Filename</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for f in files %}
+            <tr>
+                <td>{{ f }}</td>
+                <td><span style="color: #00b894;">Active</span></td>
+                <td><button disabled
+                        style="background:#eee; border:none; padding:4px 8px; border-radius:4px; color:#aaa; cursor:not-allowed;">Download</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="stat-card warning" style="margin-top: 2rem;">
+    <div style="display: flex; gap: 15px; align-items: center;">
+        <div style="font-size: 2rem;">⚠️</div>
+        <div>
+            <b>Warning:</b> Uploading a file will strictly replace the existing file on the server. Ensure the file
+            format matches exactly (CSV headers, JSON structure) to avoid crashing the chatbot.
+        </div>
+    </div>
+</div>
+{% endblock %}

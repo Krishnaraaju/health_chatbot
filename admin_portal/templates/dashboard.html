@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="section-title" style="font-size: 1.8rem; margin-bottom: 1.5rem;">Strategic Health Dashboard</h1>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-label">Total Users</div>
+        <div class="stat-value">{{ total_users }}</div>
+    </div>
+    <div class="stat-card secondary">
+        <div class="stat-label">Total Interactions</div>
+        <div class="stat-value">{{ total_interactions }}</div>
+    </div>
+    <div class="stat-card warning">
+        <div class="stat-label">Active Alerts</div>
+        <div class="stat-value">0</div> <!-- Placeholder -->
+    </div>
+</div>
+
+<h2 class="section-title">Recent User Interactions</h2>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>User ID</th>
+                <th>Message</th>
+                <th>Intent</th>
+                <th>Confidence</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in recent_logs %}
+            <tr>
+                <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td>
+                    {% if log.user %}
+                    ...{{ log.user.user_identifier[-4:] }}
+                    {% else %}
+                    Unknown
+                    {% endif %}
+                </td>
+                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    {{ log.user_message }}
+                </td>
+                <td>
+                    <span style="padding: 2px 8px; border-radius: 12px; background: #dfe6e9; font-size: 0.8rem;">
+                        {{ log.intent_detected }}
+                    </span>
+                </td>
+                <td>
+                    {% if log.confidence_score > 80 %}
+                    <span style="color: #00b894;">{{ log.confidence_score|round(1) }}%</span>
+                    {% elif log.confidence_score > 50 %}
+                    <span style="color: #fdcb6e;">{{ log.confidence_score|round(1) }}%</span>
+                    {% else %}
+                    <span style="color: #d63031;">{{ log.confidence_score|round(1) }}%</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
