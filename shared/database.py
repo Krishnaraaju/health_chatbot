@@ -25,6 +25,7 @@ class Interaction(db.Model):
     
     intent_detected = db.Column(db.String(50), nullable=True) # e.g., "symptom_check", "general_chat"
     confidence_score = db.Column(db.Float, nullable=True)
+    region = db.Column(db.String(50), nullable=True) # Geo-Spatial Logging
     sentiment = db.Column(db.String(20), nullable=True) # "Positive", "Neutral", "Negative"
     
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)

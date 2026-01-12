@@ -27,7 +27,8 @@
                 <th>User ID</th>
                 <th>Message</th>
                 <th>Intent</th>
-                <th>Confidence</th>
+                <th>Region</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -50,12 +51,15 @@
                     </span>
                 </td>
                 <td>
-                    {% if log.confidence_score > 80 %}
-                    <span style="color: #00b894;">{{ log.confidence_score|round(1) }}%</span>
-                    {% elif log.confidence_score > 50 %}
-                    <span style="color: #fdcb6e;">{{ log.confidence_score|round(1) }}%</span>
+                    <small style="color:#636e72;">{{ log.region or "Unknown" }}</small>
+                </td>
+                <td>
+                    {% if log.confidence_score|float > 0.5 %}
+                    <span
+                        style="background:#d4edda; color:#155724; padding:2px 6px; border-radius:4px; font-size:0.8rem; font-weight:bold;">Found</span>
                     {% else %}
-                    <span style="color: #d63031;">{{ log.confidence_score|round(1) }}%</span>
+                    <span
+                        style="background:#f8d7da; color:#721c24; padding:2px 6px; border-radius:4px; font-size:0.8rem; font-weight:bold;">Missed</span>
                     {% endif %}
                 </td>
             </tr>

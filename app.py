@@ -1,10 +1,7 @@
 
-
 import os
 import json
-import joblib
 import pandas as pd
-import numpy as np
 from flask import Flask, render_template, request, jsonify
 from difflib import get_close_matches
 from dotenv import load_dotenv
@@ -22,218 +19,141 @@ init_db(app)
 
 # --- PATHS ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "model.pkl")
-ENCODER_PATH = os.path.join(BASE_DIR, "encoder.pkl")
-FEATURES_PATH = os.path.join(BASE_DIR, "features.json")
 DATA_DIR = os.path.join(BASE_DIR, "MasterData")
 
 # --- GLOBAL VARS ---
-ml_model = None
-encoder = None
-feature_names = []
-# --- GLOBAL VARS ---
-ml_model = None
-encoder = None
-feature_names = []
 description_dict = {}
 precaution_dict = {}
 disease_list = []
 vaccine_schedule = []
 
-# Simple In-Memory Session Storage (Key: User IP)
-# In production, use Redis or database
-# user_sessions = {}  # REMOVED: Stateless by default
-
 # --- LOAD RESOURCES ---
-# --- LOAD RESOURCES ---
-def retrain_model_runtime():
-    """Fallback: Retrains the model on the server if pickle loading fails."""
-    try:
-        print("⚠️ DEBUG: Starting Runtime Retraining...")
-        from sklearn.tree import DecisionTreeClassifier
-        from sklearn.preprocessing import LabelEncoder
-        import pandas as pd
-        
-        # Try primary training file then fallback
-        # FIX: Training data is in 'Data' folder, not 'MasterData'
-        TRAIN_DIR = os.path.join(BASE_DIR, "Data")
-        csv_path = os.path.join(TRAIN_DIR, "Training_TN.csv")
-        if not os.path.exists(csv_path):
-             csv_path = os.path.join(TRAIN_DIR, "dataset.csv")
-             
-        if not os.path.exists(csv_path):
-            print("CRITICAL: No training data found!")
-            return None, None, []
-
-        df = pd.read_csv(csv_path)
-        X = df.iloc[:, :-1]
-        y = df.iloc[:, -1]
-        
-        le = LabelEncoder()
-        y_enc = le.fit_transform(y)
-        
-        model = DecisionTreeClassifier(criterion='entropy', random_state=42)
-        model.fit(X, y_enc)
-        
-        print(f"DEBUG: Runtime Training Complete. Classes={len(le.classes_)}")
-        return model, le, list(X.columns)
-        
-    except Exception as e:
-        print(f"CRITICAL: Runtime Retraining Failed: {e}")
-        return None, None, []
-
 def load_artifacts():
-    global ml_model, encoder, feature_names, description_dict, precaution_dict, disease_list, vaccine_schedule
+    global description_dict, precaution_dict, disease_list, vaccine_schedule
     try:
-        print("Loading System Core...")
-        
-        # 1. Load Features FIRST
-        try:
-            with open(FEATURES_PATH, 'r', encoding='utf-8') as f:
-                feature_names = json.load(f)
-            print(f"DEBUG: Loaded {len(feature_names)} features from file.")
-        except:
-            print("DEBUG: Features file missing. Will attempt regeneration.")
+        print("Loading Information Knowledge Base...")
 
-        # 2. Load Models with FALLBACK
-        try:
-            ml_model = joblib.load(MODEL_PATH)
-            encoder = joblib.load(ENCODER_PATH)
-            print("DEBUG: ML Model & Encoder loaded successfully from disk.")
-        except Exception as e_model:
-            print(f"⚠️ ERROR LOADING MODEL FROM DISK: {e_model}")
-            print("ℹ️ Initiating Self-Healing: Retraining Model...")
-            ml_model, encoder, feature_names = retrain_model_runtime()
-            
-        if ml_model is None:
-             print("CRITICAL: System is running WITHOUT Evaluation Model.")
-            
-        # 3. Load Descriptions
+        # 1. Load Descriptions
         desc_path = os.path.join(DATA_DIR, "symptom_Description.csv")
         try:
-            desc_df = pd.read_csv(desc_path, header=None, on_bad_lines='skip')
-        except:
-            desc_df = pd.read_csv(desc_path, header=None, error_bad_lines=False)
+            desc_df = pd.read_csv(desc_path)
+            # Normalize column names if needed, assume 0=Disease, 1=Description
+            if desc_df.shape[1] >= 2:
+                for index, row in desc_df.iterrows():
+                    d_name = str(row[0]).strip().lower()
+                    d_desc = str(row[1])
+                    description_dict[d_name] = d_desc
+        except Exception as e:
+            print(f"Error loading descriptions: {e}")
 
-        if not desc_df.empty and desc_df.iloc[0,0] == "Disease": 
-            desc_df = desc_df.drop(0)
-        
-        description_dict = {str(row[0]).strip().lower(): str(row[1]) for index, row in desc_df.iterrows()}
         disease_list = list(description_dict.keys())
         
-        # 4. Load Precautions
+        # 2. Load Precautions
         prec_path = os.path.join(DATA_DIR, "symptom_precaution.csv")
         try:
-            prec_df = pd.read_csv(prec_path, header=None, on_bad_lines='skip')
-        except:
-            prec_df = pd.read_csv(prec_path, header=None, error_bad_lines=False)
+            prec_df = pd.read_csv(prec_path)
+             # Assume 0=Disease, 1..N=Precautions
+            if prec_df.shape[1] >= 2:
+                for index, row in prec_df.iterrows():
+                    d_name = str(row[0]).strip().lower()
+                    # Filter out NaN or empty
+                    precs = [str(x) for x in row[1:] if pd.notna(x) and str(x).strip() != ""]
+                    precaution_dict[d_name] = precs
+        except Exception as e:
+            print(f"Error loading precautions: {e}")
 
-        if not prec_df.empty and prec_df.iloc[0,0] == "Disease": 
-            prec_df = prec_df.drop(0)
-        
-        precaution_dict = {}
-        for index, row in prec_df.iterrows():
-            d_name = str(row[0]).strip().lower()
-            precaution_dict[d_name] = [str(x) for x in row[1:] if pd.notna(x)]
-
-        # 5. Load Vaccination Schedule
+        # 3. Load Vaccination Schedule
         vac_path = os.path.join(DATA_DIR, "vaccination_schedule.json")
         if os.path.exists(vac_path):
             with open(vac_path, 'r', encoding='utf-8') as f:
                 vaccine_schedule = json.load(f)
+            print(f"DEBUG: Loaded {len(vaccine_schedule)} vaccination records.")
+        else:
+            print(f"DEBUG: Vaccination Schedule file not found at {vac_path}")
             
-        print(f"System Ready. Loaded {len(disease_list)} diseases.")
+        print(f"System Ready. Information available for {len(disease_list)} topics.")
+        print(f"DEBUG: Disease List Sample: {disease_list[:5]}")
 
     except Exception as e:
         print(f"CRITICAL SYSTEM FAILURE: {e}")
+        import traceback
+        traceback.print_exc()
 
 load_artifacts()
 
-# --- INTELLIGENT ROUTING LOGIC ---
+# --- INFORMATION RETRIEVAL LOGIC ---
 
-def find_disease_info(text):
+def find_topic_info(text):
+    """
+    Strict keyword match + fuzzy match for Diseases.
+    Returns: (TopicName, Description, Precautions) or None
+    """
     text = text.lower()
     
-    # 0. Aliases
+    # 1. Direct Alias/Keyword Mapping (Can expand this)
     aliases = {
         "chickenpox": "chicken pox",
         "flu": "influenza",
         "sugar": "diabetes",
         "bp": "hypertension",
         "high bp": "hypertension",
-        "madras eye": "madras eye (conjunctivitis)"
+        "madras eye": "madras eye (conjunctivitis)",
+        "piles": "dimorphic hemmorhoids(piles)",
+        "chinnammai": "chicken pox",
+        "chinna ammai": "chicken pox", 
+        "chicken pox": "chicken pox"
     }
+    
+    # Check aliases
     for alias, canonical in aliases.items():
         if alias in text:
-            return canonical
+            text = text.replace(alias, canonical)
 
+    # 2. Search in Disease List
+    best_match = None
+    
+    # Exact substring match
     for disease in disease_list:
-        if disease in text: return disease
-    
-    words = text.split()
-    for word in words:
-        if len(word) > 4: # Only match significant words
-            matches = get_close_matches(word, disease_list, n=1, cutoff=0.75)
-            if matches: return matches[0]
+        if disease in text: 
+            best_match = disease
+            break # High confidence match
             
+    # Fuzzy match if no direct match (for typos)
+    if not best_match:
+        words = text.split()
+        possible_matches = []
+        for word in words:
+            if len(word) > 4: 
+                matches = get_close_matches(word, disease_list, n=1, cutoff=0.8)
+                if matches: possible_matches.append(matches[0])
+        
+        if possible_matches:
+            best_match = possible_matches[0] # Take first reasonable guess for INFO only
+
+    if best_match:
+        desc = description_dict.get(best_match, "No description available.")
+        precs = precaution_dict.get(best_match, ["Consult a doctor for advice."])
+        
+        # --- VISUAL CONTENT EXTENSION ---
+        # Map specific topics to educational images (Hosted/Public URLs)
+        image_map = {
+            "dengue": "https://img.freepik.com/free-vector/dengue-infographic_1308-44443.jpg",
+            "malaria": "https://img.freepik.com/free-vector/malaria-infographic_1308-44383.jpg",
+            "typhoid": "https://img.freepik.com/free-vector/typhoid-fever-infographic_1308-54321.jpg",
+            "covid": "https://img.freepik.com/free-vector/covid-19-prevention-infographic_23-2148483262.jpg",
+            "influenza": "https://img.freepik.com/free-vector/flu-prevention-tips_23-2148700000.jpg",
+            "vaccination": "https://img.freepik.com/free-vector/immunization-schedule-infographic_1308-444.jpg"
+        }
+        
+        img_url = None
+        for k, v in image_map.items():
+            if k in best_match.strip().lower():
+                img_url = v
+                break
+                
+        return best_match, desc, precs, img_url
+        
     return None
-
-def predict_from_symptoms(text):
-    text = text.lower().replace(",", " ").replace(".", " ")
-    detected = []
-    
-    # 1. Detect New Symptoms
-    if ml_model:
-        import sklearn
-        print(f"DEBUG: Sklearn Version: {sklearn.__version__}")
-        
-    print(f"DEBUG: Processing Input: '{text}'")
-    sorted_features = sorted(feature_names, key=len, reverse=True)
-    for feature in sorted_features:
-        readable = feature.replace("_", " ")
-        if readable in text or feature in text:
-            detected.append(feature)
-            # print(f"MATCH: {feature}") # Comment out to avoid spam, but useful if needed
-            
-    print(f"DEBUG PREDICT: UserInput='{text}' | DetectedCount={len(detected)} | ModelLoaded={ml_model is not None}")
-    
-    if not detected and "headache" in text:
-        print("CRITICAL: 'headache' matches nothing! Checking features...")
-        if "headache" in feature_names:
-            print(" -> 'headache' IS in feature_names.")
-        else:
-            print(" -> 'headache' IS NOT in feature_names.")
-
-    if not detected:
-        return None, None, [], []
-        
-    # Check Model Health
-    if ml_model is None:
-        print("ERROR: Attempted prediction with failed model.")
-        return "Internal Error: AI Model failed to load.", 0.0, detected, []
-
-    # 3. Predict on Combined
-    input_dict = {name: 0 for name in feature_names}
-    for s in detected:
-        if s in feature_names:
-            input_dict[s] = 1
-            
-    input_df = pd.DataFrame([input_dict])
-    probas = ml_model.predict_proba(input_df)[0]
-    top_indices = np.argsort(probas)[-3:][::-1]
-    
-    predictions = []
-    for idx in top_indices:
-        prob = probas[idx] * 100
-        if prob > 5:
-            d_name = encoder.inverse_transform([idx])[0]
-            predictions.append((d_name, prob))
-            
-    primary_disease = predictions[0][0]
-    primary_conf = predictions[0][1]
-    
-    return primary_disease, primary_conf, detected, predictions
-
 
 # --- ROUTES ---
 @app.route("/")
@@ -241,7 +161,6 @@ def home():
     alerts = get_health_alerts()
     return render_template("landing.html", alerts=alerts)
 
-@app.route("/get_response", methods=["POST"])
 @app.route("/get_response", methods=["POST"])
 def get_response():
     import re
@@ -251,178 +170,179 @@ def get_response():
     
     cleaned_msg = msg.lower().strip().replace("!","").replace(".","")
     
+    # --- ROBUST OVERRIDES (Fix for Translation Issues) ---
+    if "சின்னம்மை" in cleaned_msg or "chinnammai" in cleaned_msg:
+        cleaned_msg = "chicken pox"
+        lang = "Tamil" # Enforce lang context if needed
+    
     # --- GREETING ---
     greetings = ["hi", "hello", "hey", "vanakam", "namaste", "hola", "greetings", "epdi iruka", "nalama", "kaisan ba", "how are you"]
-    is_greeting = False
     for g in greetings:
         if re.search(r'\b' + re.escape(g) + r'\b', cleaned_msg):
-            is_greeting = True
-            break
-            
-    if is_greeting:
-        resp = "<b>Namaste! 🙏</b><br>I am functioning well! How can I assist with your health today?"
-        save_interaction(msg, resp, "greeting", 1.0)
-        return jsonify({"response": resp})
+            resp = "<b>Namaste! 🙏</b><br>I am your Public Health Information Assistant.<br>I can provide information on vaccinations, diseases (like Dengue, Malaria), and general health safety.<br><br><b>Note:</b> I do not provide medical diagnoses."
+            save_interaction(msg, resp, "greeting", 0.0, None)
+            return jsonify({"response": resp})
     
     # --- VACCINATION LAYER ---
     if "vaccin" in msg.lower() or "immuniz" in msg.lower() or "schedule" in msg.lower():
         html = "<div class='diagnosis-card' style='border-left-color: #6c5ce7;'><div class='diagnosis-title' style='color:#6c5ce7;'>💉 Universal Immunization Schedule</div><table style='width:100%; font-size:0.9rem; border-collapse: collapse;'><tr><th style='text-align:left; border-bottom:1px solid #ccc;'>Age</th><th style='text-align:left; border-bottom:1px solid #ccc;'>Vaccines</th></tr>"
-        for v in vaccine_schedule:
-            html += f"<tr><td style='padding:5px 0; border-bottom:1px solid #eee;'>{v['age']}</td><td style='padding:5px 0; border-bottom:1px solid #eee;'>{', '.join(v['vaccines'])}</td></tr>"
+        if vaccine_schedule:
+            for v in vaccine_schedule:
+                html += f"<tr><td style='padding:5px 0; border-bottom:1px solid #eee;'>{v.get('age','')}</td><td style='padding:5px 0; border-bottom:1px solid #eee;'>{', '.join(v.get('vaccines',[]))}</td></tr>"
+        else:
+            html += "<tr><td colspan='2'>Schedule data unavailable.</td></tr>"
         html += "</table></div>"
-        html += "</table></div>"
-        save_interaction(msg, html, "vaccination", 1.0)
+        save_interaction(msg, html, "vaccination", 1.0, None)
         return jsonify({"response": html})
 
-    # --- LOGIC PIPELINE ---
+    # --- INFO RETRIEVAL ---
     
-    # 1. First Attempt: Direct Prediction
-    known_disease = find_disease_info(msg)
+    # 1. Translate Input if needed
+    if lang != "English":
+         cleaned_input = translate_to_english(msg, "Auto")
+    else:
+         cleaned_input = msg
+         
+    # DEBUG LOGGING
+    print(f"DEBUG: Msg='{msg}' | Cleaned='{cleaned_input}' | Lang='{lang}'")
     
-    prediction_result = None
-    if not known_disease:
-        prediction_result = predict_from_symptoms(msg)
+    # 2. Find Topic
+    info = find_topic_info(cleaned_input)
+    print(f"DEBUG: Info Found: {info}")
     
-    # Check translation need
-    # Need translation if: Not known disease AND No prediction result
-    need_translation = (lang != "English") or (not known_disease and (not prediction_result or not prediction_result[0]))
-
-    final_input = msg
-    
-    if need_translation:
-        print(f"Decision: Translation required for '{msg}'")
-        translated_text = translate_to_english(msg, "Auto")
+    if info:
+        topic, desc, precs, img_url = info
         
-        if translated_text:
-            final_input = translated_text
-            # Retry
-            known_disease = find_disease_info(final_input)
-            if not known_disease:
-                prediction_result = predict_from_symptoms(final_input)
-        else:
-            pass # No symptoms found in translation
-
-    # --- RESPONSE GENERATION ---
-    
-    # A. Info Mode (Definition found)
-    if known_disease and "symptom" not in final_input.lower():
-        desc = description_dict.get(known_disease, "Details unavailable.")
-        ai_desc = get_ai_explanation(known_disease, language=lang)
-        if ai_desc: desc = format_ai_response(ai_desc)
-        
-        precautions = precaution_dict.get(known_disease, ["Consult Doctor"])
+        # Optional: Enrich with Groq (Definitions Only)
         
         html = f"""
         <div class='diagnosis-card' style='border-left-color: #0984E3;'>
-            <div class='diagnosis-title' style='color:#0984E3;'>ℹ️ Information: {known_disease.title()}</div>
+            <div class='diagnosis-title' style='color:#0984E3;'>ℹ️ Information: {topic.title()}</div>
             <p>{desc}</p>
-            <div class='section-title'>Standard Treatments</div>
+        """
+        
+        # Add Image if available (DISABLED PER USER REQUEST)
+        # if img_url:
+        #    html += f"<div style='margin:10px 0; text-align:center;'><img src='{img_url}' style='max-width:100%; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);' alt='{topic} infographic'></div>"
+            
+        html += f"""
+            <div class='section-title'>Health Safety Awareness</div>
             <ul class='precautions-list'>
-                {''.join([f"<li>{p.title()}</li>" for p in precautions])}
+                {''.join([f"<li>{p.title()}</li>" for p in precs])}
             </ul>
         </div>
         """
         
-        # TRANSLATE RESPONSE
+        # Add Disclaimer
+        html += """
+        <div style='margin-top:10px; padding:10px; background:#fff3cd; border:1px solid #ffeeba; border-radius:5px; font-size:0.75rem; color:#856404;'>
+             ⚠️ <b>Disclaimer:</b> This is an AI-powered information tool, NOT a doctor. The content above is for educational purposes only and does not constitute a medical diagnosis. Please consult a healthcare professional for advice.
+        </div>
+        """
+        
         if lang != "English":
-            # Translate content (simple stripping of tags might be safer, but deep-translator handles chunks ok)
             html = translate_message(html, lang)
             
-        save_interaction(msg, html, "info_lookup", 1.0)
+        save_interaction(msg, html, "info_lookup", 1.0, None) # None for Region (Feature 4 placeholder)
         return jsonify({"response": html})
 
-    # B. Information Retrieval Mode (Safe Response)
-    if not prediction_result or not prediction_result[0]:
-         resp = "I didn't catch any specific symptoms. Could you describe your health issue?"
-         save_interaction(msg, resp, "unclear", 0.0)
-         return jsonify({"response": resp})
-
-    disease, conf, symptoms, top_3 = prediction_result
-    
-    d_key = disease.strip().lower()
-    desc = description_dict.get(d_key, "Condition identified.")
-    ai_desc = get_ai_explanation(disease, language=lang)
-    if ai_desc: desc = format_ai_response(ai_desc)
-
-    precautions = precaution_dict.get(d_key, ["Consult Doctor"])
-
-    # Pretty print symptoms (Just from current message)
-    symptom_tags = "".join([f"<span style='background:#dfe6e9; padding:2px 5px; border-radius:4px; margin-right:5px; font-size:0.8rem;'>{s.replace('_',' ')}</span>" for s in symptoms])
-    
-    # Safe "Related Conditions" display instead of "Possible Condition"
-    alternatives_html = ""
-    if len(top_3) > 1:
-        alternatives_html = "<div style='margin-top:10px; padding-top:10px; border-top:1px solid #eee; font-size:0.8rem;'><b>Also relevant:</b><br>"
-        for d, p in top_3[1:]:
-             # Hiding confidence scores, just showing names
-            alternatives_html += f"<span>• {d}</span><br>"
-        alternatives_html += "</div>"
-
-    html = f"""
-    <div class='diagnosis-card'>
-        <div class='diagnosis-title'>topic: {disease}</div>
-        <div style='margin-bottom:10px;'>{symptom_tags}</div>
-        <p>{desc}</p>
-        <div class='section-title'>General Advice</div>
-        <ul class='precautions-list'>
-            {''.join([f"<li>{p.title()}</li>" for p in precautions])}
-        </ul>
-        {alternatives_html}
         
-        <div style='margin-top:15px; padding:10px; background:#fff3cd; border:1px solid #ffeeba; border-radius:5px; font-size:0.75rem; color:#856404;'>
-            ⚠️ <b>Note:</b> This is information, not a medical diagnosis. Please consult a doctor for advice.
-        </div>
-    </div>
-    """
+    else:
+        # Fallback: No topic found
+        resp = "I am a public health information guide. I can tell you about specific diseases (e.g., 'Malaria', 'Typhoid') or vaccinations. <br><b>I do not interpret symptoms or diagnose conditions.</b>"
+        
+        # Try Groq for generic definition? 
+        # "LLM usage restricted to generic definitions" -> Verify if safe.
+        # If user asks "What is Tuberculosis?", our CSV handles it.
+        # If user asks "What is a virus?", CSV might miss it. 
+        # Let's enable Groq fallback for GENERAL DEFINITIONS only.
+        
+        # Only use Groq if input looks like a "What is" question
+        if "what is" in cleaned_input.lower() or "define" in cleaned_input.lower():
+             ai_resp = get_ai_explanation(cleaned_input, lang)
+             if ai_resp:
+                 html = f"<div class='diagnosis-card'><div class='diagnosis-title'>General Definition</div><p>{format_ai_response(ai_resp)}</p></div>"
+                 html += "<div style='font-size:0.7rem; color:#888; margin-top:5px;'>Generated by AI (General Definition)</div>"
+                 save_interaction(msg, html, "general_ai", 0.5)
+                 return jsonify({"response": html})
+        
+        if lang != "English":
+            resp = translate_message(resp, lang)
+            
+        save_interaction(msg, resp, "unclear", 0.0, None)
+        return jsonify({"response": resp})
+
+
+# --- WHATSAPP INTEGRATION (Twilio Sandbox) ---
+@app.route("/whatsapp", methods=['POST'])
+def whatsapp_reply():
+    from twilio.twiml.messaging_response import MessagingResponse
     
-    # TRANSLATE RESPONSE
-    if lang != "English":
-        html = translate_message(html, lang)
-
-    save_interaction(msg, html, "prediction", conf)
-    return jsonify({"response": html})
-
+    incoming_msg = request.values.get('Body', '').lower().strip()
+    resp = MessagingResponse()
+    msg = resp.message()
+    
+    # Simple logic reuse (Text-only for WhatsApp)
+    cleaned_input = incoming_msg.replace("!","").replace(".","")
+    
+    info = find_topic_info(cleaned_input)
+    if info:
+        topic, desc, precs, img_url = info
+        clean_desc = desc
+        clean_precs = "\n".join([f"- {p}" for p in precs])
+        
+        # Format for WhatsApp (No HTML)
+        reply_text = f"*ℹ️ Information: {topic.title()}*\n\n{clean_desc}\n\n*Health Safety Awareness:*\n{clean_precs}\n\n⚠️ _Disclaimer: Educational info only. Not a diagnosis._"
+        msg.body(reply_text)
+        if img_url:
+            msg.media(img_url) # Send image if available!
+            
+        save_interaction(incoming_msg, reply_text, "whatsapp_info", 1.0, "WhatsApp")
+    else:
+        # Fallback
+        groq_resp = get_ai_explanation(cleaned_input, "English")
+        if groq_resp and ("what is" in incoming_msg or "define" in incoming_msg):
+             msg.body(f"*Definition:*\n{groq_resp}\n\n⚠️ _General Info Only._")
+             save_interaction(incoming_msg, groq_resp, "whatsapp_ai", 0.5, "WhatsApp")
+        else:
+             msg.body("I am a Public Health Bot. Ask me about 'Malaria', 'Dengue' or 'Vaccinations'.\n\n_I do not diagnose conditions._")
+             save_interaction(incoming_msg, "Fallback Help", "whatsapp_unclear", 0.0, "WhatsApp")
+        
+    return str(resp)
 
 
 def format_ai_response(text):
     if not text: return ""
     import re
-    # Convert **bold** to <b>bold</b>
     text = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', text)
-    # Convert newlines to <br>
     text = text.replace("\n", "<br>")
     return text
 
-    return text
-
-def save_interaction(user_text, bot_html, intent, conf):
+def save_interaction(user_text, bot_html, intent, conf, region=None):
     """Helper to log interactions to the DB safely."""
     try:
-        # User ID from IP (simple tracking)
         u_identifier = request.headers.get('X-Forwarded-For', request.remote_addr)
         
-        # Ensure app context if needed (though we are in a request)
-        user = User.query.filter_by(user_identifier=u_identifier).first()
-        if not user:
-            user = User(user_identifier=u_identifier)
-            db.session.add(user)
+        with app.app_context(): # Ensure we are in context
+            user = User.query.filter_by(user_identifier=u_identifier).first()
+            if not user:
+                user = User(user_identifier=u_identifier)
+                db.session.add(user)
+                db.session.commit()
+                
+            interaction = Interaction(
+                user_id=user.id,
+                user_message=user_text,
+                bot_response=bot_html, 
+                intent_detected=intent,
+                confidence_score=float(conf),
+                region=region, # Store simulated or real region
+                sentiment="neutral" 
+            )
+            db.session.add(interaction)
             db.session.commit()
-            
-        # Log Interaction
-        interaction = Interaction(
-            user_id=user.id,
-            user_message=user_text,
-            bot_response=bot_html, # Storing full HTML for now
-            intent_detected=intent,
-            confidence_score=float(conf) if conf else 0.0,
-            sentiment="neutral" 
-        )
-        db.session.add(interaction)
-        db.session.commit()
-        print(f"DB: Interaction logged for user {u_identifier}")
     except Exception as e:
         print(f"⚠️ DB LOGGING FAILED: {e}")
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
-

@@ -1,8 +1,7 @@
 flask
+twilio
 pandas
 numpy
-joblib
-scikit-learn
 python-dotenv
 requests
 groq

@@ -12,6 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="/static/manifest.json">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -52,10 +53,18 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Expert Health Advice,<br><span>Instant & AI-Powered.</span></h1>
-            <p>Experience the future of healthcare. Get accurate symptom analysis, vaccination schedules, and
+            <h1>Public Health Information,<br><span>Instant & AI-Powered.</span></h1>
+            <p>Get reliable information on disease awareness, preventive healthcare, vaccination schedules, and
                 multilingual support instantly.</p>
-            <a class="cta-btn" onclick="document.body.classList.toggle('show-chatbot')">Start Chatting</a>
+            <a class="cta-btn" onclick="document.body.classList.toggle('show-chatbot')">Get Health Information</a>
+
+            <div
+                style="margin-top: 20px; font-size: 0.8rem; color: #636e72; background: rgba(255,255,255,0.8); padding: 10px; border-radius: 8px; border-left: 4px solid #fab1a0; max-width: 90%;">
+                <i class="fa-solid fa-circle-info"></i> <b>Disclaimer:</b> This system provides public health
+                information only.
+                It does not offer medical diagnosis or treatment. For medical emergencies, contact local health
+                services.
+            </div>
         </div>
         <div class="hero-image">
             <img src="https://img.freepik.com/free-vector/medical-video-call-consultation-illustration_88138-415.jpg"
@@ -110,6 +119,11 @@
                     <option value="Hindi">Hindi (हिंदी)</option>
                     <option value="Odia">Odia (ଓଡ଼ିଆ)</option>
                 </select>
+                <!-- Mobile Close Button -->
+                <button id="mobile-close-btn"
+                    style="background:none; border:none; color:white; font-size:1.2rem; cursor:pointer; display:none;">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
             </div>
         </div>
 
@@ -117,8 +131,8 @@
             <div class="message bot-msg">
                 <div class="message-content">
                     <b>Namaste! 🙏</b><br>
-                    I am your personal AI Health Assistant.<br><br>
-                    Please tell me what symptoms you are experiencing.
+                    I am your personal Public Health Information Assistant.<br><br>
+                    Ask me about diseases, vaccinations, or health safety.
                 </div>
             </div>
         </div>
@@ -130,15 +144,20 @@
         </div>
 
         <div class="chips-container">
-            <div class="chip" onclick="addText('High Fever')">High Fever 🤒</div>
-            <div class="chip" onclick="addText('Headache')">Headache 🤕</div>
-            <div class="chip" onclick="addText('Skin Rash')">Skin Rash 🔴</div>
+            <div class="chip" onclick="addText('Malaria')">Malaria 🦟</div>
+            <div class="chip" onclick="addText('Typhoid')">Typhoid 🦠</div>
+            <div class="chip" onclick="addText('Vaccination Schedule')">Vaccinations 💉</div>
         </div>
 
         <div class="input-area">
-            <div class="input-wrapper">
-                <input type="text" id="userInput" placeholder="Type here..." onkeypress="handleKeyPress(event)"
-                    autocomplete="off">
+            <div class="input-wrapper" style="display: flex; align-items: center;">
+                <!-- Voice Input Button (Left) -->
+                <button id="mic-btn" onclick="toggleVoiceInput()"
+                    style="background:none; border:none; cursor:pointer; font-size:1.1rem; color:#636e72; padding:5px; margin-right: 5px;">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+                <input type="text" id="userInput" placeholder="Type or Speak..." onkeypress="handleKeyPress(event)"
+                    autocomplete="off" style="flex: 1;">
             </div>
             <button class="send-btn" onclick="sendMessage()">
                 <i class="fa-solid fa-paper-plane"></i>
@@ -150,6 +169,8 @@
     <script>
         const chatBody = document.getElementById('chatBody');
         const userInput = document.getElementById('userInput');
+        const micBtn = document.getElementById('mic-btn');
+
         const typingIndicator = document.getElementById('typingIndicator');
         const waToggle = document.getElementById('wa-toggle');
         const toggler = document.querySelector(".chatbot-toggler");
@@ -165,6 +186,27 @@
             document.querySelector('.chatbot-widget .glass-header').style.background = isWa ? '#075E54' : '';
         });
 
+        // Mobile Close Button Logic
+        const mobileCloseBtn = document.getElementById('mobile-close-btn');
+        mobileCloseBtn.addEventListener('click', () => {
+            document.body.classList.remove("show-chatbot");
+        });
+
+        // CSS Injection for Mobile Button Visibility
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @media (max-width: 480px) {
+                #mobile-close-btn { display: block !important; }
+                .chatbot-widget { width: 100%; height: 100%; bottom: 0; right: 0; border-radius: 0; }
+            }
+            @keyframes pulse {
+                0% { transform: scale(1); opacity: 1; }
+                50% { transform: scale(1.1); opacity: 0.7; }
+                100% { transform: scale(1); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+
         function addText(text) {
             userInput.value = text;
             userInput.focus();
@@ -178,13 +220,7 @@
             chatBody.scrollTop = chatBody.scrollHeight;
         }
 
-        function appendMessage(content, sender) {
-            const div = document.createElement('div');
-            div.className = `message ${sender}-msg`;
-            div.innerHTML = `<div class="message-content">${content}</div>`;
-            chatBody.appendChild(div);
-            scrollToBottom();
-        }
+
 
         async function sendMessage() {
             const text = userInput.value.trim();
@@ -212,6 +248,199 @@
                 typingIndicator.style.display = 'none';
                 appendMessage("⚠️ Network error. Please try again.", 'bot');
             }
+        }
+
+        // --- VOICE INTERACTION (TTS) ---
+        let currentUtterance = null;
+        let synthesis = window.speechSynthesis;
+
+        function speakText(text, btnId) {
+            if (synthesis.speaking) {
+                synthesis.cancel();
+                if (currentUtterance && currentUtterance.btnId === btnId) {
+                    const btn = document.getElementById(btnId);
+                    if (btn) btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Listen';
+                    currentUtterance = null;
+                    return;
+                }
+            }
+
+            const cleanText = text.replace(/<[^>]*>/g, '');
+            const utterance = new SpeechSynthesisUtterance(cleanText);
+
+            const lang = document.getElementById('lang-select').value;
+            if (lang === 'Hindi') utterance.lang = 'hi-IN';
+            else if (lang === 'Tamil') utterance.lang = 'ta-IN';
+            else utterance.lang = 'en-US';
+
+            utterance.onend = () => {
+                const btn = document.getElementById(btnId);
+                if (btn) btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Listen';
+                currentUtterance = null;
+            };
+
+            utterance.btnId = btnId;
+            currentUtterance = utterance;
+
+            const btn = document.getElementById(btnId);
+            if (btn) btn.innerHTML = '<i class="fa-solid fa-stop"></i> Stop';
+
+            synthesis.speak(utterance);
+        }
+
+        // Updated appendMessage with safer quoting
+        function appendMessage(content, sender) {
+            const div = document.createElement('div');
+            div.className = `message ${sender}-msg`;
+
+            let html = `<div class="message-content">${content}`;
+
+            if (sender === 'bot') {
+                const safeContent = content.replace(/"/g, '&quot;').replace(/'/g, "\\'").replace(/`/g, '\\`');
+                const btnId = 'tts-' + Date.now() + Math.random().toString(36).substr(2, 5);
+                html += `<div style="margin-top:5px; border-top:1px solid #eee; padding-top:5px;">
+                            <button id="${btnId}" onclick="speakText(\`${safeContent}\`, '${btnId}')" style="background:none; border:none; color:#6c5ce7; cursor:pointer; font-size:0.8rem; display:flex; align-items:center; gap:5px;">
+                                <i class="fa-solid fa-volume-high"></i> Listen
+                            </button>
+                          </div>`;
+            }
+            html += `</div>`;
+
+            div.innerHTML = html;
+            chatBody.appendChild(div);
+            scrollToBottom();
+        }
+
+        // --- SPEECH RECOGNITION (ROBUST SINGLE-SHOT) ---
+        let recognition;
+
+        function initializeSpeechRecognition() {
+            // Check browser support
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                console.warn("Web Speech API not supported.");
+                if (micBtn) micBtn.style.display = 'none';
+                return null;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            const rec = new SpeechRecognition();
+
+            // Configuration for single-shot command
+            rec.continuous = false;     // USER REQ: Stop after one sentence
+            rec.interimResults = false; // USER REQ: Simple results only
+            rec.maxAlternatives = 1;
+
+            // --- EVENT HANDLERS ---
+
+            rec.onstart = () => {
+                console.log('Voice: Session started');
+                // UI State: LISTENING
+                micBtn.innerHTML = '<i class="fa-solid fa-record-vinyl fa-beat-fade" style="color: #e17055;"></i>';
+                userInput.placeholder = "🔴 Listening... (Speak now)";
+                micBtn.style.transform = "scale(1.2)";
+                micBtn.title = "Listening...";
+            };
+
+            rec.onspeechend = () => {
+                console.log('Voice: Speech ended, processing...');
+                // UI State: PROCESSING
+                micBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin" style="color: #6c5ce7;"></i>';
+                userInput.placeholder = "Processing speech...";
+            };
+
+            rec.onresult = (event) => {
+                console.log('Voice: Result received');
+                const transcript = event.results[0][0].transcript;
+                if (transcript) {
+                    userInput.value = transcript;
+                    // Auto-send on success
+                    sendMessage();
+                }
+            };
+
+            rec.onerror = (event) => {
+                console.error("Voice Error:", event.error);
+                let msg = "Error with voice input.";
+
+                // Specific Error Handling
+                if (event.error === 'no-speech') {
+                    // Graceful handling for silence
+                    msg = "No speech detected. Please try again.";
+                } else if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+                    // Explicit permission error
+                    msg = "Microphone access is required for voice input. Please enable it in browser settings.";
+                } else if (event.error === 'network') {
+                    msg = "Network error affecting voice input.";
+                }
+
+                // Show feedback only if it's not a manual abort
+                if (event.error !== 'aborted') {
+                    alert(msg);
+                }
+                resetMicUI();
+            };
+
+            rec.onend = () => {
+                console.log('Voice: Session ended');
+                // Always reset UI to Idle
+                resetMicUI();
+            };
+
+            return rec;
+        }
+
+        function resetMicUI() {
+            micBtn.innerHTML = '<i class="fa-solid fa-microphone"></i>';
+            userInput.placeholder = "Type or Speak...";
+            micBtn.style.transform = "scale(1)";
+            micBtn.title = "Start Voice Input";
+        }
+
+        function getLanguageCode() {
+            // Standard BCP-47 codes
+            const langMap = {
+                'English': 'en-IN',
+                'Hindi': 'hi-IN',
+                'Tamil': 'ta-IN',
+                'Odia': 'or-IN'
+            };
+            const selected = document.getElementById('lang-select').value;
+            return langMap[selected] || 'en-US';
+        }
+
+        function toggleVoiceInput() {
+            if (!recognition) {
+                recognition = initializeSpeechRecognition();
+            }
+            if (!recognition) return; // Not supported
+
+            // Check if actively listening (simple heuristic via UI state or internal flag)
+            const isActive = micBtn.innerHTML.includes('fa-record-vinyl') || micBtn.innerHTML.includes('fa-circle-notch');
+
+            if (isActive) {
+                // USER REQUESTED STOP
+                recognition.stop();
+            } else {
+                // USER REQUESTED START
+                try {
+                    const lang = getLanguageCode();
+                    recognition.lang = lang;
+                    console.log("Starting voice recognition in:", lang);
+                    recognition.start();
+                } catch (e) {
+                    console.error("Failed to start recognition:", e);
+                    resetMicUI();
+                }
+            }
+        }
+
+        // PWA Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/static/service-worker.js')
+                    .then(reg => console.log('SW Registered!', reg.scope))
+                    .catch(e => console.log('SW Fail:', e));
+            });
         }
     </script>
 </body>
