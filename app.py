@@ -12,6 +12,7 @@ load_dotenv()
 from groq_service import get_ai_explanation, translate_to_english, translate_message
 from alert_service import get_health_alerts
 from shared.database import db, init_db, Interaction, User
+from whatsapp_service import process_webhook_payload, send_whatsapp_message
 
 app = Flask(__name__)
 # Initialize Shared Database
@@ -273,42 +274,74 @@ def get_response():
         return jsonify({"response": resp})
 
 
-# --- WHATSAPP INTEGRATION (Twilio Sandbox) ---
-@app.route("/whatsapp", methods=['POST'])
-def whatsapp_reply():
-    from twilio.twiml.messaging_response import MessagingResponse
+# --- WHATSAPP INTEGRATION (Meta Cloud API) ---
+@app.route("/whatsapp", methods=['GET', 'POST'])
+def whatsapp_webhook():
     
-    incoming_msg = request.values.get('Body', '').lower().strip()
-    resp = MessagingResponse()
-    msg = resp.message()
+    # 1. WEBHOOK VERIFICATION (GET)
+    if request.method == 'GET':
+        verify_token = os.getenv("META_VERIFY_TOKEN")
+        mode = request.args.get("hub.mode")
+        token = request.args.get("hub.verify_token")
+        challenge = request.args.get("hub.challenge")
+        
+        if mode and token:
+            if mode == "subscribe" and token == verify_token:
+                print("WEBHOOK_VERIFIED")
+                return challenge, 200
+            else:
+                return "Verification Failed", 403
+        return "Hello World", 200
     
-    # Simple logic reuse (Text-only for WhatsApp)
+    # 2. MESSAGE HANDLING (POST)
+    payload = request.get_json()
+    # print(f"DEBUG: Webhook Payload: {json.dumps(payload, indent=2)}")
+    
+    data = process_webhook_payload(payload)
+    if not data:
+        return "Ignored", 200
+        
+    sender_id = data['sender']
+    incoming_msg = data['text'].lower().strip()
+    
+    # Skip if empty
+    if not incoming_msg: return "OK", 200
+
+    # Logic Reuse (Text Processing)
     cleaned_input = incoming_msg.replace("!","").replace(".","")
     
+    # 3. ROBUST OVERRIDES (Same as Web)
+    if "சின்னம்மை" in cleaned_input or "chinnammai" in cleaned_input:
+        cleaned_input = "chicken pox"
+
+    # 4. Find Info
     info = find_topic_info(cleaned_input)
+    
     if info:
         topic, desc, precs, img_url = info
         clean_desc = desc
         clean_precs = "\n".join([f"- {p}" for p in precs])
         
-        # Format for WhatsApp (No HTML)
         reply_text = f"*ℹ️ Information: {topic.title()}*\n\n{clean_desc}\n\n*Health Safety Awareness:*\n{clean_precs}\n\n⚠️ _Disclaimer: Educational info only. Not a diagnosis._"
-        msg.body(reply_text)
-        if img_url:
-            msg.media(img_url) # Send image if available!
-            
+        send_whatsapp_message(sender_id, reply_text)
+        
+        # if img_url: send_image... (Simulate via text for now or extend service)
+        
         save_interaction(incoming_msg, reply_text, "whatsapp_info", 1.0, "WhatsApp")
+        
     else:
         # Fallback
         groq_resp = get_ai_explanation(cleaned_input, "English")
         if groq_resp and ("what is" in incoming_msg or "define" in incoming_msg):
-             msg.body(f"*Definition:*\n{groq_resp}\n\n⚠️ _General Info Only._")
+             reply_text = f"*Definition:*\n{groq_resp}\n\n⚠️ _General Info Only._"
+             send_whatsapp_message(sender_id, reply_text)
              save_interaction(incoming_msg, groq_resp, "whatsapp_ai", 0.5, "WhatsApp")
         else:
-             msg.body("I am a Public Health Bot. Ask me about 'Malaria', 'Dengue' or 'Vaccinations'.\n\n_I do not diagnose conditions._")
+             reply_text = "I am a Public Health Bot. Ask me about 'Malaria', 'Dengue' or 'Vaccinations'.\n\n_I do not diagnose conditions._"
+             send_whatsapp_message(sender_id, reply_text)
              save_interaction(incoming_msg, "Fallback Help", "whatsapp_unclear", 0.0, "WhatsApp")
         
-    return str(resp)
+    return "OK", 200
 
 
 def format_ai_response(text):

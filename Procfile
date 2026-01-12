@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn production_entry:application
