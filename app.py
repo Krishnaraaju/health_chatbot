@@ -136,24 +136,7 @@ def find_topic_info(text):
         desc = description_dict.get(best_match, "No description available.")
         precs = precaution_dict.get(best_match, ["Consult a doctor for advice."])
         
-        # --- VISUAL CONTENT EXTENSION ---
-        # Map specific topics to educational images (Hosted/Public URLs)
-        image_map = {
-            "dengue": "https://img.freepik.com/free-vector/dengue-infographic_1308-44443.jpg",
-            "malaria": "https://img.freepik.com/free-vector/malaria-infographic_1308-44383.jpg",
-            "typhoid": "https://img.freepik.com/free-vector/typhoid-fever-infographic_1308-54321.jpg",
-            "covid": "https://img.freepik.com/free-vector/covid-19-prevention-infographic_23-2148483262.jpg",
-            "influenza": "https://img.freepik.com/free-vector/flu-prevention-tips_23-2148700000.jpg",
-            "vaccination": "https://img.freepik.com/free-vector/immunization-schedule-infographic_1308-444.jpg"
-        }
-        
-        img_url = None
-        for k, v in image_map.items():
-            if k in best_match.strip().lower():
-                img_url = v
-                break
-                
-        return best_match, desc, precs, img_url
+        return best_match, desc, precs
         
     return None
 
@@ -213,7 +196,7 @@ def get_response():
     print(f"DEBUG: Info Found: {info}")
     
     if info:
-        topic, desc, precs, img_url = info
+        topic, desc, precs = info
         
         # Optional: Enrich with Groq (Definitions Only)
         
@@ -222,10 +205,6 @@ def get_response():
             <div class='diagnosis-title' style='color:#0984E3;'>ℹ️ Information: {topic.title()}</div>
             <p>{desc}</p>
         """
-        
-        # Add Image if available (DISABLED PER USER REQUEST)
-        # if img_url:
-        #    html += f"<div style='margin:10px 0; text-align:center;'><img src='{img_url}' style='max-width:100%; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1);' alt='{topic} infographic'></div>"
             
         html += f"""
             <div class='section-title'>Health Safety Awareness</div>
@@ -314,19 +293,32 @@ def whatsapp_reply():
         save_interaction(incoming_msg, reply_text, "vaccination", 1.0, "WhatsApp")
         return str(resp)
 
+    # --- ALERTS LAYER (WhatsApp) ---
+    if "alert" in incoming_msg or "news" in incoming_msg or "outbreak" in incoming_msg:
+        alerts = get_health_alerts()
+        if alerts:
+            reply_text = "*📢 Disease Outbreak Alerts*:\n\n"
+            for a in alerts:
+                title = a.get('title', 'Alert')
+                source = a.get('source', 'Source')
+                reply_text += f"⚠️ *{title}*\nSource: {source}\n\n"
+        else:
+            reply_text = "✅ No major disease outbreak alerts at this time."
+            
+        msg.body(reply_text)
+        save_interaction(incoming_msg, reply_text, "alerts", 1.0, "WhatsApp")
+        return str(resp)
+
     # 4. Find Info
     info = find_topic_info(cleaned_input)
     
     if info:
-        topic, desc, precs, img_url = info
+        topic, desc, precs = info
         clean_desc = desc
         clean_precs = "\n".join([f"- {p}" for p in precs])
         
         reply_text = f"*ℹ️ Information: {topic.title()}*\n\n{clean_desc}\n\n*Health Safety Awareness:*\n{clean_precs}\n\n⚠️ _Disclaimer: Educational info only. Not a diagnosis._"
         msg.body(reply_text)
-        
-        # if img_url:
-        #     msg.media(img_url)
         
         save_interaction(incoming_msg, reply_text, "whatsapp_info", 1.0, "WhatsApp")
         
