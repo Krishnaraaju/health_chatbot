@@ -299,6 +299,21 @@ def whatsapp_reply():
     if "சின்னம்மை" in cleaned_input or "chinnammai" in cleaned_input:
         cleaned_input = "chicken pox"
 
+    # --- VACCINATION LAYER (WhatsApp) ---
+    if "vaccin" in incoming_msg or "immuniz" in incoming_msg or "schedule" in incoming_msg:
+        if vaccine_schedule:
+            reply_text = "*💉 Universal Immunization Schedule*:\n\n"
+            for v in vaccine_schedule:
+                age = v.get('age', 'Unknown Age')
+                vaccines = ', '.join(v.get('vaccines', []))
+                reply_text += f"• *{age}*: {vaccines}\n"
+        else:
+            reply_text = "⚠️ Vaccination schedule data is currently unavailable."
+            
+        msg.body(reply_text)
+        save_interaction(incoming_msg, reply_text, "vaccination", 1.0, "WhatsApp")
+        return str(resp)
+
     # 4. Find Info
     info = find_topic_info(cleaned_input)
     
@@ -310,8 +325,8 @@ def whatsapp_reply():
         reply_text = f"*ℹ️ Information: {topic.title()}*\n\n{clean_desc}\n\n*Health Safety Awareness:*\n{clean_precs}\n\n⚠️ _Disclaimer: Educational info only. Not a diagnosis._"
         msg.body(reply_text)
         
-        if img_url:
-            msg.media(img_url)
+        # if img_url:
+        #     msg.media(img_url)
         
         save_interaction(incoming_msg, reply_text, "whatsapp_info", 1.0, "WhatsApp")
         
