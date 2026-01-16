@@ -3,6 +3,10 @@ const ASSETS_TO_CACHE = [
     '/',
     '/static/css/style.css',
     '/static/manifest.json',
+    '/static/js/offline_engine.js',
+    '/static/data/symptom_Description.csv',
+    '/static/data/symptom_precaution.csv',
+    '/static/data/vaccination_schedule.json',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
 ];
 

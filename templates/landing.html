@@ -17,6 +17,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <script src="{{ url_for('static', filename='js/offline_engine.js') }}"></script>
 </head>
 
 <body class="home-page">
@@ -246,7 +247,13 @@
 
             } catch (error) {
                 typingIndicator.style.display = 'none';
-                appendMessage("⚠️ Network error. Please try again.", 'bot');
+                console.log("Network failed. Attempting offline fallback...");
+                if (window.offlineEngine) {
+                    const offlineResp = window.offlineEngine.getResponse(text);
+                    appendMessage(offlineResp, 'bot');
+                } else {
+                    appendMessage("⚠️ Network error & Offline Engine not ready.", 'bot');
+                }
             }
         }
 

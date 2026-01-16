@@ -90,9 +90,23 @@ def cms():
             # Only allow specific files to be updated for safety
             allowed_files = ["vaccination_schedule.json", "symptom_Description.csv", "symptom_precaution.csv"]
             if filename in allowed_files:
-                save_path = os.path.join(MASTER_DIR, filename)
-                file.save(save_path)
-                flash(f"✅ Successfully updated {filename}")
+                # 1. Save to MasterData (Original Source)
+                save_path_master = os.path.join(MASTER_DIR, filename)
+                file.save(save_path_master)
+                
+                # 2. Save to Static/Data (For Offline/Client-side Access)
+                # Helper to support parent directory traversal
+                static_data_dir = os.path.join(parent_dir, "static", "data")
+                if not os.path.exists(static_data_dir):
+                    os.makedirs(static_data_dir)
+                    
+                # We need to rewind file pointer or re-open, but 'file' is a stream.
+                # Easiest way avoids seeking issues: just copy the saved file to destination
+                import shutil
+                save_path_static = os.path.join(static_data_dir, filename)
+                shutil.copy2(save_path_master, save_path_static)
+                
+                flash(f"✅ Successfully updated {filename} (Synced to Offline Cache)")
                 
                 # Ideally, trigger a reload in the main app (e.g., via a flag in DB or API call)
                 # For now, just updating the file is enough for next restart/reload
