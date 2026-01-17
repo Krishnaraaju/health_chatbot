@@ -11,18 +11,40 @@ class OfflineHealthEngine {
     }
 
     async init() {
+        this.loadLanguage("English");
+    }
+
+    async loadLanguage(lang) {
         try {
-            console.log("OfflineEngine: Loading data...");
+            this.isReady = false;
+            this.diseases = {}; // Clear previous data
+            console.log(`OfflineEngine: Loading data for ${lang}...`);
+
+            // Map Lang to Filename Suffix
+            const suffixes = {
+                "English": "",
+                "Tamil": "_Tamil",
+                "Hindi": "_Hindi",
+                "Odia": "_Odia"
+            };
+            const suffix = suffixes[lang] || "";
+
             const [descData, precData, vacData] = await Promise.all([
-                this.fetchCSV('/static/data/symptom_Description.csv'),
-                this.fetchCSV('/static/data/symptom_precaution.csv'),
-                this.fetchJSON('/static/data/vaccination_schedule.json')
+                this.fetchCSV(`/static/data/symptom_Description${suffix}.csv`),
+                this.fetchCSV(`/static/data/symptom_precaution${suffix}.csv`),
+                this.fetchJSON('/static/data/vaccination_schedule.json') // Schedule is strict, keep English for now or translate if needed
             ]);
+
+            // If a translation is missing, fallback to English (Robustness)
+            if (!descData && lang !== "English") {
+                console.warn("OfflineEngine: Translation missing, falling back to English.");
+                return this.loadLanguage("English");
+            }
 
             this.processData(descData, precData);
             this.vaccines = vacData || [];
             this.isReady = true;
-            console.log(`OfflineEngine: Ready with ${Object.keys(this.diseases).length} diseases and ${this.vaccines.length} vaccine schedules.`);
+            console.log(`OfflineEngine: Ready (${lang})`);
         } catch (e) {
             console.error("OfflineEngine: Failed to load data", e);
         }

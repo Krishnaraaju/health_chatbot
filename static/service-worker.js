@@ -1,17 +1,25 @@
-const CACHE_NAME = 'health-bot-v1';
+const CACHE_NAME = 'health-bot-v6';
 const ASSETS_TO_CACHE = [
     '/',
     '/static/css/style.css',
     '/static/manifest.json',
     '/static/js/offline_engine.js',
     '/static/data/symptom_Description.csv',
+    '/static/data/symptom_Description_Tamil.csv',
+    '/static/data/symptom_Description_Hindi.csv',
+    '/static/data/symptom_Description_Odia.csv',
     '/static/data/symptom_precaution.csv',
-    '/static/data/vaccination_schedule.json',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
+    '/static/data/symptom_precaution_Tamil.csv',
+    '/static/data/symptom_precaution_Hindi.csv',
+    '/static/data/symptom_precaution_Odia.csv',
+    '/static/data/vaccination_schedule.json'
 ];
 
 // Install Event
 self.addEventListener('install', (event) => {
+    // Force this SW to become the active one, skipping the waiting phase
+    self.skipWaiting();
+
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             console.log('Opened cache');
@@ -35,6 +43,9 @@ self.addEventListener('fetch', (event) => {
 
 // Activate Event (Cleanup old caches)
 self.addEventListener('activate', (event) => {
+    // Take control of all pages immediately
+    event.waitUntil(clients.claim());
+
     const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
         caches.keys().then((cacheNames) => {

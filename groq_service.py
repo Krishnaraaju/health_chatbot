@@ -2,6 +2,7 @@
 import os
 import json
 import requests
+from deep_translator import GoogleTranslator
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -16,42 +17,7 @@ def get_ai_explanation(disease_name, language="English"):
     Fetches a natural language explanation and precautions for the disease using Groq API.
     """
 
-    # 1. Fast Local Fallback for Tamil
-    if language == "Tamil":
-        tamil_map = {
-            "Chikungunya": "சிக்குன்குனியா",
-            "Dengue": "டெங்கு காய்ச்சல்",
-            "Fungal infection": "பூஞ்சை தொற்று",
-            "Common Cold": "சாதாரண சளி",
-            "Typhoid": "டைபாய்டு",
-            "Malaria": "மலேரியா",
-            "Viral Fever": "வைரஸ் காய்ச்சல்",
-            "Depression": "மன அழுத்தம்",
-            "Depression (Chronic)": "நாள்பட்ட மன அழுத்தம்",
-            "Rosacea": "ரோசாசியா",
-            "Stomach Pain": "வயிற்று வலி",
-            "Heart Attack": "மாரடைப்பு",
-            "Fibromyalgia": "உடல் தசை வலி",
-            "Diabetes": "சர்க்கரை நோய்",
-            "Hypertension": "உயர் ரத்த அழுத்தம்",
-            "Migraine": "ஒற்றை தலைவலி",
-            "Jaundice": "மஞ்சள் காமாலை",
-            "Pneumonia": "நுரையீரல் அழற்சி",
-            "Arthritis": "மூட்டு வலி"
-        }
-        
-        t_name = disease_name
-        for k, v in tamil_map.items():
-            if k.lower() in disease_name.lower():
-                t_name = v
-                break
-        
-        return f"""<b>{t_name}</b><br><br>
-        இது ஒரு மருத்துவ நிலை. உரிய சிகிச்சை தேவை.<br><br>
-        <b>முன்னெச்சரிக்கைகள்:</b><br>
-        1. மருத்துவரை அணுகவும்<br>
-        2. ஓய்வு எடுக்கவும்<br>
-        3. மருந்து உட்கொள்ளவும்"""
+    # Tamil fallback removed: handled by main app via Google Translate or Offline CSVs.
 
     if not API_KEY:
         print("Error: GROQ_API_KEY not found in environment variables.")
@@ -62,13 +28,20 @@ def get_ai_explanation(disease_name, language="English"):
         "Content-Type": "application/json"
     }
     
-    prompt = f"""You are Swasthya Sahayak, a helpful medical informational AI.
-    The user is asking about symptoms that are commonly associated with: "{disease_name}".
-    
-    1. Explain "{disease_name}" in simple, easy-to-understand {language}.
-    2. Provide 3-4 distinct numeric bullet points for general care in {language}.
-    3. Be brief but informative (max 100 words).
-    
+    prompt = f"""You are Swasthya Sahayak, a public health informational AI.
+    The user asked: "{disease_name}".
+
+    TASK:
+    1. First, determine if "{disease_name}" is a medical condition, symptom, or health-related topic.
+    2. IF IT IS NOT HEALTH-RELATED (e.g., Cricket, Movies, Politics, Coding):
+       - Respond: "I am a health assistant. '{disease_name}' is [brief definition], but this is not a medical topic. Please ask me about symptoms, diseases, or vaccinations."
+       - STOP there. Do not list symptoms or treatments.
+
+    3. IF IT IS HEALTH-RELATED:
+       - Explain it in simple {language}.
+       - Provide 3-4 distinct numeric bullet points for general care/prevention in {language}.
+       - Be brief (max 100 words).
+
     CRITICAL SAFETY RULES:
     - NEVER say "You have {disease_name}".
     - NEVER say "I diagnose you with...".
@@ -98,7 +71,6 @@ def get_ai_explanation(disease_name, language="English"):
         return None
 
 
-from deep_translator import GoogleTranslator
 
 def translate_to_english(text, source_language="auto"):
     """
