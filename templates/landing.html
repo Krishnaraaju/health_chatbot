@@ -17,6 +17,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <script src="{{ url_for('static', filename='js/offline_engine.js') }}"></script>
 </head>
 
 <body class="home-page">
@@ -246,7 +247,13 @@
 
             } catch (error) {
                 typingIndicator.style.display = 'none';
-                appendMessage("⚠️ Network error. Please try again.", 'bot');
+                console.log("Network failed. Attempting offline fallback...");
+                if (window.offlineEngine) {
+                    const offlineResp = window.offlineEngine.getResponse(text);
+                    appendMessage(offlineResp, 'bot');
+                } else {
+                    appendMessage("⚠️ Network error & Offline Engine not ready.", 'bot');
+                }
             }
         }
 
@@ -434,12 +441,34 @@
             }
         }
 
-        // PWA Registration
+        // Language Change Listener for Offline Engine
+        document.getElementById('lang-select').addEventListener('change', (e) => {
+            const selectedLang = e.target.value;
+            console.log("Language switched to:", selectedLang);
+            if (window.offlineEngine) {
+                window.offlineEngine.loadLanguage(selectedLang);
+            }
+        });
+
+        // PWA Registration with Emergency Reset
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/static/service-worker.js')
-                    .then(reg => console.log('SW Registered!', reg.scope))
-                    .catch(e => console.log('SW Fail:', e));
+                // FORCE RESET: Unregister any existing SW first to clear broken caches
+                navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                    for (let registration of registrations) {
+                        console.log("Unregistering old SW:", registration);
+                        registration.unregister();
+                    }
+
+                    // Re-register fresh
+                    setTimeout(() => {
+                        console.log("Registering fresh SW...");
+                        // Register at ROOT scope to ensure we control all pages and data fetches
+                        navigator.serviceWorker.register('/service-worker.js')
+                            .then(reg => console.log('SW Registered!', reg.scope))
+                            .catch(e => console.log('SW Fail:', e));
+                    }, 1000);
+                });
             });
         }
     </script>

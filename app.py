@@ -12,7 +12,6 @@ load_dotenv()
 from groq_service import get_ai_explanation, translate_to_english, translate_message
 from alert_service import get_health_alerts
 from shared.database import db, init_db, Interaction, User
-from shared.database import db, init_db, Interaction, User
 # from whatsapp_service import process_webhook_payload, send_whatsapp_message # Meta Service Disabled
 
 app = Flask(__name__)
@@ -145,6 +144,13 @@ def find_topic_info(text):
 def home():
     alerts = get_health_alerts()
     return render_template("landing.html", alerts=alerts)
+
+@app.route("/service-worker.js")
+def service_worker():
+    from flask import send_from_directory
+    response = send_from_directory('static', 'service-worker.js')
+    response.headers['Cache-Control'] = 'no-cache'
+    return response
 
 @app.route("/get_response", methods=["POST"])
 def get_response():

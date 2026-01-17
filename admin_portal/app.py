@@ -3,6 +3,10 @@ from werkzeug.utils import secure_filename
 from datetime import datetime, timedelta
 import os
 import sys
+from dotenv import load_dotenv
+
+# Load env vars
+load_dotenv()
 
 # --- SHARED INTEGRATION ---
 # Add parent directory to path to import shared modules
@@ -11,9 +15,26 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
 from shared.database import db, init_db, User, Interaction, Admin
+import threading
+from generate_translations import process_file as run_translation_for_file
+
+def background_translation(filename):
+    print(f"[Background Task] Starting translation for {filename}...")
+    try:
+        # Re-import to avoid context issues or just run the function
+        # Using a simplified version of process_file or calling it directly if safe
+        run_translation_for_file(filename, [1]) # Defaults to Description col for simplicity, needs adjustment per file
+    except Exception as e:
+        print(f"[Background Task] Error: {e}")
+    print(f"[Background Task] Finished {filename}")
 
 app = Flask(__name__)
-app.secret_key = "super_secret_admin_key_change_in_prod" 
+# Secure Secret Key from Env
+app.secret_key = os.getenv("SECRET_KEY", "fallback_dev_key_only") 
+
+# Retrieve Admin Credentials
+ADMIN_USER = os.getenv("ADMIN_USERNAME", "admin")
+ADMIN_PASS = os.getenv("ADMIN_PASSWORD", "admin123")
 
 # Initialize Shared Database
 # Note: passing database path in parent dir
@@ -37,9 +58,8 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
         
-        # Simple Hardcoded Auth for Prototype (Replace with DB check in Prod)
-        # Or check against Admin table if seeded
-        if username == "admin" and password == "admin123":
+        # Secure Auth
+        if username == ADMIN_USER and password == ADMIN_PASS:
             session["admin_user"] = username
             return redirect(url_for("dashboard"))
         else:
@@ -90,9 +110,31 @@ def cms():
             # Only allow specific files to be updated for safety
             allowed_files = ["vaccination_schedule.json", "symptom_Description.csv", "symptom_precaution.csv"]
             if filename in allowed_files:
-                save_path = os.path.join(MASTER_DIR, filename)
-                file.save(save_path)
-                flash(f"✅ Successfully updated {filename}")
+                # 1. Save to MasterData (Original Source)
+                save_path_master = os.path.join(MASTER_DIR, filename)
+                file.save(save_path_master)
+                
+                # 2. Save to Static/Data (For Offline/Client-side Access)
+                # Helper to support parent directory traversal
+                static_data_dir = os.path.join(parent_dir, "static", "data")
+                if not os.path.exists(static_data_dir):
+                    os.makedirs(static_data_dir)
+                    
+                # We need to rewind file pointer or re-open, but 'file' is a stream.
+                # Easiest way avoids seeking issues: just copy the saved file to destination
+                import shutil
+                save_path_static = os.path.join(static_data_dir, filename)
+                shutil.copy2(save_path_master, save_path_static)
+                
+                # 3. TRIGGER BACKGROUND TRANSLATION
+                # Determine columns based on filename
+                cols = [1] # Default: Description
+                if "precaution" in filename: cols = [1,2,3,4]
+                
+                # Run in thread
+                threading.Thread(target=run_translation_for_file, args=(filename, cols)).start()
+                
+                flash(f"✅ Uploaded {filename}. Background translation started (this may take time).")
                 
                 # Ideally, trigger a reload in the main app (e.g., via a flag in DB or API call)
                 # For now, just updating the file is enough for next restart/reload
