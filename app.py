@@ -12,7 +12,6 @@ load_dotenv()
 from groq_service import get_ai_explanation, translate_to_english, translate_message
 from alert_service import get_health_alerts
 from shared.database import db, init_db, Interaction, User
-from shared.database import db, init_db, Interaction, User
 # from whatsapp_service import process_webhook_payload, send_whatsapp_message # Meta Service Disabled
 
 app = Flask(__name__)
@@ -42,8 +41,8 @@ def load_artifacts():
             # Normalize column names if needed, assume 0=Disease, 1=Description
             if desc_df.shape[1] >= 2:
                 for index, row in desc_df.iterrows():
-                    d_name = str(row[0]).strip().lower()
-                    d_desc = str(row[1])
+                    d_name = str(row.iloc[0]).strip().lower()
+                    d_desc = str(row.iloc[1])
                     description_dict[d_name] = d_desc
         except Exception as e:
             print(f"Error loading descriptions: {e}")
@@ -57,9 +56,9 @@ def load_artifacts():
              # Assume 0=Disease, 1..N=Precautions
             if prec_df.shape[1] >= 2:
                 for index, row in prec_df.iterrows():
-                    d_name = str(row[0]).strip().lower()
+                    d_name = str(row.iloc[0]).strip().lower()
                     # Filter out NaN or empty
-                    precs = [str(x) for x in row[1:] if pd.notna(x) and str(x).strip() != ""]
+                    precs = [str(x) for x in row.iloc[1:] if pd.notna(x) and str(x).strip() != ""]
                     precaution_dict[d_name] = precs
         except Exception as e:
             print(f"Error loading precautions: {e}")
@@ -145,6 +144,19 @@ def find_topic_info(text):
 def home():
     alerts = get_health_alerts()
     return render_template("landing.html", alerts=alerts)
+
+@app.route("/api/alerts")
+def api_alerts():
+    """API Endpoint for Real-time Alert Polling"""
+    alerts = get_health_alerts()
+    return jsonify(alerts)
+
+@app.route("/service-worker.js")
+def service_worker():
+    from flask import send_from_directory
+    response = send_from_directory('static', 'service-worker.js')
+    response.headers['Cache-Control'] = 'no-cache'
+    return response
 
 @app.route("/get_response", methods=["POST"])
 def get_response():

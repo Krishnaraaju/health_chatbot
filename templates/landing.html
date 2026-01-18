@@ -28,21 +28,7 @@
             <i class="fa-solid fa-heart-pulse"></i> Swasthya Sahayak
         </a>
 
-        <!-- GLOBAL TRANSLATION WIDGET -->
-        <div id="google_translate_element"></div>
 
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                    includedLanguages: 'en,hi,ta,te,kn,ml,bn,gu,mr,pa,ur,or',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                    autoDisplay: false
-                }, 'google_translate_element');
-            }
-        </script>
-        <script type="text/javascript"
-            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
         <div class="nav-links">
             <a href="#">Home</a>
@@ -73,24 +59,26 @@
         </div>
     </section>
 
-    <!-- REAL-TIME ALERTS SECTION -->
-    {% if alerts %}
-    <section class="alerts-section" style="background:#fff3cd; padding:10px 5%; border-bottom:1px solid #ffeeba;">
+    <!-- REAL-TIME ALERTS SECTION (Dynamic ID for JS) -->
+    <section id="alert-container" class="alerts-section"
+        style="background:#fff3cd; padding:10px 5%; border-bottom:1px solid #ffeeba; display: {% if alerts %}block{% else %}none{% endif %};">
         <div style="display:flex; align-items:center;">
             <span style="color:#856404; font-weight:bold; margin-right:15px; white-space:nowrap;">
                 <i class="fa-solid fa-triangle-exclamation"></i> Health Alerts:
             </span>
-            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+            <marquee id="alert-marquee" behavior="scroll" direction="left" onmouseover="this.stop();"
+                onmouseout="this.start();">
+                {% if alerts %}
                 {% for alert in alerts %}
                 <a href="{{ alert.link }}" target="_blank"
                     style="color:#856404; text-decoration:none; margin-right:40px;">
                     <b>{{ alert.source }}:</b> {{ alert.title }}
                 </a>
                 {% endfor %}
+                {% endif %}
             </marquee>
         </div>
     </section>
-    {% endif %}
 
     <!-- Chatbot Toggler Button -->
     <button class="chatbot-toggler">
@@ -235,11 +223,19 @@
 
             try {
                 const lang = document.getElementById('lang-select').value;
+
+                // USER REQ: Timeout after 3 seconds if network is slow/offline
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 3000); // 3s Timeout
+
                 const response = await fetch('/get_response', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: `msg=${encodeURIComponent(text)}&lang=${encodeURIComponent(lang)}`
+                    body: `msg=${encodeURIComponent(text)}&lang=${encodeURIComponent(lang)}`,
+                    signal: controller.signal
                 });
+
+                clearTimeout(timeoutId); // Clear timeout on success
 
                 const data = await response.json();
                 typingIndicator.style.display = 'none';
@@ -247,10 +243,17 @@
 
             } catch (error) {
                 typingIndicator.style.display = 'none';
-                console.log("Network failed. Attempting offline fallback...");
+                console.log("Network failed or timed out. Attempting offline fallback...", error);
+
                 if (window.offlineEngine) {
                     const offlineResp = window.offlineEngine.getResponse(text);
-                    appendMessage(offlineResp, 'bot');
+
+                    // Add a small badge to indicate offline mode
+                    const offlineHtml = `<div style="font-size:0.8rem; color:#e17055; margin-bottom:5px;">
+                                            <i class="fa-solid fa-wifi" style="text-decoration: line-through;"></i> Offline Mode
+                                         </div>` + offlineResp;
+
+                    appendMessage(offlineHtml, 'bot');
                 } else {
                     appendMessage("⚠️ Network error & Offline Engine not ready.", 'bot');
                 }
@@ -441,14 +444,61 @@
             }
         }
 
+        // Language Change Listener for Offline Engine
+        document.getElementById('lang-select').addEventListener('change', (e) => {
+            const selectedLang = e.target.value;
+            console.log("Language switched to:", selectedLang);
+            if (window.offlineEngine) {
+                window.offlineEngine.loadLanguage(selectedLang);
+            }
+        });
+
         // PWA Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/static/service-worker.js')
+                navigator.serviceWorker.register('/service-worker.js')
                     .then(reg => console.log('SW Registered!', reg.scope))
                     .catch(e => console.log('SW Fail:', e));
             });
         }
+
+        // --- REAL-TIME ALERT POLLING ---
+        // Checks for new alerts every 6 seconds
+        setInterval(async () => {
+            try {
+                const response = await fetch('/api/alerts');
+                if (!response.ok) return;
+                const alerts = await response.json();
+
+                const container = document.getElementById('alert-container');
+                const marquee = document.getElementById('alert-marquee');
+
+                if (alerts.length > 0) {
+                    // Update content
+                    let html = "";
+                    alerts.forEach(alert => {
+                        html += `<a href="${alert.link}" target="_blank" style="color:#856404; text-decoration:none; margin-right:40px;"><b>${alert.source}:</b> ${alert.title}</a>`;
+                    });
+
+                    // Only update DOM if changed to avoid jitter
+                    if (marquee.innerHTML.trim() !== html.trim()) {
+                        marquee.innerHTML = html;
+                        container.style.display = 'block';
+                        console.log("🔔 Alerts updated/detected");
+                    }
+                } else {
+                    // No alerts, hide container
+                    if (container.style.display !== 'none') {
+                        container.style.display = 'none';
+                        marquee.innerHTML = "";
+                        console.log("🔕 Alerts cleared");
+                    }
+                }
+            } catch (e) {
+                // Silent fail on network error, keep existing alerts or do nothing
+                console.log("Alert poll skipped (offline)");
+            }
+        }, 6000); // 6 seconds
     </script>
 </body>
 
