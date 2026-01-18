@@ -36,11 +36,17 @@ self.addEventListener('fetch', (event) => {
             fetch(event.request).catch(() => caches.match(event.request))
         );
     }
-    // 2. API Requests (Alerts, Chat): NETWORK ONLY (Never Cache)
-    else if (event.request.url.includes('/api/') || event.request.url.includes('/get_response')) {
+    // 2a. Chat Requests: NETWORK ONLY -> Fail Hard (triggers client offline engine)
+    else if (event.request.url.includes('/get_response')) {
+        event.respondWith(
+            fetch(event.request)
+        );
+    }
+    // 2b. API Alerts: NETWORK ONLY -> Fail Soft (Silent JSON)
+    else if (event.request.url.includes('/api/')) {
         event.respondWith(
             fetch(event.request).catch(() => {
-                return new Response(JSON.stringify({ response: "⚠️ Offline. Cannot reach server." }), {
+                return new Response(JSON.stringify([]), {
                     headers: { 'Content-Type': 'application/json' }
                 });
             })
