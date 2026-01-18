@@ -28,17 +28,32 @@ self.addEventListener('install', (event) => {
     );
 });
 
-// Fetch Event
+// Fetch Event - Network First for HTML (to see Alerts), Cache First for Assets
 self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.match(event.request).then((response) => {
-            // Return cached version or fetch from network
-            return response || fetch(event.request).catch(() => {
-                // Fallback logic could go here
-                return new Response("Offline functionality limited to cached resources.");
-            });
-        })
-    );
+    // 1. Navigation Requests (HTML Pages): Network First
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request).catch(() => caches.match(event.request))
+        );
+    }
+    // 2. API Requests (Alerts, Chat): NETWORK ONLY (Never Cache)
+    else if (event.request.url.includes('/api/') || event.request.url.includes('/get_response')) {
+        event.respondWith(
+            fetch(event.request).catch(() => {
+                return new Response(JSON.stringify({ response: "⚠️ Offline. Cannot reach server." }), {
+                    headers: { 'Content-Type': 'application/json' }
+                });
+            })
+        );
+    }
+    // 3. Asset Requests (CSS, JS, CSVs): Cache First
+    else {
+        event.respondWith(
+            caches.match(event.request).then((response) => {
+                return response || fetch(event.request);
+            })
+        );
+    }
 });
 
 // Activate Event (Cleanup old caches)

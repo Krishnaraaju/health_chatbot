@@ -192,6 +192,8 @@ def broadcast():
             with open(json_path, "w", encoding='utf-8') as f:
                 json.dump(current_alerts, f, indent=4)
             flash("📢 Alert Broadcasted Successfully!")
+        
+        return redirect(url_for("broadcast"))
             
     # Load current
     current_alerts = []
