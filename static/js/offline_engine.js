@@ -45,6 +45,9 @@ class OfflineHealthEngine {
             this.vaccines = vacData || [];
             this.isReady = true;
             console.log(`OfflineEngine: Ready (${lang})`);
+
+            // Dispatch Event for UI Toast
+            window.dispatchEvent(new CustomEvent('offline-engine-ready', { detail: { language: lang } }));
         } catch (e) {
             console.error("OfflineEngine: Failed to load data", e);
         }

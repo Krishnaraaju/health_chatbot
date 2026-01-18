@@ -155,6 +155,55 @@
     </div>
 
     <!-- Logic Script (Copied from index.html) -->
+    <!-- TOAST NOTIFICATION -->
+    <div id="offline-toast" class="toast-notification">
+        <i class="fa-solid fa-wifi-slash"></i> You are offline. Using Basic Health Database.
+    </div>
+
+    <style>
+        .toast-notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            display: none;
+            font-size: 0.9rem;
+            align-items: center;
+            gap: 10px;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .toast-notification.show {
+            display: flex;
+        }
+
+        .toast-notification.online {
+            background-color: #2ecc71;
+        }
+
+        .toast-notification.offline {
+            background-color: #e74c3c;
+        }
+
+        @keyframes slideDown {
+            from {
+                top: -50px;
+                opacity: 0;
+            }
+
+            to {
+                top: 20px;
+                opacity: 1;
+            }
+        }
+    </style>
+
     <script>
         const chatBody = document.getElementById('chatBody');
         const userInput = document.getElementById('userInput');
@@ -245,15 +294,12 @@
                 typingIndicator.style.display = 'none';
                 console.log("Network failed or timed out. Attempting offline fallback...", error);
 
+                // Show Offline Toast (because server fetch failed)
+                showToast("Connection lost. Switched to Offline Engine.", "offline");
+
                 if (window.offlineEngine) {
                     const offlineResp = window.offlineEngine.getResponse(text);
-
-                    // Add a small badge to indicate offline mode
-                    const offlineHtml = `<div style="font-size:0.8rem; color:#e17055; margin-bottom:5px;">
-                                            <i class="fa-solid fa-wifi" style="text-decoration: line-through;"></i> Offline Mode
-                                         </div>` + offlineResp;
-
-                    appendMessage(offlineHtml, 'bot');
+                    appendMessage(offlineResp, 'bot');
                 } else {
                     appendMessage("⚠️ Network error & Offline Engine not ready.", 'bot');
                 }
@@ -499,6 +545,38 @@
                 console.log("Alert poll skipped (offline)");
             }
         }, 6000); // 6 seconds
+        // --- CONNECTIVITY TOAST ---
+        let isOfflineNotified = false;
+
+        function showToast(message, type) {
+            // Logic to prevent spamming the "Offline" toast
+            if (type === 'offline') {
+                if (isOfflineNotified) return; // Already showed it, skip
+                isOfflineNotified = true;      // Mark as shown
+            }
+
+            const toast = document.getElementById('offline-toast');
+            toast.className = `toast-notification show ${type}`;
+            toast.innerHTML = type === 'online'
+                ? '<i class="fa-solid fa-wifi"></i> ' + message
+                : '<i class="fa-solid fa-wifi-slash"></i> ' + message;
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000); // Hide after 3s
+        }
+
+        window.addEventListener('offline', () => showToast("You are offline. Switching to Offline Mode.", "offline"));
+
+        window.addEventListener('online', () => {
+            isOfflineNotified = false; // Reset flag so next outage warns again
+            showToast("Back Online! AI features restored.", "online");
+        });
+
+        // Initial Check
+        if (!navigator.onLine) {
+            showToast("You are offline. Offline Mode Active.", "offline");
+        }
     </script>
 </body>
 
