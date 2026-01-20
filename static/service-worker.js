@@ -1,7 +1,9 @@
-const CACHE_NAME = 'health-bot-v6';
+const CACHE_NAME = 'health-bot-v7';
 const ASSETS_TO_CACHE = [
     '/',
     '/static/css/style.css',
+    '/static/css/landing.css',
+    '/static/favicon_1.svg',
     '/static/manifest.json',
     '/static/js/offline_engine.js',
     '/static/data/symptom_Description.csv',
